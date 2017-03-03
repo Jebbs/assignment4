@@ -32,8 +32,16 @@ public:
     std::string getCustomerLastName() const;
     void setCustomerLastName(std::string newLastName);
 
-    //borrow or return some stuffs
+    /*
+     * Borrow some rentable and store the borrowing into the
+     * customer's history
+     */
     bool borrowRentable(Rentable& rentable);
+
+    /*
+     * Return some rentable and store the returning into the
+     * customer's history
+     */
     bool returnRentable(Rentable& rentable);
 
     /*
