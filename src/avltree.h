@@ -1,77 +1,207 @@
 #ifndef AVLTREE_H
 #define AVLTREE_H
 
-#include "dvd.h"
+#include <iostream>
 
 /*
  * AVL Tree is a balanced binary tree storing DVD's
  * Extendability: can be templatized
  */
+template <class T>
 class AVLTree
 {
 public:
 
-	/*
-	 * Creates empty AVL tree with root node set to NULL
-	 */
-	AVLTree();
-	
-	~AVLTree();
+    /*
+     * Creates empty AVL tree with root node set to NULL
+     */
+    AVLTree()
+    {
+        root = nullptr;
+    }
 
-	/*
-	 * Inserts a DVD into tree, returns true if succeeded
-	 */
-	bool insert(DVD &dvd);
+    ~AVLTree()
+    {
+        if(root != nullptr)
+        {
+            destructorHelper(root);
+        }
 
-	/*
-	 * Retrieves a DVD from tree, points to it
-	 */
-	bool retrieve(const DVD &dvd, DVD* &retDVD);
+        root = nullptr;
+    }
 
-	/*
-	 * Removes a DVD from the tree
-	 */
-	bool removeDVD(DVD &dvd);					
-	
-	/*
-	 * Returns true if no items are in the tree
-	 */
-	bool isEmpty();								
-	
-	/*
-	 * Prints out the tree in order
-	 */
-	void printTree();							
-		
+    /*
+     * Inserts a DVD into tree, returns true if succeeded
+     */
+    bool insert(T* object)
+    {
+        if(insertHelper(root, object))
+        {
+            balanceTree();
+            return true;
+        }
+
+        return false;
+    }
+
+    /*
+     * Retrieves a DVD from tree, points to it
+     */
+    bool retrieve(const T& object, T*& RetObject)
+    {
+        return retrieveHelper(root, object, RetObject);
+    }
+
+    /*
+     * Removes a DVD from the tree
+     */
+    bool removeObject(const T& object)
+    {
+        return removeHelper(root, object);
+    }
+
+    /*
+     * Returns true if no items are in the tree
+     */
+    bool isEmpty()
+    {
+        return (root == nullptr);
+    }
+
+    /*
+     * Prints out the tree in order
+     */
+    void printTree()
+    {
+        printTreeHelper(root);
+    }
+
 private:
-	struct Node
-	{
-		DVD *dvd;
-		Node *right;
-		Node *left;
-	};
+    template <class U>
+    struct Node
+    {
+        U* object;
+        Node<U> *right;
+        Node<U> *left;
+    };
 
-	Node *root;
-	
-	//Returns height of the tree
-	int getHeight();			
+    Node<T> *root;
 
-	//Balances the tree {
-	//compare node heights
-	//if subtrees of any node differ in height more than 1 level
-	//find the lowest unbalanced node
-	//rotate node
-	//}
-	void balanceTree();			
+    //Returns height of the tree
+    int getHeight();
 
-	//Helper function to balance tree
-	void rotateLeft(Node *n);	
+    //Balances the tree {
+    //compare node heights
+    //if subtrees of any node differ in height more than 1 level
+    //find the lowest unbalanced node
+    //rotate node
+    //}
+    void balanceTree()
+    {
+        //check if tree is ok
 
-	//Helper function to balance tree
-	void rotateRight(Node *n);	
 
-	//Empties out the tree, deletes all data
-	void makeEmpty();
+        //if tree needs adjusting
+
+        //find problem node
+
+        //decide what kind of rotation is needed
+
+        //perform correct rotation
+    }
+
+    //Helper function to balance tree
+    void rotateLeft(Node *n);
+
+    //Helper function to balance tree
+    void rotateRight(Node *n);
+
+
+    //--recursive helper functions--//
+
+    /*
+     * Recursively traverses the AVL tree post order, deleting the children
+     * nodes first, then the parent node.
+     */
+    void destructorHelper(Node<T>* node)
+    {
+        if(node == nullptr)
+            return;
+
+        destructorHelper(node->left);
+        destructorHelper(node->right);
+
+        delete node;
+        node = nullptr;
+    }
+
+    /*
+     * Performs an in order traversal to find an empty place to insert a new
+     * rentable object.
+     *
+     * Returns true if a place was found, false if the object already exists in
+     * the AVL tree.
+     */
+    bool insertHelper(Node<T>* node, T* object)
+    {
+        if(node == nullptr)
+        {
+            node = new Node<T>{object, nullptr, nullptr};
+            return true;
+        }
+
+        if( *(node->object) == *(object))
+            return false;
+
+        if(*(node->object) < *(object))
+            return insertHelper(node->right);
+
+        return insertHelper(node->left);
+    }
+
+    bool retrieveHelper(Node<T>* node, const T& object, T*& RetObject)
+    {
+        if(node == nullptr)
+        {
+            return false;
+        }
+
+        if( *(node->object) == *(object))
+        {
+            RetObject = node->object;
+            return true;
+        }
+
+        if(*(node->object) < *(object))
+            return retrieveHelper(node->right, object, RetObject);
+
+        return retrieveHelper(node->left, object, RetObject);
+    }
+
+    bool removeHelper(Node<T>* node, const T& object)
+    {
+
+        //find the node
+
+        //find correct replacement
+
+        //delete node
+
+        return false;
+    }
+
+    void printTreeHelper(Node<T>* node)
+    {
+        if(node == nullptr)
+            return;
+
+        printTreeHelper(node->left);
+
+        std::cout << *(node->object) << std::endl;
+
+        printTreeHelper(node->right);
+    }
+
 };
 
 
