@@ -39,21 +39,19 @@ Rentable* loadDVD(std::string line)
     {
         case 'C':
         {
-            //get other information here
-
             std::vector<std::string> info = split(line, ", ");
 
             return new Classic();
         }
         case 'D':
         {
-            //get other information here
+            std::vector<std::string> info = split(line, ", ");
 
             return new Drama();
         }
         case 'F':
         {
-            //get other information here
+            std::vector<std::string> info = split(line, ", ");
 
             return new Family();
         }
