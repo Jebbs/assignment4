@@ -4,7 +4,11 @@
 #include <string>
 #include <vector>
 
-
-std::vector<string> split(std::string line, char delim);
+/*
+ * Split a string into a vector of strings based on a delimiter.
+ *
+ * The delimiter is not included in any of the strings in the vector.
+ */
+std::vector<string> split(const std::string& line, const std::string& delim);
 
 #endif //SPLIT_H
