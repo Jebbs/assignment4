@@ -5,6 +5,7 @@
 #include <queue>
 #include "avltree.h"
 #include "rentable.h"
+#include "rentabletype.h"
 
 #include <fstream>
 
@@ -44,7 +45,7 @@ public:
      * Note: This function will send errors to std::cerr if a command cannot be
      * created with the information in some line.
      */
-    void loadRentables(std::ifstream& file);
+    void loadRentables(RentableType type, std::ifstream& file);
 
     /*
      * Load the file contianing the commands to run and add them into a queue

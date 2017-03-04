@@ -3,6 +3,7 @@
 
 #include <string>
 #include "rentable.h"
+#include "rentabletype.h"
 
 /*
  * Creates Rentables (currently: DVDs) based on string that is passed in.
@@ -10,19 +11,13 @@
 class RentableFactory
 {
 public:
-	RentableFactory();
-	~RentableFactory();
-
 	/*
-     * Creates a Rentable based on str. 
-     * D creates a DVD.
-     * If incorrect string is passed in, prints 
+     * Creates a Rentable based on str given its main type.
+     *
+     * If incorrect string is passed in, prints
      * error message to std::cerr.
      */
-	bool createRentable(std::string str);
-
-private:
-	
+	static Rentable* createRentable(RentableType type, std::string line);
 };
 
 #endif //RENTABLEFACTORY_H

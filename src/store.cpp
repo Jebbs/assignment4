@@ -35,7 +35,7 @@ void Store::loadCustomers(std::ifstream& file)
     }
 }
 
-void Store::loadRentables(std::ifstream& file)
+void Store::loadRentables(RentableType type, std::ifstream& file)
 {
     while(!file.eof())
     {
@@ -44,7 +44,7 @@ void Store::loadRentables(std::ifstream& file)
         std::getline(file, line);
 
         //may emit an error and return nullptr
-        Rentable* newRentable = RentableFactory.createRentable(line);
+        Rentable* newRentable = RentableFactory.createRentable(type, line);
 
         if(newRentable != nullptr)
         {

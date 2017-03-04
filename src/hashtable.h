@@ -35,17 +35,17 @@ public:
      *       {probe the table with hash2 function}
      * }
     */
-	bool insert(Customer *cust);
+	bool insert(Customer* cust);
 
     /*
      * Retrieves a customer from table, points to it.
      */
-    bool retrieve(const Customer &cust, Customer* &retC);
+    bool retrieve(const Customer& cust, Customer*& retC);
 
     /*
      * Removes a customer from the table
      */
-	bool removeCustomer(Customer &cust);
+	bool removeCustomer(Customer& cust);
 
     /*
 	 * Resizes the table.
