@@ -6,6 +6,8 @@
 #include "avltree.h"
 #include "rentable.h"
 
+#include <fstream>
+
 /*
  * The Store class describes the functions of a Media Rental Store
  * of some kind. It has a list of customers and rentable items, and
@@ -33,7 +35,7 @@ public:
      * Load the file contianing customers and process them so they are added
      * to the system.
      */
-    void loadCustomers(string file);
+    void loadCustomers(std::ifstream& file);
 
     /*
      * Load the file contianing all rentable items this store carries and
@@ -42,7 +44,7 @@ public:
      * Note: This function will send errors to std::cerr if a command cannot be
      * created with the information in some line.
      */
-    void loadRentables(string file);
+    void loadRentables(std::ifstream& file);
 
     /*
      * Load the file contianing the commands to run and add them into a queue
@@ -51,7 +53,7 @@ public:
      * Note: This function will send errors to std::cerr if a command cannot be
      * created with the information in some line.
      */
-    void loadCommands(string file);
+    void loadCommands(std::ifstream& file);
 
     /*
      * Process all commands in the queue.
@@ -77,7 +79,7 @@ private:
 
     int storeID;
 
-    std::queue<Command> commandQueue;
+    std::queue<Command*> commandQueue;
 
 }
 

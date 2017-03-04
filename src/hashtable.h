@@ -9,10 +9,10 @@
  * double hashing. Customers are placed in unique
  * buckets based on their ID's. In case of collision,
  * second hash function is applied.
- * 
+ *
  * Assumption: start with 1000 customers, thus minimum table
  * size is defined as 2003.
- * 
+ *
  * Extendability: can be templatized to store other items.
  */
 #define MIN_TABLE_SIZE 2003
@@ -25,7 +25,7 @@ public:
     */
 	HashTable();
 	~HashTable();
-	
+
 	/*
      * Inserts a customer into table, returns true if succeeded.
      * {
@@ -36,7 +36,7 @@ public:
      * }
     */
 	bool insert(Customer *cust);
-    
+
     /*
      * Retrieves a customer from table, points to it.
      */

@@ -25,7 +25,7 @@ public:
     /*
      * Remove a number of items from the stock for this rentable as if it
      * was being rented out.
-     * 
+     *
      * This function will return false if there are not enough items
      * to cover the amount trying to be rented.
      */

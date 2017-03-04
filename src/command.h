@@ -1,8 +1,7 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-//forward declaration
-class Store;
+
 
 
 /*
@@ -11,6 +10,8 @@ class Store;
  */
 class Command
 {
+    //so that a store can give a command an instance of itself when creating
+    firend class Store;
 public:
 
     /*
