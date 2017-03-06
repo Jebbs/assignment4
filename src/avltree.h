@@ -142,21 +142,63 @@ private:
      * Returns true if a place was found, false if the object already exists in
      * the AVL tree.
      */
-    bool insertHelper(Node<T>* node, T* object)
+    Node<T>* insertHelper(Node<T>* node, T* object)
     {
-        if(node == nullptr)
-        {
-            node = new Node<T>{object, nullptr, nullptr};
-            return true;
-        }
-
-        if( *(node->object) == *(object))
+        if( *(node->object) == *(object))//keep?
             return false;
 
-        if(*(node->object) < *(object))
-            return insertHelper(node->right);
+        
+        Node<T>* problemNode;
 
-        return insertHelper(node->left);
+        if(*(node->object) < *(object))
+        {
+
+            if(node->right == nullptr)
+            {
+                node->right = new Node<T>{object, nullptr, nullptr};
+                problemNode = nullptr;
+            }
+            else
+            {
+                problemNode = insertHelper(node->right, object);
+            }
+
+            
+        }
+        else
+        {
+            if(node->left == nullptr)
+            {
+                node->left = new Node<T>{object, nullptr, nullptr};
+                problemNode = nullptr;
+            }
+            else
+            {
+                problemNode = insertHelper(node->left, object);
+            }
+        }
+
+
+
+
+        if(problemNode == nullptr)
+        {
+            int left = getHeight(node->left);
+            int right = getHeight(node->right);
+
+            int diff = left - right;
+
+            if(diff == -2 || diff == 2)
+            {
+                return node;
+            }
+            else
+            {
+                return nullptr;
+            }
+        }
+        else
+            return problemNode;
     }
 
     bool retrieveHelper(Node<T>* node, const T& object, T*& RetObject)

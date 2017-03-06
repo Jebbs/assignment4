@@ -26,7 +26,7 @@ public:
 
 private:
 	HistoryCommand();
-	Customer cust;
+	Customer* cust;
 };
 
 #endif //HISTORYCOMMAND_H

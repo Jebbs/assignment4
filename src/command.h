@@ -11,7 +11,7 @@
 class Command
 {
     //so that a store can give a command an instance of itself when creating
-    firend class Store;
+    friend class Store;
 public:
 
     /*

@@ -4,6 +4,7 @@
 #include "command.h"
 #include "rentable.h"
 #include "customer.h"
+#include <string>
 
 
 /*
@@ -23,7 +24,7 @@ public:
      * Empty BorrowCommand cannot be created.
      */
     
-	BorrowCommand(/*parameters to create borrow command*/);
+	BorrowCommand(int customerID, RentableType type, int subtype, std::string data);
 	~BorrowCommand();
 
     
@@ -38,8 +39,8 @@ public:
 
 private:
 	BorrowCommand();
-	Rentable* rent;
-	Customer* cust;
+	Rentable rent;
+	Customer cust;
 };
 
 #endif //BORROWCOMMAND_H
