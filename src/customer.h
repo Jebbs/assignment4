@@ -8,6 +8,8 @@
 #include "rentable.h"
 #include "rentaldetails.h"
 #include "command.h"
+#include "rentalperiods.h"
+#include "rentabletype.h"
 
 /*
  * Customer class for modeling a store customer.
@@ -34,37 +36,46 @@ public:
 
     /*
      * Borrow some rentable and store the borrowing into the
-     * customer's history
+     * customer's history 
      */
-    bool borrowRentable(Rentable& rentable);
+    bool borrowRentable(int count, Rentable& rentable);
 
     /*
      * Return some rentable and store the returning into the
      * customer's history
      */
-    bool returnRentable(Rentable& rentable);
+    bool returnRentable(int count, Rentable& rentable);
 
     /*
      * Display the customer's history for everything they've rented and
-     * returned.
+     * returned, Starting with latest first. 
      *
      * This will output the information to std::cout by default unless
      * overridden.
      */
-    void displayHistory(std::ostream& outStream = std::cout) const;
+    void displayHistory() const;
+
+	/*
+	* Overloaded operator to check if it is the same customer
+	*/
+	bool operator==(const Customer& rhs) const;
+	
+	/*
+	* Overloaded operator to heck if it is the same customer
+	*/
+	bool operator==(const Customer& rhs) const;
 
 
 private:
 
-    //Construct a new Customer.
-    //
-    //This is a blank customer with no id or name.
-    //
-    //This constructor is private so that it cannot be accessed through normal means.
+    /*
+	* Construct a new Customer.
+    *
+    * This is a blank customer with no id or name.
+    *
+    * This constructor is private so that it cannot be accessed through normal means.
+	*/
     Customer();
-
-    //Add a borrow or return command into the customer's history after processing.
-    void addToHistory(Command& newCommand);
 
     int customerID;
 
@@ -73,7 +84,7 @@ private:
 
     std::vector<RentalDetails> currentlyRenting;
 
-    std::vector<Command> history;
+    std::vector<Rentable> customerHistory;
 };
 
 #endif //CUSTOMER_H

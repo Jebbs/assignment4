@@ -10,6 +10,7 @@
 #include "command.h"
 #include "rentabletype.h"
 
+
 /*
  * The Rentable class models some kind of item that can be
  * rented from a video store.

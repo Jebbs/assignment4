@@ -39,7 +39,7 @@ public:
     void loadCustomers(std::ifstream& file);
 
     /*
-     * Load the file contianing all rentable items this store carries and
+     * Load the file containing all rentable items this store carries and
      * process them so they are added to the system.
      *
      * Note: This function will send errors to std::cerr if a command cannot be
