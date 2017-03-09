@@ -25,45 +25,34 @@ public:
 	/*
 	* Creates an instance of drama movie.
 	*/
-	Drama(/*parameters to create drama movie*/);
+	Drama(); // no extra parameters, since same as dvd
 
 	~Drama();
+
+protected:
+	/*
+	* prints the drama inventory
+	* output example: 10, Nora Ephron, You've Got Mail, 1998
+	*/
+	void print(std::ostream& outStream) const;
 
 	/*
 	* Returns title==, director==
 	*/
-	bool operator ==(const Drama &rhs) const;
-
-	/*
-	* Returns title!=, director!=
-	*/
-	bool operator !=(const Drama &rhs) const;
+	bool equalTo(Rentable& rentable) const;
 
 	/*
 	* Returns < based on title and director
 	*/
-	bool operator <(const Drama &rhs) const;
+	bool lessThan(Rentable& rentable) const;
 
 	/*
 	* Returns > based on title and director
 	*/
-	bool operator >(const Drama &rhs) const;
-
-	/*
-	* Returns title
-	*/
-	std::string getTitle();
-
-	/*
-	* Returns director
-	*/
-	int getDirector();
-
+	bool greaterThan(Rentable& rentable) const;
 
 private:
 	Drama();
-	std::string director;
-	std::string title;
 };
 
-#endif //COMEDY_H
+#endif //DRAMA_H

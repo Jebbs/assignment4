@@ -26,39 +26,30 @@ public:
 	/*
 	* Creates an instance of Comedy movie.
 	*/
-	Comedy(/*parameters to create comedy movie*/);
+	Comedy(); // no parameters since same as dvd
 
 	~Comedy();
-	
+
+protected:
+	/*
+	* prints the comedy inventory
+	*/
+	void print(std::ostream& outStream) const;
+
 	/*
 	* Returns title==, releaseYear==
 	*/
-	bool operator ==(const Comedy &rhs) const;
-
-	/*
-	* Returns title!=, releaseYear!=
-	*/
-	bool operator !=(const Comedy &rhs) const;
+	bool equalTo(Rentable& rentable) const;
 
 	/*
 	* Returns < based on title and release year
 	*/
-	bool operator <(const Comedy &rhs) const;
+	bool lessThan(Rentable& rentable) const;
 
 	/*
 	* Returns > based on title and release year
 	*/
-	bool operator >(const Comedy &rhs) const;
-
-	/*
-	* Returns title 
-	*/
-	std::string getTitle();
-
-	/*
-	* Returns release year
-	*/
-	int getReleaseYear();
+	bool greaterThan(Rentable& rentable) const;
 
 
 private:
