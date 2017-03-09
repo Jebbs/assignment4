@@ -45,6 +45,9 @@ public:
     void addToHistory(Command& command);//change this name because it's dumb
 
     RentableType getType() const;
+    int getSubtype() const;
+
+    int getSubtypeCount() const;//get the count for the total number of subtypes that exist
 
     std::string getTitle() const;
 
@@ -54,6 +57,11 @@ public:
 
     int getStockCount() const;
 
+    bool operator==(Rentable& rentable);
+    bool operator!=(Rentable& rentable);
+    bool operator<(Rentable& rentable);
+    bool operator>(Rentable& rentable);
+
     //out puts data and stuff
     friend std::ostream& operator<<(std::ostream& outStream, Rentable& rentable);
 
@@ -62,7 +70,10 @@ private:
     //so people can't call it!
     Rentable();
 
-    RentableType type;
+    RentableType type;//the main rentable type (DVD, Console, etc.)
+    int subtype;//some generic subtype, dependent on main type
+
+
     int stock;
 
     int releaseYear;
@@ -72,6 +83,11 @@ private:
     int rentalPeriodInDays;
 
     std::vector<Command> history;
+
+    void print(std::ostream& outStream) = 0;
+    bool equalTo(Rentable& rentable) = 0;
+    bool lessThan(Rentable& rentable) = 0;
+    bool greaterThan(Rentable& rentable) = 0;
 
 };
 

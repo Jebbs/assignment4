@@ -88,3 +88,88 @@ int Store::getID() const
 {
     return storeID;
 }
+
+
+void printInventory()
+{
+    classicMovies.printTree();
+    dramaMovies.printTree();
+    comedyMovies.printTree();
+}
+
+void displayHistory(int customerID)
+{
+    Customer* actualCustomer;
+
+    storeInst->customers.retrieve(cust, actualCustomer);
+
+    if(actualCustomer == nullptr)
+    {
+        //emit error
+        return;
+    }
+
+
+    actualCustomer->displayHistory();
+}
+
+void borrowRentable(int customerID, RentableType type, int subtype, std::string data)
+{
+    Customer* actualCustomer;
+
+    storeInst->customers.retrieve(cust, actualCustomer);
+
+    if(actualCustomer == nullptr)
+    {
+        //emit error
+        return;
+    }
+
+    Rentable* actualRentable;
+
+    //build the rentable
+
+
+    store->rentables[thing][thing].retrieve(*rent, actualRentable);
+
+    if(actualRentable == nullptr)
+    {
+        //error
+        return;
+    }
+
+
+    //update in store
+
+    actualCustomer->borrowRentable(/* something */);
+}
+
+void returnRentable(int customerID, RentableType type, int subtype, std::string data)
+{
+    Customer* actualCustomer;
+
+    storeInst->customers.retrieve(cust, actualCustomer);
+
+    if(actualCustomer == nullptr)
+    {
+        //emit error
+        return;
+    }
+
+    Rentable* actualRentable;
+
+    //build the rentable
+
+    store->rentables[thing][thing].retrieve(*rent, actualRentable);
+
+    if(actualRentable == nullptr)
+    {
+        //error
+        return;
+    }
+
+
+    //update in store
+
+    actualCustomer->returnRentable(/* something */);
+}

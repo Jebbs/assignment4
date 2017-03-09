@@ -74,7 +74,24 @@ private:
     //A vector of vectors of AVL Trees for each kind of rentable.
     //This vector can be indexed with the RentableType and its subtype for
     //a given RentalType
-    std::vector<std::vector<avltree<rentable>> rentables;
+    std::vector<std::vector<RentableTree> rentables;
+
+    std::vector<RentableTree<Classic>> classicMovies;
+    std::vector<RentableTree<Drama>> dramaMovies;
+    std::vector<RentableTree<Comedy>> comedyMovies;
+
+
+
+    //interface used by commands
+    void printInventory();
+    void displayHistory(int customerID);
+    void borrowRentable(int customerID, RentableType type, int subtype, std::string data);
+    void returnRentable(int customerID, RentableType type, int subtype, std::string data);
+
+
+
+
+
 
     HashTabe customers;
 

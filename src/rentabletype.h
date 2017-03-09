@@ -11,7 +11,8 @@ enum RentableType
     Console,
     VideoGame,
     DVD_Player,
-    Projector
+    Projector,
+    NumberOfRentableTypes
 }
 
 #endif // RENTABLETYPE_H

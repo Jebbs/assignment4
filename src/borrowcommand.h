@@ -39,7 +39,7 @@ public:
 
 private:
 	BorrowCommand();
-	Rentable rent;
+	Rentable* rent;
 	Customer cust;
 };
 

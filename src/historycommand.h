@@ -15,7 +15,7 @@ public:
 	/*
      * Creates a HistoryCommand
      */
-	HistoryCommand(/*parameters to create classic movie*/);
+	HistoryCommand(int customerID);
 	~HistoryCommand();
 
 	/*
@@ -26,7 +26,7 @@ public:
 
 private:
 	HistoryCommand();
-	Customer* cust;
+	Customer cust;
 };
 
 #endif //HISTORYCOMMAND_H
