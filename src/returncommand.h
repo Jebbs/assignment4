@@ -11,9 +11,9 @@
  * a) customer ID is valid
  * b) such a Rentable exists
  * c) customer has borrowed the Rentable.
- * If any of forementioned aren't met, 
+ * If any of forementioned aren't met,
  * error is printed to std::cerr.
- * 
+ *
  * Successful ReturnCommand is added to Customer's history.
  */
 
@@ -31,7 +31,7 @@ public:
 
 private:
 	ReturnCommand();
-	Rentable rent;
+	Rentable* rent;
 	Customer cust;
 };
 

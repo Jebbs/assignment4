@@ -6,7 +6,7 @@
 
 /*
  * Subclass of public Command.
- * HistoryCommand takes CustomerId as parameter and prints 
+ * HistoryCommand takes CustomerId as parameter and prints
  * out customer's Borrow- and Return- Commands chronologically.
  */
 class HistoryCommand : public Command

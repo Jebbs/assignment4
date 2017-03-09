@@ -5,15 +5,14 @@
 BorrowCommand::BorrowCommand(int customerID, RentableType type, int subtype, std::string data)
 {
     cust = Customer(customerID, "", "");
-
-    //rebuild a string with the correct data in it
-
-    std::string dataLine;
-
-    Rentable* rent = RentableFactory.createRentable(type, dataLine);
+    rent = Store.buildRentable(type, subtype, data);
+}
+BorrowCommand::~BorrowCommand()
+{
+    delete rent;
 }
 
 void BorrowCommand::processCommand()
 {
-    store->borrowRentable(customerID, type, subtype, data);
+    store->borrowRentable(cust, *rent);
 }

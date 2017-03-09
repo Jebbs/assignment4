@@ -23,6 +23,10 @@ RentableStorage::~RentableStorage()
 
 bool RentableStorage::insert(Rentable* object)
 {
+
+        if(object == nullptr)
+            return false;
+
         int mainType = object->getType();
         int subType = object->getSubtype();
 
@@ -58,6 +62,10 @@ bool RentableStorage::insert(Rentable* object)
 
 bool RentableStorage::retreive(const Rentable* object, Rentable*& RetObject)
 {
+
+    if(object == nullptr)
+        return false;
+
     int mainType = object->getType();
     int subType = object->getSubtype();
 
@@ -76,10 +84,16 @@ void RentableStorage::printInventory() const
 
     for(int i = 0; i < length; i++)
     {
+
+        //printing all "type"
+
         int subLength = rentables[i].length();
 
         for(int j = 0; j< subLength; j++)
         {
+
+            //printing all "subtype"
+
             printHelper(rentables[i][j]);
         }
     }

@@ -6,6 +6,7 @@
 #include "avltree.h"
 #include "rentable.h"
 #include "rentabletype.h"
+#include "rentablestorage.h"
 
 #include <fstream>
 
@@ -71,22 +72,19 @@ public:
 
 
 private:
-    //A vector of vectors of AVL Trees for each kind of rentable.
-    //This vector can be indexed with the RentableType and its subtype for
-    //a given RentalType
-    std::vector<std::vector<RentableTree> rentables;
-
-    std::vector<RentableTree<Classic>> classicMovies;
-    std::vector<RentableTree<Drama>> dramaMovies;
-    std::vector<RentableTree<Comedy>> comedyMovies;
-
-
+    //the storage container for all rentables this store carries
+    RentableStorage rentables;
 
     //interface used by commands
     void printInventory();
-    void displayHistory(int customerID);
-    void borrowRentable(int customerID, RentableType type, int subtype, std::string data);
-    void returnRentable(int customerID, RentableType type, int subtype, std::string data);
+    void displayHistory(Customer& searchCustomer);
+    void borrowRentable(Customer& searchCustomer, Rentable& searchRenatble);
+    void returnRentable(Customer& searchCustomer, Rentable& searchRenatble);
+
+    //given some data, build a rentable to be searched for for borrowing or returning
+    static Rentable* buildRentable(RentableType type, int subtype, std::string data);
+
+
 
 
 

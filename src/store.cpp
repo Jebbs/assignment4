@@ -92,12 +92,10 @@ int Store::getID() const
 
 void printInventory()
 {
-    classicMovies.printTree();
-    dramaMovies.printTree();
-    comedyMovies.printTree();
+    rentables.printInventory();
 }
 
-void displayHistory(int customerID)
+void displayHistory(Customer& searchCustomer)
 {
     Customer* actualCustomer;
 
@@ -105,71 +103,116 @@ void displayHistory(int customerID)
 
     if(actualCustomer == nullptr)
     {
-        //emit error
+        std::cerr << "ERROR: Customer with ID " << cust.getCustomerID;
+        std::cerr<< " not found." << endl;
         return;
     }
-
 
     actualCustomer->displayHistory();
 }
 
-void borrowRentable(int customerID, RentableType type, int subtype, std::string data)
+void borrowRentable(Customer& searchCustomer, Rentable& searchRenatble)
 {
     Customer* actualCustomer;
 
-    storeInst->customers.retrieve(cust, actualCustomer);
+    storeInst->customers.retrieve(searchCustomer, actualCustomer);
 
     if(actualCustomer == nullptr)
     {
-        //emit error
+        std::cerr << "ERROR: Customer with ID " << cust.getCustomerID;
+        std::cerr<< " not found." << endl;
         return;
     }
 
     Rentable* actualRentable;
 
-    //build the rentable
-
-
-    store->rentables[thing][thing].retrieve(*rent, actualRentable);
-
-    if(actualRentable == nullptr)
+    if(!store->rentables.retrieve(searchRentable, actualRentable))
     {
-        //error
+        std::cerr << "ERROR: Rentable with title " << rent.getTitle();
+        std::cerr<< " not carried in the store." << endl;
         return;
     }
-
 
     //update in store
 
     actualCustomer->borrowRentable(/* something */);
 }
 
-void returnRentable(int customerID, RentableType type, int subtype, std::string data)
+void returnRentable(Customer& searchCustomer, Rentable& searchRenatble)
 {
     Customer* actualCustomer;
 
-    storeInst->customers.retrieve(cust, actualCustomer);
+    storeInst->customers.retrieve(searchCustomer, actualCustomer);
 
     if(actualCustomer == nullptr)
     {
-        //emit error
+        std::cerr << "ERROR: Customer with ID " << cust.getCustomerID;
+        std::cerr<< " not found." << endl;
         return;
     }
 
     Rentable* actualRentable;
 
-    //build the rentable
-
-    store->rentables[thing][thing].retrieve(*rent, actualRentable);
-
-    if(actualRentable == nullptr)
+    if(!store->rentables.retrieve(searchRentable, actualRentable))
     {
-        //error
+        std::cerr << "ERROR: Rentable with title " << rent.getTitle();
+        std::cerr<< " not carried in the store." << endl;
         return;
     }
-
 
     //update in store
 
     actualCustomer->returnRentable(/* something */);
+}
+
+//build DVD rentables
+static Comedy* buildComedy(std::string data);
+static Drama* buildDrama(std::string data);
+static Classic* buildClassic(std::string data);
+
+Rentable* Store::buildRentable(RentableType type, int subtype, std::string data)
+{
+    switch(type)
+    {
+        case DVD:
+        {
+            switch(intToDVDType(subtype))
+            {
+                case Comedy:
+                {
+                    return buildComedy(data);
+                }
+                case Drama:
+                {
+                    return buildDrama(data);
+                }
+                case Comedy:
+                {
+                    return buildComedy(data);
+                }
+                default:
+                    return nullptr;
+            }
+        }
+        default:
+            return nullptr;
+    }
+}
+
+Comedy* buildComedy(std::string data)
+{
+
+    return null;
+}
+
+Drama* buildDrama(std::string data)
+{
+
+    return null;
+}
+
+Classic* buildClassic(std::string data)
+{
+
+    return null;
 }

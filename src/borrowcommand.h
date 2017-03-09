@@ -12,7 +12,7 @@
  * BorrowCommand reduces stock of a Rentable by 1 (if there's enough of stock).
  * BorrowCommand is added to Customer's history.
  *
- * Note: if there are not enough Rentables in stock, error 
+ * Note: if there are not enough Rentables in stock, error
  * message is sent to std::cerr
  */
 class BorrowCommand : public Command
@@ -23,16 +23,13 @@ public:
      * Creates a new instance of BorrowCommand.
      * Empty BorrowCommand cannot be created.
      */
-    
 	BorrowCommand(int customerID, RentableType type, int subtype, std::string data);
 	~BorrowCommand();
 
-    
-    
     /*
      * Processes the BorrowCommand: reduces stock of a Rentable by 1,
 	 * adds to Customer's history.
-	 * 
+	 *
 	 * If cannot be processed, is printed to std::cerr.
      */
 	bool processCommand();
