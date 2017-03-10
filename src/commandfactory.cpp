@@ -1,5 +1,4 @@
 #include "commandfactory.h"
-
 #include "command.h"
 #include "borrowcommand.h"
 #include "returncommand.h"
