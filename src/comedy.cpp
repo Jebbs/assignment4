@@ -15,6 +15,7 @@ Comedy::Comedy(DVDType type, int stock, std::string title, std::string director,
 
 Comedy::~Comedy()
 {
+
 }
 
 //add comments about telling compiler we know 
