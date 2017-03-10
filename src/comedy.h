@@ -26,7 +26,8 @@ public:
 	/*
 	* Creates an instance of Comedy movie.
 	*/
-	Comedy(); // no parameters since same as dvd
+	Comedy(DVDType type, int stock, std::string title, std::string director,
+		int releaseYear, int rentalPeriodInDays);
 
 	~Comedy();
 
@@ -50,7 +51,6 @@ protected:
 	* Returns > based on title and release year
 	*/
 	bool greaterThan(Rentable& rentable) const;
-
 
 private:
 	//Comedy(); //was duplicated

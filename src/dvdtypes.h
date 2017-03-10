@@ -1,7 +1,6 @@
 #ifndef DVDTYPES_H
 #define DVDTYPES_H
 
-
 enum DVDType
 {
     None = -1,

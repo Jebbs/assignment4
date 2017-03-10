@@ -11,7 +11,8 @@ bool Drama::greaterThan(Rentable & rentable) const
 	return false;
 }
 
-Drama::Drama(): DVD(DVDType type, int stock, std::string title, std::string director,
+Drama::Drama(DVDType type, int stock, std::string title, std::string director,
+	int releaseYear, int rentalPeriodInDays): DVD(DVDType type, int stock, std::string title, std::string director,
 	int releaseYear, int rentalPeriodInDays)
 {
 	this->subType = type;

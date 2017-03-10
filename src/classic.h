@@ -63,7 +63,6 @@ public:
 
 
 private:
-	//Classic(); //duplicated
 	int month;
 	std::string majorActor;
 };

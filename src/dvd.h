@@ -25,7 +25,6 @@ private:
     std::string director;
 
     std::string title;
-
 };
 
 #endif //MOVIE_H

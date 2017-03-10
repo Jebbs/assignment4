@@ -14,24 +14,19 @@ Classic::Classic(RentableType type, int stock, std::string title, int releaseYea
 
 void Classic::print(std::ostream& outStream) const
 {
-	std::string tab5 = "     ";
-	std::string tab4 = "    ";
-	std::string tab3 = "   ";
-
-	//10, George Cukor, Holiday, Katherine Hepburn 9 1938
+	// formatting
 	if (this->getStockCount() > 9)
 	{
-		outStream << this->getStockCount() << tab5;
+		outStream << this->getStockCount() << "     ";
 	}
 	else if (this->getStockCount() > 99)
 	{
-		outStream << this->getStockCount() << tab3;
+		outStream << this->getStockCount() << "   ";
 	}
 	else
 	{
-		outStream << this->getStockCount() << tab4;
+		outStream << this->getStockCount() << "    ";
 	}
-
 	outStream << this->getDirector() << ", " << this->getTitle() << ", " << this->getMajorActor() << ", ";
 	outStream << this->getMonth() << ". " << this->getReleaseYear << endl;
 }

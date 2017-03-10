@@ -1,7 +1,8 @@
 #include "comedy.h"
 
 
-Comedy::Comedy(): DVD(DVDType type, int stock, std::string title, std::string director,
+Comedy::Comedy(DVDType type, int stock, std::string title, std::string director,
+	int releaseYear, int rentalPeriodInDays): DVD(DVDType type, int stock, std::string title, std::string director,
 	int releaseYear, int rentalPeriodInDays)
 {
 	this->subType = type;
