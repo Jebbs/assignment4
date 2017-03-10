@@ -44,8 +44,8 @@ public:
 
 private:
 	BorrowCommand();
-	Rentable* rent;
-	Customer cust;
+	Rentable* searchRentable;
+	Customer searchCustomer;
 };
 
 #endif //BORROWCOMMAND_H

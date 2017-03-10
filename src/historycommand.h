@@ -26,7 +26,7 @@ public:
 
 private:
 	HistoryCommand();
-	Customer cust;
+	Customer searchCustomer;
 };
 
 #endif //HISTORYCOMMAND_H

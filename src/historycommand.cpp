@@ -2,7 +2,12 @@
 
 #include "hashtable.h"
 
-HistoryCommand::HistoryCommand(int customerID): cust(customerID, "", "")
+HistoryCommand::HistoryCommand():searchCustomer(0,"","")
+{
+
+}
+
+HistoryCommand::HistoryCommand(int customerID): searchCustomer(customerID, "", "")
 {
     
 }
@@ -15,13 +20,13 @@ bool HistoryCommand::processCommand()
 
     Customer* actualCustomer;
 
-    customers.retrieve(cust, actualCustomer);
+    customers.retrieve(searchCustomer, actualCustomer);
 
     if(actualCustomer == nullptr)
     {
-        std::cerr << "ERROR: Customer with ID " << cust.getCustomerID();
+        std::cerr << "ERROR: Customer with ID " << searchCustomer.getCustomerID();
         std::cerr<< " not found." << std::endl;
-        return;
+        return false;
     }
 
     actualCustomer->displayHistory();

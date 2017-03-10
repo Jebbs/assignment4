@@ -15,10 +15,13 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
+#include <string>
+
 //forward decl
 class Store;
 class HashTable;
 class RentableStorage;
+class Rentable;
 
 class Command
 {
@@ -36,6 +39,8 @@ protected:
 
     HashTable& getHashTable();
     RentableStorage& getRentableStorage();
+    Rentable* buildRentable(char type, char subtype, std::string data);
+
 
 private:
     //the instance of the store this command will operate on

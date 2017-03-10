@@ -31,8 +31,8 @@ public:
 
 private:
 	ReturnCommand();
-	Rentable* rent;
-	Customer cust;
+	Rentable* searchRentable;
+	Customer searchCustomer;
 };
 
 #endif //RETURNCOMMAND_H

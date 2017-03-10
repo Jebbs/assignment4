@@ -1,21 +1,49 @@
 #include "borrowcommand.h"
 
-#include "store.h"
+#include "hashtable.h"
+#include "rentablestorage.h"
+
+BorrowCommand::BorrowCommand():searchCustomer(0,"",""){}
 
 BorrowCommand::BorrowCommand(int customerID, char type, char subtype,
-                             std::string data)
+                             std::string data): searchCustomer(customerID, "", "")
 {
-    cust = Customer(customerID, "", "");
-    rent = Store::buildRentable(type, subtype, data);
+    searchRentable = buildRentable(type, subtype, data);
 }
 BorrowCommand::~BorrowCommand()
 {
-    delete rent;
+    delete searchRentable;
 }
 
 bool BorrowCommand::processCommand()
 {
-    storeInst->borrowRentable(cust, *rent);
+
+    RentableStorage& rentables = getRentableStorage();
+    HashTable& customers = getHashTable();
+
+    Customer* actualCustomer;
+
+    customers.retrieve(searchCustomer, actualCustomer);
+
+    if(actualCustomer == nullptr)
+    {
+        std::cerr << "ERROR: Customer with ID " << searchCustomer.getCustomerID();
+        std::cerr<< " not found." << std::endl;
+        return false;
+    }
+
+    Rentable* actualRentable;
+
+    if(!rentables.retrieve(searchRentable, actualRentable))
+    {
+        std::cerr << "ERROR: Rentable with title " << searchRentable->getTitle();
+        std::cerr<< " not carried in the store." << std::endl;
+        return false;
+    }
+
+    //update in store
+
+    actualCustomer->borrowRentable(1, *actualRentable);
 
     return true;
 }
