@@ -56,7 +56,8 @@
 			{
 				return false;
 			}
-			else if (!customers[index]->isFilled || customers[index] != cust)
+			else if (!customers[index]->isFilled || 
+			         *(customers[index]->customer) != cust)
 			{
 				i++;
 
@@ -65,7 +66,7 @@
 			}
 			else
 			{
-				retC = customers[index]->cust; 
+				retC = customers[index]->customer; 
 				return true;
 			}
 

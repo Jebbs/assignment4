@@ -11,7 +11,7 @@
 class InventoryCommand : public Command
 {
 public:
-	InventoryCommand(/*parameters to create inventory command*/);
+	InventoryCommand();
 	~InventoryCommand();
 
 	/*
@@ -23,7 +23,7 @@ public:
     bool processCommand();
 
 private:
-	InventoryCommand();
+	//InventoryCommand();
 };
 
 #endif //INVENTORYCOMMAND_H

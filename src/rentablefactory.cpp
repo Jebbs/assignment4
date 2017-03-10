@@ -2,7 +2,7 @@
 
 #include "dvd.h"
 #include "classic.h"
-#include "family.h"
+#include "comedy.h"
 #include "drama.h"
 
 #include <vector>
@@ -41,19 +41,27 @@ Rentable* loadDVD(std::string line)
         {
             std::vector<std::string> info = split(line, ", ");
 
-            return new Classic();
+            //fix and replace
+
+            //return new Classic();
+
+            return nullptr;
         }
         case 'D':
         {
             std::vector<std::string> info = split(line, ", ");
 
-            return new Drama();
+            //return new Drama();
+
+            return nullptr;
         }
         case 'F':
         {
             std::vector<std::string> info = split(line, ", ");
 
-            return new Family();
+            //return new Comedy();
+
+            return nullptr;
         }
         default:
         {

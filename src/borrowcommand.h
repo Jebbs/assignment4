@@ -5,7 +5,7 @@
  * Chantel Frizzell, Jeremy DeHaan
  *
  * Date Last Modified: 
- * 2017-03-09
+ * 2017-03-10
  *
  * BorrowCommand is a subclass of Command.
  * BorrowCommand reduces stock of a Rentable by 1 (if there's enough of stock).
@@ -31,8 +31,7 @@ public:
      * Creates a new instance of BorrowCommand.
      * Empty BorrowCommand cannot be created.
      */
-	BorrowCommand(int customerID, RentableType type, int subtype, 
-	              std::string data);
+	BorrowCommand(int customerID, char type, char subtype, std::string data);
 	~BorrowCommand();
 
     /*

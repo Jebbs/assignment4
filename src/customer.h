@@ -81,7 +81,7 @@ private:
 
     std::vector<RentalDetails> currentlyRenting;
 
-    std::vector<Rentable> customerHistory;
+    std::vector<RentalDetails> customerHistory;
 };
 
 #endif //CUSTOMER_H

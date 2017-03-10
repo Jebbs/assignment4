@@ -179,13 +179,18 @@ static Comedy* buildComedy(std::string data);
 static Drama* buildDrama(std::string data);
 static Classic* buildClassic(std::string data);
 
-Rentable* Store::buildRentable(RentableType type, int subtype, std::string data)
+Rentable* Store::buildRentable(char type, char subtype, std::string data)
 {
-    switch(type)
+
+    //code to RentableType
+
+    RentableType test = DVD;
+
+    switch(test)
     {
         case DVD:
         {
-            switch(intToDVDType(subtype))
+            switch(codeToDVDType(subtype))
             {
                 case ComedyDVD:
                 {

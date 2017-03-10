@@ -1,9 +1,10 @@
 #include "returncommand.h"
 
-ReturnCommand::ReturnCommand(int customerID, RentableType type, int subtype, std::string data)
+ReturnCommand::ReturnCommand(int customerID, char type, char subtype,
+                             std::string data)
 {
     cust = Customer(customerID, "", "");
-    rent = Store.buildRentable(type, subtype, data);
+    rent = Store::buildRentable(type, subtype, data);
 }
 
 ReturnCommand::~ReturnCommand()

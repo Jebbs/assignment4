@@ -6,19 +6,26 @@
 #include "inventorycommand.h"
 #include "historycommand.h"
 
-
+#include <sstream>
 
 Command* CommandFactory::createCommand(std::string line)
 {
 
     if(line.empty())
     {
-        //print error
+        //print error?
 
         return nullptr;
     }
 
-    char commandCode = line[0];
+
+    std::stringstream stream;
+    stream.str(line);
+
+
+    char commandCode;
+
+    stream >> commandCode;
 
     switch(commandCode)
     {
@@ -29,23 +36,37 @@ Command* CommandFactory::createCommand(std::string line)
         case 'H':
         {
             //get remaining info
-            return new HistoryCommand();
+
+            int customerID;
+
+            stream >> customerID;
+
+            return new HistoryCommand(customerID);
         }
         case 'B':
         {
-            //get remaining info
-            return new BorrowCommand();
+            int customerID;
+            char type, subtype;
+            std::string data;
+
+            stream >> customerID >> type >> subtype >> data;
+
+            return new BorrowCommand(customerID, type, subtype, data);
         }
         case 'R':
         {
-            //get reamining info
-            return new ReturnCommand();
+            int customerID;
+            char type, subtype;
+            std::string data;
+
+            stream >> customerID >> type >> subtype >> data;
+            
+            return new ReturnCommand(customerID, type, subtype, data);
         }
         default:
         {
-            //unknown error code if here
-
-            //print error
+            std::cerr << "Error: Command code \"" << commandCode << "\" not a ";
+            std::cerr << "valid command code." << std::endl;
 
             return nullptr;
         }

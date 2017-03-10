@@ -9,6 +9,6 @@
  *
  * The delimiter is not included in any of the strings in the vector.
  */
-std::vector<string> split(const std::string& line, const std::string& delim);
+std::vector<std::string> split(const std::string& line, const std::string& delim);
 
 #endif //SPLIT_H

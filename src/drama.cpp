@@ -49,7 +49,7 @@ void Drama::print(std::ostream& outStream) const
 	outStream << this->getDirector() << ", " << this->getTitle() << ", " << this->getReleaseYear();
 }
 
-bool Drama::equalTo(Rentable & rentable) const
+bool Drama::equalTo(const Rentable & rentable) const
 {
 	
 	Drama& asDrama = static_cast<Drama&>(rentable);
@@ -61,13 +61,19 @@ bool Drama::equalTo(Rentable & rentable) const
 	return false;
 }
 
-bool Drama::lessThan(Rentable & rentable) const
+bool Drama::lessThan(const Rentable & rentable) const
 {
-	Drama& asDrama = static_cast<Drama&>(rentable);
-
-	if (asDrama.getTitle() < rentable.getTitle())
+	try
 	{
-		return true;
+		Drama& asDrama = dynamic_cast<Drama&>(rentable);
+
+		if (asDrama.getTitle() < rentable.getTitle())
+		{
+			return true;
+		}
 	}
-	return false;
+	catch(...)
+	{
+		return false;
+	}
 }

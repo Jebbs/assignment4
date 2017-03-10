@@ -20,7 +20,7 @@
 class ReturnCommand : public Command
 {
 public:
-	ReturnCommand(int customerID, RentableType type, int subtype, std::string data);
+	ReturnCommand(int customerID, char type, char subtype, std::string data);
 	~ReturnCommand();
 
 	/*

@@ -89,7 +89,7 @@ private:
     void returnRentable(Customer& searchCustomer, Rentable& searchRentable);
 
     //given some data, build a rentable to be searched for for borrowing or returning
-    static Rentable* buildRentable(RentableType type, int subtype, std::string data);
+    static Rentable* buildRentable(char type, char subtype, std::string data);
 
 
 };

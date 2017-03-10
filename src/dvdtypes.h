@@ -32,7 +32,7 @@ char DVDTypeToCode(DVDType type)
     }
 }
 
-DVDType CodeToDVDType(char code)
+DVDType codeToDVDType(char code)
 {
     switch(code)
     {

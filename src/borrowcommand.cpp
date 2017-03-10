@@ -2,10 +2,11 @@
 
 
 
-BorrowCommand::BorrowCommand(int customerID, RentableType type, int subtype, std::string data)
+BorrowCommand::BorrowCommand(int customerID, char type, char subtype,
+                             std::string data)
 {
     cust = Customer(customerID, "", "");
-    rent = Store.buildRentable(type, subtype, data);
+    rent = Store::buildRentable(type, subtype, data);
 }
 BorrowCommand::~BorrowCommand()
 {

@@ -2,7 +2,7 @@
 
 Customer::Customer(int id, std::string lastName, std::string firstName)
 {
-	this->id = id;
+	this->customerID = id;
 	this->lastName = lastName;
 	this->firstName = firstName;
 }
@@ -37,40 +37,45 @@ void Customer::setCustomerLastName(std::string newLastName)
 	lastName = newLastName;
 }
 
-void Customer::displayHistory(std::ostream & outStream) const
+/*
+void Customer::displayHistory() const
 {
 	for (int i = 0; i < customerHistory.size(); i++)
 	{
-		cout << customerHistory[i];
+		std::cout << customerHistory[i];
 	}
 }
+*/
 
 bool Customer::operator==(const Customer& rhs) const  // do we need these? 
 {
-	return customerId == rhs.getCustomerID();
+	return customerID== rhs.getCustomerID();
 }
 
 bool Customer::operator!=(const Customer& rhs) const  // do we need these? 
 {
-	return customerId != rhs.getCustomerID();
+	return customerID != rhs.getCustomerID();
 }
 
 bool Customer::borrowRentable(int borrowCount, Rentable& rentable)
 {
 	//RentalDetails transaction = new RentalDetails();
 	// or 
-	RentalDetails transaction;
 
-	transaction.count += borrowCount;
-	transaction.rental = rentable;
-	transaction.returned = false;
-	transaction.action = "Borrow";
+	//RentalDetails has a reference to a rentable, so this needs to be done
+	//all at the same time.
+	RentalDetails transaction = {rentable, 0, borrowCount, false, "Borrow"};
+	
 
-	customerHistory.push_back(transaction);
-	customerHistory;
+	currentlyRenting.push_back(transaction);
+	//customerHistory;//push_back what? the same transaction?
 
+
+	//Each rentable has its rentalPeriodInDays set during construction
+	//I think below is not needed since it will always be set, so we don't have to set it manually
+
+	/*
 	// to set return date - NOT fully implemented, since out of the scope for this assignment.
-	int type = rentable.getType();
 	switch (type)
 	{
 	case 0: 
@@ -81,20 +86,26 @@ bool Customer::borrowRentable(int borrowCount, Rentable& rentable)
 		// this (and any other case) is for future implementation of other rentable types.
 		break;
 	}
+	*/
 }
 
 bool Customer::returnRentable(int returnCount, Rentable& rentable)
 {
-	for (int i = 0; i < currentlyRenting.size; i++)
+	for (int i = 0; i < currentlyRenting.size(); i++)
 	{
-		if (currentlyRenting[i] == rentable && currentlyRenting[i].count >= returnCount)
+		if (currentlyRenting[i].rental == rentable && 
+			currentlyRenting[i].count >= returnCount)
 		{
+
+			//need to check if count is reduced to zero
+			//if so, need to remove transaction from currentlyRenting
+
 			RentalDetails transaction = currentlyRenting[i];
-			transaction.count -= returnCount;
+			transaction.count -= returnCount;//minus equals and not  just equals?
 			transaction.returned = true;
 			transaction.action = "Return";
 
-			addToCustomerHistory(transaction);
+			//addToCustomerHistory(transaction);
 
 			//update to reflect return 
 			currentlyRenting[i].count -= returnCount;
@@ -102,39 +113,48 @@ bool Customer::returnRentable(int returnCount, Rentable& rentable)
 			currentlyRenting[i].action = "Return";
 			
 			customerHistory.push_back(transaction);
-			customerHistory;
+			//customerHistory;
 			break;
 		}
 		else
 		{
-			cerr << "INVALID RETURN REQUEST" << enld;
+			std::cerr << "INVALID RETURN REQUEST" << std::endl;
 		}
 	}
+
+	//emit error here
+
+	//"customer not renting this movie" or something like that.
+
 }
 
 void Customer::displayHistory() const
 {
-	cout << "Transaction History for: " << getCustomerLastName(); << ", " << setCustomerFirstName();
-	cout << "  Customer ID: "<< customerID << endl;
+	std::cout << "Transaction History for: " << getCustomerLastName();
+	std::cout << ", " << getCustomerFirstName();
+	std::cout << "  Customer ID: "<< customerID << std::endl;
 	
 	//RentalDetails transaction = new RentalDetails();
 	// or 
-	RentalDetails transaction;
+	
 	for (int i = customerHistory.size() - 1; i >= 0; i--)
 	{
-		transaction = customerHistory[i];
-		cout << transaction.action << "     ";
-		cout << transaction.rental.getType() << "     ";
+
+
+
+		RentalDetails transaction = customerHistory[i];
+		std::cout << transaction.action << "     ";
+		std::cout << transaction.rental.getType() << "     ";
 		// cout << transaction.rental.subtypestuff
-		cout << transaction.rental.getTitle() << "     ";
+		std::cout << transaction.rental.getTitle() << "     ";
 		//if (transaction.rental.getType() == classic)
 		// {
 		//     do the date thats necessary here 
 		//     do the actors necessary here
 		// else 
 		// {
-		cout << transaction.rental.getReleaseYear();
+		std::cout << transaction.rental.getReleaseYear();
 		// }
-		cout << endl;
+		std::cout << std::endl;
 	}
 }

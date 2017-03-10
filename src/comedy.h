@@ -40,17 +40,17 @@ protected:
 	/*
 	* Returns title==, releaseYear==
 	*/
-	bool equalTo(Rentable& rentable) const;
+	bool equalTo(const Rentable& rentable) const;
 
 	/*
 	* Returns < based on title and release year
 	*/
-	bool lessThan(Rentable& rentable) const;
+	bool lessThan(const Rentable& rentable) const;
 
 	/*
 	* Returns > based on title and release year
 	*/
-	bool greaterThan(Rentable& rentable) const;
+	bool greaterThan(const Rentable& rentable) const;
 
 private:
 	//Comedy(); //was duplicated

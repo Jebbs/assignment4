@@ -12,9 +12,8 @@
 struct RentalDetails
 {
 public:
-	~RentalDetails();//do something with this?
 
-    Rentable* rental;//needs to be a pointer because abstract class
+    Rentable& rental;
     int rentDate;
 	int count;
 	bool returned;

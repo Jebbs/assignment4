@@ -4,7 +4,7 @@
 
 //I haven't tested it yet!!!
 
-std::vector<string> split(const std::string& line, const std::string& delim)
+std::vector<std::string> split(const std::string& line, const std::string& delim)
 {
     int start = 0;
     std::vector<std::string> elements;

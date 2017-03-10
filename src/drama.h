@@ -40,17 +40,17 @@ protected:
 	/*
 	* Returns title==, director==
 	*/
-	bool equalTo(Rentable& rentable) const;
+	bool equalTo(const Rentable& rentable) const;
 
 	/*
 	* Returns < based on title and director
 	*/
-	bool lessThan(Rentable& rentable) const;
+	bool lessThan(const Rentable& rentable) const;
 
 	/*
 	* Returns > based on title and director
 	*/
-	bool greaterThan(Rentable& rentable) const;
+	bool greaterThan(const Rentable& rentable) const;
 
 private:
 	//Drama(); //duplicated

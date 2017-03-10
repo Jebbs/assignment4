@@ -19,7 +19,7 @@ Comedy::~Comedy()
 }
 
 //add comments about telling compiler we know 
-bool Comedy::equalTo(Rentable& rentable) const //title, release year
+bool Comedy::equalTo(const Rentable& rentable) const //title, release year
 {
 		Comedy& asComedy = static_cast<Comedy&>(rentable);
 		
@@ -30,7 +30,7 @@ bool Comedy::equalTo(Rentable& rentable) const //title, release year
 		return false;
 }
 
-bool Comedy::lessThan(Rentable& rentable) const
+bool Comedy::lessThan(const Rentable& rentable) const
 {
 	Comedy& asComedy = static_cast<Comedy&>(rentable);
 	
@@ -41,7 +41,7 @@ bool Comedy::lessThan(Rentable& rentable) const
 	return false;
 }
 
-bool Comedy::greaterThan(Rentable& rentable) const
+bool Comedy::greaterThan(const Rentable& rentable) const
 {
 	Comedy& asComedy = static_cast<Comedy&>(rentable);
 
