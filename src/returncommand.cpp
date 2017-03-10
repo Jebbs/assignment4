@@ -1,5 +1,7 @@
 #include "returncommand.h"
 
+#include "store.h"
+
 ReturnCommand::ReturnCommand(int customerID, char type, char subtype,
                              std::string data)
 {
@@ -12,7 +14,9 @@ ReturnCommand::~ReturnCommand()
     delete rent;
 }
 
-void ReturnCommand::processCommand()
+bool ReturnCommand::processCommand()
 {
-    store->returnRentable(cust, *rent);
+    storeInst->returnRentable(cust, *rent);
+
+    return true;
 }

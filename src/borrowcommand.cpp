@@ -1,6 +1,6 @@
 #include "borrowcommand.h"
 
-
+#include "store.h"
 
 BorrowCommand::BorrowCommand(int customerID, char type, char subtype,
                              std::string data)
@@ -13,7 +13,9 @@ BorrowCommand::~BorrowCommand()
     delete rent;
 }
 
-void BorrowCommand::processCommand()
+bool BorrowCommand::processCommand()
 {
-    store->borrowRentable(cust, *rent);
+    storeInst->borrowRentable(cust, *rent);
+
+    return true;
 }

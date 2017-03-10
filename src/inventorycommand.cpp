@@ -1,15 +1,19 @@
 #include "inventorycommand.h"
 
+#include "store.h"
+
 InventoryCommand::InventoryCommand()
 {
     //nothing?
 }
 
-void InventoryCommand::processCommand()
+bool InventoryCommand::processCommand()
 {
     //check store here?
     //if store == nullptr
 
-    store->printInventory();
+    storeInst->printInventory();
+
+    return true;
 
 }

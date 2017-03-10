@@ -1,12 +1,16 @@
 #include "historycommand.h"
 
+#include "store.h"
+
 HistoryCommand::HistoryCommand(int customerID)
 {
     cust = Customer(customerID, "", "");
 }
 
 
-void HistoryCommand::processCommand()
+bool HistoryCommand::processCommand()
 {
-    store->displayHistory(cust);
+    storeInst->displayHistory(cust);
+
+    return true;
 }
