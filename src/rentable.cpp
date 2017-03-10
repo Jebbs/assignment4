@@ -1,27 +1,28 @@
 #include "rentable.h"
 
 
-bool Rentable::operator==(Rentable& rentable)
+bool Rentable::operator==(const Rentable& rentable) const
 {
-    return (*this)->equals(rentable);
+    return this->equalTo(rentable);
 }
 
-bool Rentable::operator!=(Rentable& rentable)
+bool Rentable::operator!=(const Rentable& rentable) const
 {
-    return !((*this)->equals(rentable));
+    return !(this->equalTo(rentable));
 }
 
-bool Rentable::operator<(Rentable& rentable)
+bool Rentable::operator<(const Rentable& rentable) const
 {
-    return (*this)->lessThan(rentable);
+    return this->lessThan(rentable);
 }
 
-bool Rentable::operator>(Rentable& rentable)
+bool Rentable::operator>(const Rentable& rentable) const
 {
-    return (*this)->greaterThan(rentable);
+    return this->greaterThan(rentable);
 }
 
-std::ostream& Rentable::operator<<(std::ostream& outStream, Rentable& rentable)
+std::ostream& operator<<(std::ostream& outStream, Rentable& rentable)
 {
-    rentable->print(outStream);
+    rentable.print(outStream);
+    return outStream;
 }

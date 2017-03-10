@@ -59,11 +59,6 @@ public:
 	* Overloaded operator to check if it is the same customer
 	*/
 	bool operator==(const Customer& rhs) const;
-	
-	/*
-	* Overloaded operator to heck if it is the same customer
-	*/
-	bool operator==(const Customer& rhs) const;
 
 
 private:

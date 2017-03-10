@@ -13,6 +13,6 @@ enum RentableType
     DVD_Player,
     Projector,
     NumberOfRentableTypes
-}
+};
 
 #endif // RENTABLETYPE_H

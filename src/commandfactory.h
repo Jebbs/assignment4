@@ -15,6 +15,6 @@ public:
  * Creates a Commands based on a given line read from a file.
  */
 static Command* createCommand(std::string line);
-}
+};
 
 #endif //COMMANDFACTORY_H

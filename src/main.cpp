@@ -1,17 +1,17 @@
 #include <iostream>
-#include <ifstream>
+#include <fstream>
 #include "store.h"
 
 
 int main()
 {
-    ifstream infile1(“data4movies.txt”);
-    ifstream infile1(“data4customers.txt”);
-    ifstream infile1(“data4commands.txt”);
+    std::ifstream infile1("data4movies.txt");
+    std::ifstream infile2("data4customers.txt");
+    std::ifstream infile3("data4commands.txt");
 
-    if (!infile1 || !infile2 || !infile3)
+    if (!infile1.is_open() || !infile2.is_open() || !infile3.is_open())
     {
-        cerr << “file could not be opened.” << endl;
+        std::cerr << "file could not be opened." << std::endl;
         return -1;
     }
 

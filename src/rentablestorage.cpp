@@ -7,11 +7,11 @@ RentableStorage::RentableStorage()
 
 RentableStorage::~RentableStorage()
 {
-    int length = rentables.length();
+    int length = rentables.size();
 
     for(int i = 0; i < length; i++)
     {
-        int subLength = rentables[i].length();
+        int subLength = rentables[i].size();
 
         for(int j = 0; j< subLength; j++)
         {
@@ -33,17 +33,17 @@ bool RentableStorage::insert(Rentable* object)
 
         //make sure that we can place the rentable somewhere
 
-        std::vector<Rentable*> newVector;
+        std::vector<Node*> newVector;
         newVector.push_back(nullptr);
 
-        while(rentables.length() < mainType)
+        while(rentables.size() < mainType)
         {
             rentables.push_back(newVector);
         }
 
-        while(rentables[mainType].length() < subType)
+        while(rentables[mainType].size() < subType)
         {
-            rentables[mainType].pushback(nullptr);
+            rentables[mainType].push_back(nullptr);
         }
 
 
@@ -51,7 +51,7 @@ bool RentableStorage::insert(Rentable* object)
 
         if(rentables[mainType][subType] == nullptr)
         {
-            rentables[mainType][subType] = new Node{object, null, null};
+            rentables[mainType][subType] = new Node{object, nullptr, nullptr};
             return true;
         }
         else
@@ -60,7 +60,7 @@ bool RentableStorage::insert(Rentable* object)
         }
 }
 
-bool RentableStorage::retreive(const Rentable* object, Rentable*& RetObject)
+bool RentableStorage::retrieve(const Rentable* object, Rentable*& RetObject)
 {
 
     if(object == nullptr)
@@ -69,10 +69,10 @@ bool RentableStorage::retreive(const Rentable* object, Rentable*& RetObject)
     int mainType = object->getType();
     int subType = object->getSubtype();
 
-    if(rentables.length() < mainType)
+    if(rentables.size() < mainType)
         return false;
 
-    if(rentables[mainType].length() < subType)
+    if(rentables[mainType].size() < subType)
         return false;
 
     return retrieveHelper(rentables[mainType][subType], object, RetObject);
@@ -80,14 +80,14 @@ bool RentableStorage::retreive(const Rentable* object, Rentable*& RetObject)
 
 void RentableStorage::printInventory() const
 {
-    int length = rentables.length();
+    int length = rentables.size();
 
     for(int i = 0; i < length; i++)
     {
 
         //printing all "type"
 
-        int subLength = rentables[i].length();
+        int subLength = rentables[i].size();
 
         for(int j = 0; j< subLength; j++)
         {
@@ -147,7 +147,7 @@ bool RentableStorage::retrieveHelper(Node* node, const Rentable* object, Rentabl
     return retrieveHelper(node->left, object, RetObject);
 }
 
-void RentableStorage::printHelper(Node* node)
+void RentableStorage::printHelper(const Node* node) const
 {
     if(node == nullptr)
             return;

@@ -53,7 +53,7 @@ protected:
 
 
 private:
-	Comedy();
+	//Comedy(); //was duplicated
 	int year;
 	std::string title;
 };

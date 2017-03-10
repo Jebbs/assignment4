@@ -1,7 +1,8 @@
 #ifndef RENTABLESTORAGE_H
 #define RENTABLESTORAGE_H
 
-#include <type_traits>
+#include <vector>
+#include "rentable.h"
 
 /*
  * RentableStorage models a multi-dimensional array structure storing every
@@ -21,7 +22,7 @@ public:
 
     bool insert(Rentable* object);
 
-    bool retreive(const Rentable* object, Rentable*& RetObject);
+    bool retrieve(const Rentable* object, Rentable*& RetObject);
 
     void printInventory() const;
 
@@ -31,19 +32,19 @@ private:
         Rentable* object;
         Node* left;
         Node* right;
-    }
+    };
 
 
     //multi-dimensional array of root nodes of binary trees
-    vector<vector<Node*>> rentables;
+    std::vector<std::vector<Node*>> rentables;
 
     void destructorHelper(Node* node);
 
-    void insertHelper(Node* node, Rentable* object);
+    bool insertHelper(Node* node, Rentable* object);
 
     bool retrieveHelper(Node* node, const Rentable* object, Rentable*& RetObject);
 
-    void printHelper(Node* node);
+    void printHelper(const Node* node) const;
 
 };
 

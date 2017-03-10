@@ -2,27 +2,27 @@
 #define DVDTYPES_H
 
 
-enum DVDTypes
+enum DVDType
 {
     None = -1,
-    Comedy = 0,
-    Drama,
-    Classic
-}
+    ComedyDVD = 0,
+    DramaDVD,
+    ClassicDVD
+};
 
 char DVDTypeToCode(DVDType type)
 {
     switch(type)
     {
-        case Comedy:
+        case ComedyDVD:
         {
             return 'F';
         }
-        case Drama:
+        case DramaDVD:
         {
             return 'D';
         }
-        case Classic:
+        case ClassicDVD:
         {
             return 'C';
         }
@@ -39,15 +39,15 @@ DVDType CodeToDVDType(char code)
     {
         case 'F':
         {
-            return Comedy;
+            return ComedyDVD;
         }
         case 'D':
         {
-            return Drama;
+            return DramaDVD;
         }
         case 'C':
         {
-            return Classic;
+            return ClassicDVD;
         }
         default:
         {
@@ -62,15 +62,15 @@ DVDType intToDVDType(int code)
     {
         case 0:
         {
-            return Comedy;
+            return ComedyDVD;
         }
         case 1:
         {
-            return Drama;
+            return DramaDVD;
         }
         case 2:
         {
-            return Classic;
+            return ClassicDVD;
         }
         default:
         {

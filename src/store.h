@@ -3,7 +3,8 @@
 
 #include <vector>
 #include <queue>
-#include "avltree.h"
+#include "customer.h"
+#include "hashtable.h"
 #include "rentable.h"
 #include "rentabletype.h"
 #include "rentablestorage.h"
@@ -75,28 +76,22 @@ private:
     //the storage container for all rentables this store carries
     RentableStorage rentables;
 
-    //interface used by commands
-    void printInventory();
-    void displayHistory(Customer& searchCustomer);
-    void borrowRentable(Customer& searchCustomer, Rentable& searchRenatble);
-    void returnRentable(Customer& searchCustomer, Rentable& searchRenatble);
-
-    //given some data, build a rentable to be searched for for borrowing or returning
-    static Rentable* buildRentable(RentableType type, int subtype, std::string data);
-
-
-
-
-
-
-
-
-    HashTabe customers;
+    HashTable customers;
 
     int storeID;
 
     std::queue<Command*> commandQueue;
 
-}
+    //interface used by commands
+    void printInventory();
+    void displayHistory(Customer& searchCustomer);
+    void borrowRentable(Customer& searchCustomer, Rentable& searchRentable);
+    void returnRentable(Customer& searchCustomer, Rentable& searchRentable);
+
+    //given some data, build a rentable to be searched for for borrowing or returning
+    static Rentable* buildRentable(RentableType type, int subtype, std::string data);
+
+
+};
 
 #endif //STORE_H

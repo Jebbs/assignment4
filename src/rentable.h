@@ -18,10 +18,10 @@
 class Rentable
 {
 public:
-    Rentable(RentableType type, int stock, std::string Title, int releaseYear, int rentalPeriodInDays);
+    Rentable(RentableType type, int stock, std::string Title, int releaseYear,
+             int rentalPeriodInDays);
 
     bool inStock() const;
-
 
     /*
      * Remove a number of items from the stock for this rentable as if it
@@ -38,29 +38,24 @@ public:
      */
     void addToStock(int amount);
 
-    /*
-     * Add a command that interacts with this rentable into a history
-     * for later analysis.
-     */
-    void addToHistory(Command& command);//change this name because it's dumb
-
     RentableType getType() const;
-    int getSubtype() const;
 
-    int getSubtypeCount() const;//get the count for the total number of subtypes that exist
+    int getSubtype() const;
 
     std::string getTitle() const;
 
     int getReleaseYear() const;
+
     int getRentalPeriodInDays() const;
+
     void setRentalPeriodInDays(int rentalPeriod);
 
     int getStockCount() const;
 
-    bool operator==(Rentable& rentable);
-    bool operator!=(Rentable& rentable);
-    bool operator<(Rentable& rentable);
-    bool operator>(Rentable& rentable);
+    bool operator==(const Rentable& rentable) const;
+    bool operator!=(const Rentable& rentable) const;
+    bool operator<(const Rentable& rentable) const;
+    bool operator>(const Rentable& rentable) const;
 
     //out puts data and stuff
     friend std::ostream& operator<<(std::ostream& outStream, Rentable& rentable);
@@ -84,11 +79,10 @@ private:
 
     std::vector<Command> history;
 
-    void print(std::ostream& outStream) = 0;
-    bool equalTo(Rentable& rentable) = 0;
-    bool lessThan(Rentable& rentable) = 0;
-    bool greaterThan(Rentable& rentable) = 0;
-
+    virtual void print(std::ostream& outStream) const = 0;
+    virtual bool equalTo(const Rentable& rentable) const = 0;
+    virtual bool lessThan(const Rentable& rentable) const = 0;
+    virtual bool greaterThan(const Rentable& rentable) const = 0;
 };
 
 #endif //RENTABLE_H

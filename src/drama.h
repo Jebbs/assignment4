@@ -52,7 +52,7 @@ protected:
 	bool greaterThan(Rentable& rentable) const;
 
 private:
-	Drama();
+	//Drama(); //duplicated
 };
 
 #endif //DRAMA_H

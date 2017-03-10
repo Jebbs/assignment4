@@ -6,7 +6,7 @@
 #define RENTALDETAILS_H
 
 
-const DVD_RENTAL_PERIOD = 14;
+const int DVD_RENTAL_PERIOD = 14;
 
 
 #endif //RENTALDETAILS_H

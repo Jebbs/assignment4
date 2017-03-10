@@ -1,7 +1,8 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-
+//forward decl
+class Store;
 
 
 /*
@@ -17,12 +18,12 @@ public:
     /*
      * Process the command for this Command.
      */
-    virtua bool processCommand();
+    virtual bool processCommand() = 0;
 
 private:
     //the instance of the store this command will operate on
     Store* storeInst;
 
-}
+};
 
 #endif //COMMAND_H
