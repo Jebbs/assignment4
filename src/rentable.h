@@ -1,15 +1,23 @@
-
-
+/*******************************************************************************
+ * Rentable
+ *
+ * Author: 
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ *
+ * The Rentable class models any rentable type (for example, DVD, console, etc.) 
+ * that can be rented from the store.
+ ******************************************************************************/
 #ifndef RENTABLE_H
 #define RENTABLE_H
-
 
 #include <iostream>
 #include <string>
 #include <vector>
 #include "command.h"
 #include "rentabletype.h"
-
 
 /*
  * The Rentable class models some kind of item that can be

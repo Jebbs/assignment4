@@ -7,7 +7,6 @@ HistoryCommand::HistoryCommand(int customerID): cust(customerID, "", "")
     
 }
 
-
 bool HistoryCommand::processCommand()
 {
 
