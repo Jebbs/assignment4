@@ -26,7 +26,7 @@ public:
 	* Creates an instance of drama movie.
 	*/
 	Drama(DVDType type, int stock, std::string title, std::string director,
-		int releaseYear, int rentalPeriodInDays)
+		int releaseYear, int rentalPeriodInDays);
 
 	~Drama();
 

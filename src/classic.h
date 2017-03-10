@@ -27,7 +27,7 @@ public:
      * Creates an instance of Classic movie.
      */
 	Classic(RentableType type, int stock, std::string Title, int releaseYear,
-		int rentalPeriodInDays, std::string actor, int month, int month);
+		int rentalPeriodInDays, std::string actor, int month);
 	
     ~Classic();
 

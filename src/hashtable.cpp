@@ -1,10 +1,10 @@
 #include "hashtable.h"
 
-	HashTable()
+	HashTable::HashTable()
 	{
 
 	}
-	~HashTable()
+	HashTable::~HashTable()
 	{
 		makeEmpty();
 	}
@@ -23,10 +23,10 @@
 				customers[index] = new Node{cust, true};
 				return true;
 			}
-			else if (!customers[index].filled)
+			else if (!customers[index]->isFilled)
 			{
-				customers[index]->cust = cust;
-				customers[index].filled = true;
+				customers[index]->customer = cust;
+				customers[index]->isFilled = true;
 				return true;
 			}
 			else 
@@ -50,13 +50,13 @@
 
 		do
 		{
-			int index = (hash1(cust) + i * hash2(cust)) % MIN_TABLE_SIZE;
+			int index = (hash1(&cust) + i * hash2(&cust)) % MIN_TABLE_SIZE;
 
 			if (customers[index] == NULL)
 			{
 				return false;
 			}
-			else if (!customers[index].filled || customers[index] != cust)
+			else if (!customers[index]->isFilled || customers[index] != cust)
 			{
 				i++;
 
@@ -108,6 +108,4 @@
 	{
 
 	}
-};
 
-#endif //HASHTABLE_H

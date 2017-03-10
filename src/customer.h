@@ -60,6 +60,8 @@ public:
 	*/
 	bool operator==(const Customer& rhs) const;
 
+    bool operator!=(const Customer& rhs) const;
+
 
 private:
 

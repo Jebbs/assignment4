@@ -54,7 +54,7 @@ public:
     void resize(int newSize);
 
 private:
-	Struct Node
+	struct Node
 	{
 		Customer *customer;
 		bool isFilled;
