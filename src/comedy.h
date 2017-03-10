@@ -1,12 +1,15 @@
-// --------------------------- classic.h -----------------
-// 
-// 
-// Creation Date: 2/25/2017
-// Date of Last Modification: 
-// ------------------------------------------------------
-// Comedy movie: interface
-// Comedy DVD inherits from public DVD
-// ------------------------------------------------------
+/*******************************************************************************
+ * Comedy
+ * 
+ * Author: 
+ * Chantel Frizzell, Jeremy DeHaan
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ *
+ * Comedy movie: interface
+ * Comedy DVD inherits from public DVD
+ ******************************************************************************/
 
 #ifndef COMEDY_H
 #define COMEDY_H
@@ -27,7 +30,7 @@ public:
 	* Creates an instance of Comedy movie.
 	*/
 	Comedy(DVDType type, int stock, std::string title, std::string director,
-		int releaseYear, int rentalPeriodInDays);
+		   int releaseYear, int rentalPeriodInDays);
 
 	~Comedy();
 
@@ -53,7 +56,6 @@ protected:
 	bool greaterThan(const Rentable& rentable) const;
 
 private:
-	//Comedy(); //was duplicated
 	int year;
 	std::string title;
 };
