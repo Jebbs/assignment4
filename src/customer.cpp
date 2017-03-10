@@ -37,16 +37,6 @@ void Customer::setCustomerLastName(std::string newLastName)
 	lastName = newLastName;
 }
 
-/*
-void Customer::displayHistory() const
-{
-	for (int i = 0; i < customerHistory.size(); i++)
-	{
-		std::cout << customerHistory[i];
-	}
-}
-*/
-
 bool Customer::operator==(const Customer& rhs) const 
 {
 	return customerID== rhs.getCustomerID();
@@ -72,12 +62,8 @@ bool Customer::returnRentable(int returnCount, Rentable& rentable)
 	for (int i = 0; i < currentlyRenting.size(); i++)
 	{
 		if (*(currentlyRenting[i].rental) == rentable && 
-			currentlyRenting[i].count >= returnCount)
+			  currentlyRenting[i].count >= returnCount)
 		{
-
-			//need to check if count is reduced to zero
-			//if so, need to remove transaction from currentlyRenting
-
 			RentalDetails transaction = currentlyRenting[i];
 			transaction.count = returnCount;
 			transaction.returned = true;
@@ -86,6 +72,8 @@ bool Customer::returnRentable(int returnCount, Rentable& rentable)
 			//update to reflect return 
 			currentlyRenting[i].count -= returnCount;
 			
+			//need to check if count is reduced to zero
+			//if so, need to remove transaction from currentlyRenting
 			if (transaction.count == 0)
 			{
 				// no more on hand, so remove from vector

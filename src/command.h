@@ -8,9 +8,8 @@
  * 2017-03-10
  *
  * The Command class defines a template for all
- * types of commands.
+ * types of commands and then sends them to be processed
  *
- * The command class then process the commands.
  ******************************************************************************/
 
 #ifndef COMMAND_H
