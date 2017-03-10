@@ -53,22 +53,15 @@ public:
      */
     void resize(int newSize);
 
-	/*
-	 * Returns true if no items are in the table
-	 */
-    bool isEmpty();
-
-	/*
-	 * Prints out the table
-	 */
-	void printHashTable();
-
 private:
-	//Keeps track of the hashtable's size.
-	int size;
+	Struct Node
+	{
+		Customer *customer;
+		bool isFilled;
+	};
 
     //Array of pointers to customers.
-	Customer customers[MIN_TABLE_SIZE];
+	Node* customers[MIN_TABLE_SIZE];
 
 	//Returns h for a customer: customerId % MIN_TABLE_SIZE
 	int hash1(const Customer *cust);
