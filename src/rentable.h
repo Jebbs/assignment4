@@ -60,7 +60,7 @@ public:
     //out puts data and stuff
     friend std::ostream& operator<<(std::ostream& outStream, Rentable& rentable);
 
-private:
+protected:
 
     //so people can't call it!
     Rentable();

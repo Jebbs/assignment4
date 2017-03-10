@@ -99,6 +99,17 @@ void RentableStorage::printInventory() const
     }
 }
 
+void RentableStorage::destructorHelper(Node* node)
+{
+    if(node == nullptr)
+            return;
+
+    destructorHelper(node->left);
+    destructorHelper(node->right);
+
+    delete node;
+    node = nullptr;
+}
 
 bool RentableStorage::insertHelper(Node* node, Rentable* object)
 {

@@ -26,21 +26,45 @@ bool Rentable::removeFromStock(int amount)
 	return false;
 }
 
-void Rentable::addToStock(int amount);
+void Rentable::addToStock(int amount)
+{
+	stock+=amount;
+}
 
-RentableType Rentable::getType() const;
+RentableType Rentable::getType() const
+{
+	return type;
+}
 
-int Rentable::getSubtype() const;
+int Rentable::getSubtype() const
+{
+	return subtype;
+}
 
-std::string Rentable::getTitle() const;
+std::string Rentable::getTitle() const
+{
+	return title;
+}
 
-int Rentable::getReleaseYear() const;
+int Rentable::getReleaseYear() const
+{
+	return releaseYear;
+}
 
-int Rentable::getRentalPeriodInDays() const;
+int Rentable::getRentalPeriodInDays() const
+{
+	return rentalPeriodInDays;
+}
 
-void Rentable::setRentalPeriodInDays(int rentalPeriod);
+void Rentable::setRentalPeriodInDays(int rentalPeriod)
+{
+	rentalPeriodInDays = rentalPeriod;
+}
 
-int Rentable::getStockCount() const;
+int Rentable::getStockCount() const
+{
+	return stock;
+}
 
 bool Rentable::operator==(const Rentable& rentable) const
 {
