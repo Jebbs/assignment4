@@ -61,7 +61,7 @@ bool Customer::borrowRentable(int borrowCount, Rentable& rentable)
 {
 	//RentalDetails has a reference to a rentable, so this needs to be done
 	//all at the same time.
-	RentalDetails transaction = {rentable, 0, borrowCount, false, "Borrow"};
+	RentalDetails transaction = {&rentable, 0, borrowCount, false, "Borrow"};
 
 	currentlyRenting.push_back(transaction);
 	customerHistory.push_back(transaction);
@@ -71,7 +71,7 @@ bool Customer::returnRentable(int returnCount, Rentable& rentable)
 {
 	for (int i = 0; i < currentlyRenting.size(); i++)
 	{
-		if (currentlyRenting[i].rental == rentable && 
+		if (*(currentlyRenting[i].rental) == rentable && 
 			currentlyRenting[i].count >= returnCount)
 		{
 
@@ -86,10 +86,10 @@ bool Customer::returnRentable(int returnCount, Rentable& rentable)
 			//update to reflect return 
 			currentlyRenting[i].count -= returnCount;
 			
-			if (count == 0)
+			if (transaction.count == 0)
 			{
 				// no more on hand, so remove from vector
-				currentlyRenting.erase(i);
+				currentlyRenting.erase(currentlyRenting.begin() + i);
 			}
 			customerHistory.push_back(transaction);
 			break;
@@ -100,7 +100,8 @@ bool Customer::returnRentable(int returnCount, Rentable& rentable)
 		}
 	}
 
-	cerr << "ERROR: Customer not currently renting " << rentable.getTitle() << endl;
+	std::cerr << "ERROR: Customer not currently renting ";
+	std::cerr << rentable.getTitle() << std::endl;
 }
 
 void Customer::displayHistory() const
@@ -113,7 +114,7 @@ void Customer::displayHistory() const
 	{
 		RentalDetails transaction = customerHistory[i];
 		std::cout << transaction.action << "     ";
-		std::cout << transaction.rental.getType() << "     ";
+		std::cout << transaction.rental->getType() << "     ";
 		
 		// optional: print out subtype here
 		// if subtype printed, need to differentiate between 
@@ -125,8 +126,8 @@ void Customer::displayHistory() const
 		// else 
 		// { othere types }
 
-		std::cout << transaction.rental.getTitle() << "     ";
-		std::cout << transaction.rental.getReleaseYear();
+		std::cout << transaction.rental->getTitle() << "     ";
+		std::cout << transaction.rental->getReleaseYear();
 
 		std::cout << std::endl;
 	}

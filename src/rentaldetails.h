@@ -13,7 +13,7 @@ struct RentalDetails
 {
 public:
 
-    Rentable& rental;
+    Rentable* rental;
     int rentDate;
 	int count;
 	bool returned;
