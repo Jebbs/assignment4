@@ -1,4 +1,3 @@
-
 #include "dvdtypes.h"
 
 char DVDTypeToCode(DVDType type)
