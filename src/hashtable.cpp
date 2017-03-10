@@ -4,6 +4,7 @@
 	{
 
 	}
+
 	HashTable::~HashTable()
 	{
 		makeEmpty();
@@ -52,16 +53,21 @@
 		{
 			int index = (hash1(&cust) + i * hash2(&cust)) % MIN_TABLE_SIZE;
 
+			// no customer has ever been inserted here
 			if (customers[index] == NULL)
 			{
 				return false;
 			}
+
+			// either a customer used to exist in the space or 
+			// the customer at this space is not the one we are searching for.
 			else if (!customers[index]->isFilled || 
 			         *(customers[index]->customer) != cust)
 			{
 				i++;
 
-				// if we were to delete, but not remove. Not in the scope of this assignment.
+				// if we were to delete, but not remove (lazy delete), we would 
+				// do it here. However, not required for this assignment.
 				continue;
 			}
 			else
@@ -72,7 +78,7 @@
 
 		} while (!found);
 
-		return false;
+		return false; // customer not found
 	}
 
     /*
@@ -89,7 +95,8 @@
      */
 	void HashTable::resize(int newSize)
 	{
-		// not implemented in this assignment, but may be necessary in case of increased customers
+		// not implemented in this assignment, but may be necessary in 
+		// case of increased customers base (company growth / expansion)
 	}
 
 	//Returns h for a customer: customerId % MIN_TABLE_SIZE
