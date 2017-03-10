@@ -4,7 +4,6 @@
 #include "returncommand.h"
 #include "inventorycommand.h"
 #include "historycommand.h"
-
 #include <sstream>
 
 Command* CommandFactory::createCommand(std::string line)
@@ -12,15 +11,13 @@ Command* CommandFactory::createCommand(std::string line)
 
     if(line.empty())
     {
-        //print error?
-
+        // Unclear whether an error message should be print
+        // will revisit at a later time.
         return nullptr;
     }
 
-
     std::stringstream stream;
     stream.str(line);
-
 
     char commandCode;
 
@@ -28,11 +25,11 @@ Command* CommandFactory::createCommand(std::string line)
 
     switch(commandCode)
     {
-        case 'I':
+        case 'I': // inventory
         {
             return new InventoryCommand();
         }
-        case 'H':
+        case 'H': // history
         {
             //get remaining info
 
@@ -42,7 +39,7 @@ Command* CommandFactory::createCommand(std::string line)
 
             return new HistoryCommand(customerID);
         }
-        case 'B':
+        case 'B':  // Borrow
         {
             int customerID;
             char type, subtype;
@@ -52,7 +49,7 @@ Command* CommandFactory::createCommand(std::string line)
 
             return new BorrowCommand(customerID, type, subtype, data);
         }
-        case 'R':
+        case 'R': // Return
         {
             int customerID;
             char type, subtype;
@@ -70,5 +67,4 @@ Command* CommandFactory::createCommand(std::string line)
             return nullptr;
         }
     }
-
 }

@@ -1,4 +1,17 @@
-
+/*******************************************************************************
+ * Customer
+ *
+ * Author: 
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ *
+ * The customer class models a store customer. 
+ *
+ * Assumption: The inout data will always be valid.
+ * 
+ ******************************************************************************/
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
@@ -14,7 +27,6 @@
 /*
  * Customer class for modeling a store customer.
  *
- * Assume that the input data will always be in a valid format.
  */
 class Customer
 {
@@ -35,23 +47,26 @@ public:
     void setCustomerLastName(std::string newLastName);
 
     /*
-     * Borrow some rentable and store the borrowing into the
-     * customer's history 
+     * Borrow (X) copies of some rentable and store the transaction into the
+     * customer's history
+     * 
+     * Update what the customer currenlty has on hand
      */
     bool borrowRentable(int count, Rentable& rentable);
 
     /*
-     * Return some rentable and store the returning into the
+     * Return (X) copies of some rentable and store the transaction into the
      * customer's history
+     * 
+     * Update what the customer currenlty has on hand
      */
     bool returnRentable(int count, Rentable& rentable);
 
     /*
      * Display the customer's history for everything they've rented and
-     * returned, Starting with latest first. 
+     * returned, starting with latest first. 
      *
-     * This will output the information to std::cout by default unless
-     * overridden.
+     * This will output the information to std::cout by default.
      */
     void displayHistory() const;
 
@@ -62,7 +77,6 @@ public:
 
     bool operator!=(const Customer& rhs) const;
 
-
 private:
 
     /*
@@ -70,7 +84,8 @@ private:
     *
     * This is a blank customer with no id or name.
     *
-    * This constructor is private so that it cannot be accessed through normal means.
+    * This constructor is private so that it cannot be accessed through 
+    * normal means.
 	*/
     Customer();
 
@@ -79,9 +94,9 @@ private:
     std::string firstName;
     std::string lastName;
 
-    std::vector<RentalDetails> currentlyRenting;
+    std::vector<RentalDetails> currentlyRenting; // on hand only
 
-    std::vector<RentalDetails> customerHistory;
+    std::vector<RentalDetails> customerHistory; // entire customer history
 };
 
 #endif //CUSTOMER_H

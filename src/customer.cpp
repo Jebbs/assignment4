@@ -96,7 +96,7 @@ void Customer::displayHistory() const
 {
 	std::cout << "Transaction History for: " << getCustomerLastName();
 	std::cout << ", " << getCustomerFirstName();
-	std::cout << "  Customer ID: "<< customerID << std::endl;
+	std::cout << "     Customer ID: "<< customerID << std::endl;
 	
 	for (int i = customerHistory.size() - 1; i >= 0; i--)
 	{

@@ -21,7 +21,8 @@
 /*
 * Subclass of DVD class.
 * 
-* Comedy movies are stored in AVL tree, sorted by Title and Release Year.
+* Comedy movies are stored in Binary Search Tree, sorted by Title and 
+* Release Year.
 */
 class Comedy : public DVD
 {

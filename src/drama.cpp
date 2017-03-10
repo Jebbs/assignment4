@@ -12,8 +12,9 @@ bool Drama::greaterThan(Rentable & rentable) const
 }
 
 Drama::Drama(DVDType type, int stock, std::string title, std::string director,
-	int releaseYear, int rentalPeriodInDays): DVD(DVDType type, int stock, std::string title, std::string director,
-	int releaseYear, int rentalPeriodInDays)
+	         int releaseYear, int rentalPeriodInDays): DVD(DVDType type, 
+			 int stock, std::string title, std::string director,
+	         int releaseYear, int rentalPeriodInDays)
 {
 	this->subType = type;
 	this->stock = stock;
@@ -46,7 +47,8 @@ void Drama::print(std::ostream& outStream) const
 		outStream << this->getStockCount() << tab4;
 	}
 
-	outStream << this->getDirector() << ", " << this->getTitle() << ", " << this->getReleaseYear();
+	outStream << this->getDirector() << ", " << this->getTitle() << ", ";
+	outStream << this->getReleaseYear();
 }
 
 bool Drama::equalTo(const Rentable & rentable) const
@@ -54,7 +56,8 @@ bool Drama::equalTo(const Rentable & rentable) const
 	
 	Drama& asDrama = static_cast<Drama&>(rentable);
 
-	if ((asDrama.getTitle() == rentable.getTitle()) && (asDrama.getReleaseYear() == rentable.getReleaseYear()))
+	if ((asDrama.getTitle() == rentable.getTitle()) && 
+	    (asDrama.getReleaseYear() == rentable.getReleaseYear()))
 	{
 		return true;
 	}
@@ -72,7 +75,7 @@ bool Drama::lessThan(const Rentable & rentable) const
 			return true;
 		}
 	}
-	catch(...)
+	catch(...) // catch all other cases
 	{
 		return false;
 	}

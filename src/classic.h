@@ -22,7 +22,7 @@
  * In addition to DVD, Classical movie contains Major Actor's name and 
  * release month.
  *
- * Classic movies are stored in AVL tree, sorted by Release date, 
+ * Classic movies are stored in Binary Search Tree, sorted by Release date, 
  * then Major Actor
  */
 class Classic : public DVD

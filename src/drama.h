@@ -1,12 +1,15 @@
-// --------------------------- classic.h -----------------
-// 
-// Creation Date: 2/25/2017
-// Date of Last Modification: 
-// ------------------------------------------------------
-// Drama movie: interface
-// Drama DVD inherits from public DVD
-// ------------------------------------------------------
-
+/*******************************************************************************
+ * Drama
+ *
+ * Author: 
+ * Chantel Frizzell, Jeremy DeHaan
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ *
+ * Drama movie: interface
+ * Drama DVD inherits from public DVD
+ ******************************************************************************/
 #ifndef DRAMA_H
 #define DRAMA_H
 
@@ -17,7 +20,7 @@
 /*
 * Subclass of DVD class.
 *
-* Drama movies are stored in AVL tree, sorted by Director and Title.
+* Drama movies are stored in a Binary Search Tree, sorted by Director and Title.
 */
 class Drama : public DVD
 {
@@ -26,13 +29,13 @@ public:
 	* Creates an instance of drama movie.
 	*/
 	Drama(DVDType type, int stock, std::string title, std::string director,
-		int releaseYear, int rentalPeriodInDays);
+		  int releaseYear, int rentalPeriodInDays);
 
 	~Drama();
 
 protected:
 	/*
-	* prints the drama inventory
+	* Prints the drama inventory
 	* output example: 10, Nora Ephron, You've Got Mail, 1998
 	*/
 	void print(std::ostream& outStream) const;
@@ -51,9 +54,6 @@ protected:
 	* Returns > based on title and director
 	*/
 	bool greaterThan(const Rentable& rentable) const;
-
-private:
-	//Drama(); //duplicated
 };
 
 #endif //DRAMA_H
