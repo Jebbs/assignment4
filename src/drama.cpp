@@ -11,8 +11,15 @@ bool Drama::greaterThan(Rentable & rentable) const
 	return false;
 }
 
-Drama::Drama()
+Drama::Drama(): DVD(DVDType type, int stock, std::string title, std::string director,
+	int releaseYear, int rentalPeriodInDays)
 {
+	this->subType = type;
+	this->stock = stock;
+	this->title = title;
+	this->director = director;
+	this->year = releaseYear;
+	this->setRentalPeriodInDays(getRentalPeriodInDays);
 }
 
 Drama::~Drama()
@@ -24,7 +31,6 @@ void Drama::print(std::ostream& outStream) const
 	std::string tab5 = "     ";
 	std::string tab4 = "    ";
 	std::string tab3 = "   ";
-
 	
 	if (this->getStockCount() > 9)
 	{

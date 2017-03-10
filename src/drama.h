@@ -25,7 +25,7 @@ public:
 	/*
 	* Creates an instance of drama movie.
 	*/
-	Drama(); // no extra parameters, since same as dvd
+	Drama()
 
 	~Drama();
 

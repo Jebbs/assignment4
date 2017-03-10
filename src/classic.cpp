@@ -1,5 +1,17 @@
 #include "classic.h"
 
+Classic::Classic(RentableType type, int stock, std::string title, int releaseYear,
+	int rentalPeriodInDays, std::string actor, int month)
+{
+	this->subType = type;
+	this->stock = stock;
+	this->title = title;
+	this->year = releaseYear;
+	this->setRentalPeriodInDays(rentalPeriodInDays);
+	this->majorActor = actor;
+	this->month = month;
+}
+
 void Classic::print(std::ostream& outStream) const
 {
 	std::string tab5 = "     ";

@@ -79,6 +79,4 @@ DVDType intToDVDType(int code)
     }
 }
 
-
-
 #endif //DVDTYPES_H

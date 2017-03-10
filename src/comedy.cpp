@@ -1,14 +1,19 @@
 #include "comedy.h"
 
 
-Comedy::Comedy()
+Comedy::Comedy(): DVD(DVDType type, int stock, std::string title, std::string director,
+	int releaseYear, int rentalPeriodInDays)
 {
-	
+	this->subType = type;
+	this->stock = stock;
+	this->title = title;
+	this->director = director;
+	this->year = releaseYear;
+	this->setRentalPeriodInDays(getRentalPeriodInDays);
 }
 
 Comedy::~Comedy()
 {
-
 }
 
 //add comments about telling compiler we know 
@@ -44,7 +49,6 @@ bool Comedy::greaterThan(Rentable& rentable) const
 	}
 	return false;
 }
-
 
 void Comedy::print(std::ostream& outStream) const
 {
