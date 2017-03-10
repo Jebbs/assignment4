@@ -1,3 +1,20 @@
+/*******************************************************************************
+ * BorrowCommand
+ * 
+ * Author: 
+ * Chantel Frizzell, Jeremy DeHaan
+ *
+ * Date Last Modified: 
+ * 2017-03-09
+ *
+ * BorrowCommand is a subclass of Command.
+ * BorrowCommand reduces stock of a Rentable by 1 (if there's enough of stock).
+ * BorrowCommand is added to Customer's history.
+ *
+ * Note: if there are not enough Rentables in stock, error
+ * message is sent to std::cerr
+ ******************************************************************************/
+
 #ifndef BORROWCOMMAND_H
 #define BORROWCOMMAND_H
 
@@ -6,15 +23,6 @@
 #include "customer.h"
 #include <string>
 
-
-/*
- * BorrowCommand is a subclass of Command.
- * BorrowCommand reduces stock of a Rentable by 1 (if there's enough of stock).
- * BorrowCommand is added to Customer's history.
- *
- * Note: if there are not enough Rentables in stock, error
- * message is sent to std::cerr
- */
 class BorrowCommand : public Command
 {
 public:
@@ -23,7 +31,8 @@ public:
      * Creates a new instance of BorrowCommand.
      * Empty BorrowCommand cannot be created.
      */
-	BorrowCommand(int customerID, RentableType type, int subtype, std::string data);
+	BorrowCommand(int customerID, RentableType type, int subtype, 
+	              std::string data);
 	~BorrowCommand();
 
     /*

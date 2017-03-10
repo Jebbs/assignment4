@@ -1,7 +1,8 @@
 #include "classic.h"
 
-Classic::Classic(RentableType type, int stock, std::string title, int releaseYear,
-	int rentalPeriodInDays, std::string actor, int month)
+Classic::Classic(RentableType type, int stock, std::string title, 
+                 int releaseYear, int rentalPeriodInDays, std::string actor, 
+				 int month)
 {
 	this->subType = type;
 	this->stock = stock;
@@ -14,7 +15,7 @@ Classic::Classic(RentableType type, int stock, std::string title, int releaseYea
 
 void Classic::print(std::ostream& outStream) const
 {
-	// formatting
+	// if statement for formatting purposes only
 	if (this->getStockCount() > 9)
 	{
 		outStream << this->getStockCount() << "     ";
@@ -27,6 +28,8 @@ void Classic::print(std::ostream& outStream) const
 	{
 		outStream << this->getStockCount() << "    ";
 	}
-	outStream << this->getDirector() << ", " << this->getTitle() << ", " << this->getMajorActor() << ", ";
+	
+	outStream << this->getDirector() << ", " << this->getTitle() << ", ";
+	outstream << this->getMajorActor() << ", ";
 	outStream << this->getMonth() << ". " << this->getReleaseYear << endl;
 }
