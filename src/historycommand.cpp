@@ -1,16 +1,30 @@
 #include "historycommand.h"
 
-#include "store.h"
+#include "hashtable.h"
 
-HistoryCommand::HistoryCommand(int customerID)
+HistoryCommand::HistoryCommand(int customerID): cust(customerID, "", "")
 {
-    cust = Customer(customerID, "", "");
+    
 }
 
 
 bool HistoryCommand::processCommand()
 {
-    storeInst->displayHistory(cust);
+
+    HashTable& customers = getHashTable();
+
+    Customer* actualCustomer;
+
+    customers.retrieve(cust, actualCustomer);
+
+    if(actualCustomer == nullptr)
+    {
+        std::cerr << "ERROR: Customer with ID " << cust.getCustomerID();
+        std::cerr<< " not found." << std::endl;
+        return;
+    }
+
+    actualCustomer->displayHistory();
 
     return true;
 }

@@ -1,6 +1,6 @@
 #include "inventorycommand.h"
 
-#include "store.h"
+#include "rentablestorage.h"
 
 InventoryCommand::InventoryCommand()
 {
@@ -9,11 +9,9 @@ InventoryCommand::InventoryCommand()
 
 bool InventoryCommand::processCommand()
 {
-    //check store here?
-    //if store == nullptr
+    RentableStorage& rentables = getRentableStorage();
 
-    storeInst->printInventory();
-
+    rentables.printInventory();
+    
     return true;
-
 }

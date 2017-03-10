@@ -17,6 +17,8 @@
 
 //forward decl
 class Store;
+class HashTable;
+class RentableStorage;
 
 class Command
 {
@@ -29,6 +31,11 @@ public:
      * The command class process the command for this Command
      */
     virtual bool processCommand() = 0;
+
+protected:
+
+    HashTable& getHashTable();
+    RentableStorage& getRentableStorage();
 
 private:
     //the instance of the store this command will operate on
