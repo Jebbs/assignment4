@@ -60,9 +60,12 @@ bool RentableStorage::insert(Rentable* object)
         }
 }
 
+// For Classic: if 0 in stock - go to next one, if < requested in stock, 
+// retrieve all of current stock, retrieve rest from next actor.
+// 
+// if !classic, call retrieve, else call retrieveClassic
 bool RentableStorage::retrieve(const Rentable* object, Rentable*& RetObject)
 {
-
     if(object == nullptr)
         return false;
 

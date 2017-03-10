@@ -4,6 +4,8 @@
 #include <vector>
 #include "rentable.h"
 
+//REMEMEBER: Add the classics next actor logic
+
 /*
  * RentableStorage models a multi-dimensional array structure storing every
  * rentable a store will carry.

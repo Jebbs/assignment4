@@ -1,3 +1,24 @@
+/*******************************************************************************
+ * HashTable
+ *
+ * Author: 
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ *
+ * This class implements a hash table based on double hashing of the customer's'
+ * unique id.
+ * 
+ * Although not implemented fully, lazy deleting of a customer from the table 
+ * is to be assumed in our hash function. 
+ *
+ * Assumption: start with 1000 customers, thus minimum table
+ * size is defined as 2003.
+ *
+ * Extendability: can be templatized to store other items.
+ ******************************************************************************/
+
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 
@@ -5,15 +26,9 @@
 #include <string>
 
 /*
- * HashTable class implements Hash Table, based on
- * double hashing. Customers are placed in unique
- * buckets based on their ID's. In case of collision,
- * second hash function is applied.
- *
- * Assumption: start with 1000 customers, thus minimum table
- * size is defined as 2003.
- *
- * Extendability: can be templatized to store other items.
+ * HashTable class implements Hash Table, based on double hashing. 
+ * Customers are placed in unique buckets based on their ID's. 
+ * In case of collision, second hash function is applied.
  */
 #define MIN_TABLE_SIZE 2003
 

@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * DVDTypes
+ *
+ * Author: 
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ * 
+ * DVDTypes sets the int associated with the type
+ ******************************************************************************/
 #ifndef DVDTYPES_H
 #define DVDTYPES_H
 

@@ -12,7 +12,6 @@ HistoryCommand::HistoryCommand(int customerID): searchCustomer(customerID, "", "
     
 }
 
-
 bool HistoryCommand::processCommand()
 {
 
