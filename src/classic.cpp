@@ -1,10 +1,16 @@
 #include "classic.h"
 #include "rentalperiods.h"
 
+#include <iostream>
+
 Classic::Classic(int stock, std::string Title, std::string director,
 	        int releaseYear, std::string actor, int month):DVD(ClassicDVD, stock,
 			title, director, releaseYear, DVD_RENTAL_PERIOD)
 {
+	//this is needed because it doesn't get set correctly through
+	//DVD for some reason
+	this->title = Title;
+	
 	this->majorActor = actor;
 	this->month = month;
 }
@@ -30,17 +36,22 @@ bool Classic::equalTo(const Rentable& rentable) const //sorted by actor then rel
 		if(asClassic == nullptr)
 			return false;
 
-		if ((this->title == asClassic->title) &&
-		    (this->releaseYear == asClassic->releaseYear))
+		if (this->month == asClassic->month && 
+			this->releaseYear == asClassic->releaseYear &&
+			this->majorActor == asClassic->majorActor)
 		{
 			return true;
 		}
+
+
 		return false;
 }
 
 bool Classic::lessThan(const Rentable& rentable) const
 {
 	const Classic* asClassic = dynamic_cast<const Classic*>(&rentable);
+
+	//asClassic should never be null
 
 	if (this->month < asClassic->month && this->releaseYear < asClassic->releaseYear)
 	{
