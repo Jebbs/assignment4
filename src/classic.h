@@ -37,36 +37,36 @@ public:
 
     ~Classic();
 
-	/*
-	 * Returns title==, director==, and month/year==
-	 */
-	bool operator ==(const Classic &rhs) const;		
-
-	/*
-	 * Returns title!=, director!=, and month/year!=
-	 */
-	bool operator !=(const Classic &rhs) const;		
-
-	/*
-	 * Returns < based on Release date, then Major actor
-	 */
-	bool operator <(const Classic &rhs) const;
-
-	/*
-	 * Returns > based on Release date, then Major actor
-	 */
-	bool operator >(const Classic &rhs) const;
-
     /*
      * Returns Major Actor's name
      */
-	std::string getMajorActor();
+	std::string getMajorActor() const;
 
     /*
      * Returns month of the release
      */
-	int getMonth();
+	int getMonth() const;
 
+protected:
+	/*
+	* prints the comedy inventory
+	*/
+	void print(std::ostream& outStream) const;
+
+	/*
+	* Returns title==, releaseYear==
+	*/
+	bool equalTo(const Rentable& rentable) const;
+
+	/*
+	* Returns < based on title and release year
+	*/
+	bool lessThan(const Rentable& rentable) const;
+
+	/*
+	* Returns > based on title and release year
+	*/
+	bool greaterThan(const Rentable& rentable) const;
 private:
 	int month;
 	std::string majorActor;

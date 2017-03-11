@@ -10,7 +10,8 @@
     "src/rentable.cpp", "src/hashtable.cpp", "src/customer.cpp", "src/rentablefactory.cpp",
     "src/commandfactory.cpp", "src/split.cpp", "src/dvdtypes.cpp", "src/command.cpp",
     "src/inventorycommand.cpp", "src/historycommand.cpp", "src/borrowcommand.cpp",
-    "src/returncommand.cpp","src/dvd.cpp", "src/drama.cpp", "src/comedy.cpp", "-o", "test"],
+    "src/returncommand.cpp","src/dvd.cpp", "src/drama.cpp", "src/comedy.cpp",
+    "src/classic.cpp", "-o", "test"],
 
     "problemMatcher": {
         "owner": "cpp",

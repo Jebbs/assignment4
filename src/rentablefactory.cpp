@@ -76,16 +76,12 @@ Rentable* loadDVD(std::string line)
             }
 
             Classic* newClassic = new Classic(stock, title, director,
-	        releaseYear, DVD_RENTAL_PERIOD, majorActor, releaseMonth);
+	        releaseYear, majorActor, releaseMonth);
 
+            std::cout << *newClassic << std::endl;
 
-
-
-            //fix and replace
-
-            //return new Classic();
-
-            return nullptr;
+            return newClassic;
+            
         }
         case 'D':
         {
