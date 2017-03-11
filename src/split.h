@@ -1,3 +1,16 @@
+/*******************************************************************************
+ * Split
+ *
+ * Author:
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified:
+ * 2017-03-10
+ *
+ * This class is used to help process command strings, by splitting into 
+ * usable parts, and placing the parts into a vector.  
+ * 
+ ******************************************************************************/
 #ifndef SPLIT_H
 #define SPLIT_H
 
