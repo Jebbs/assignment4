@@ -1,3 +1,17 @@
+
+/*******************************************************************************
+ * Store
+ *
+ * Author:
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified:
+ * 2017-03-10
+ *
+ * The store class models a movie rental store. It has rentables, customers, and 
+ * a set of commands to perform. 
+ * 
+ ******************************************************************************/
 #ifndef STORE_H
 #define STORE_H
 
@@ -90,8 +104,6 @@ private:
 
     //given some data, build a rentable to be searched for for borrowing or returning
     static Rentable* buildRentable(char type, char subtype, std::string data);
-
-
 };
 
 #endif //STORE_H
