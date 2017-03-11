@@ -32,9 +32,9 @@ public:
     /*
      * Creates an instance of Classic movie.
      */
-	Classic(RentableType type, int stock, std::string Title, int releaseYear,
-		    int rentalPeriodInDays, std::string actor, int month);
-	
+	Classic(int stock, std::string Title, std::string director,
+	        int releaseYear, std::string actor, int month);
+
     ~Classic();
 
 	/*

@@ -1,0 +1,27 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "g++",
+    "isShellCommand": true,
+    "showOutput": "always",
+
+    "args": ["-g", "-std=c++11", "src/main.cpp","src/store.cpp", "src/rentablestorage.cpp",
+    "src/rentable.cpp", "src/hashtable.cpp", "src/customer.cpp", "src/rentablefactory.cpp",
+    "src/commandfactory.cpp", "src/split.cpp", "src/dvdtypes.cpp", "src/command.cpp",
+    "src/inventorycommand.cpp", "src/historycommand.cpp", "src/borrowcommand.cpp",
+    "src/returncommand.cpp","src/dvd.cpp", "src/drama.cpp", "src/comedy.cpp", "-o", "test"],
+
+    "problemMatcher": {
+        "owner": "cpp",
+        "fileLocation": ["relative", "${workspaceRoot}"],
+        "pattern": {
+            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+        }
+    }
+}

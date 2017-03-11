@@ -21,9 +21,9 @@ int main()
     //loading a file that contains rentables
     store1.loadRentables(RentableType::DVD, infile1);
 
-    store1.loadCustomers(infile2);
-    store1.loadCommands(infile3);
-    store1.processCommands();
+    //store1.loadCustomers(infile2);
+    //store1.loadCommands(infile3);
+    //store1.processCommands();
 
     return 0;
 }

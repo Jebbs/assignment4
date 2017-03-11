@@ -15,7 +15,7 @@
 
 #include "dvd.h"
 #include <string>
-#include "dvd.h"
+
 
 /*
 * Subclass of DVD class.
@@ -28,8 +28,8 @@ public:
 	/*
 	* Creates an instance of drama movie.
 	*/
-	Drama(DVDType type, int stock, std::string title, std::string director,
-		  int releaseYear, int rentalPeriodInDays);
+	Drama(int stock, std::string title, std::string director,
+		  int releaseYear);
 
 	~Drama();
 

@@ -1,14 +1,15 @@
 #include "classic.h"
+#include "rentalperiods.h"
 
-Classic::Classic(RentableType type, int stock, std::string title, 
-                 int releaseYear, int rentalPeriodInDays, std::string actor, 
-				 int month)
+Classic(int stock, std::string Title, std::string director,
+	        int releaseYear, std::string actor, int month):DVD(ClassicDVD, stock,
+			title, director, releaseYear, DVD_RENTAL_PERIOD)
 {
-	this->subType = type;
-	this->stock = stock;
-	this->title = title;
-	this->year = releaseYear;
-	this->setRentalPeriodInDays(rentalPeriodInDays);
+	//this->subType = type;
+	//this->stock = stock;
+	//this->title = title;
+	//this->year = releaseYear;
+	//this->setRentalPeriodInDays(rentalPeriodInDays);
 	this->majorActor = actor;
 	this->month = month;
 }

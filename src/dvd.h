@@ -1,13 +1,13 @@
 /*******************************************************************************
  * DVD
  *
- * Author: 
+ * Author:
  * Chantel Frizzell, Jeremy DeHaan
  *
- * Date Last Modified: 
+ * Date Last Modified:
  * 2017-03-10
  *
- * The DVD class models a rentable type DVD. 
+ * The DVD class models a rentable type DVD.
  * DVD is the only rentable in the scope of this assignment.
  ******************************************************************************/
 #ifndef MOVIE_H
@@ -30,12 +30,9 @@ public:
      */
     DVD(DVDType type,int stock, std::string title, std::string director,
         int releaseYear, int rentalPeriodInDays);
-        
-private:
 
+protected:
     std::string director;
-
-    std::string title;
 };
 
 #endif //MOVIE_H

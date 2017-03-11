@@ -1,10 +1,10 @@
 /*******************************************************************************
  * Comedy
- * 
- * Author: 
+ *
+ * Author:
  * Chantel Frizzell, Jeremy DeHaan
  *
- * Date Last Modified: 
+ * Date Last Modified:
  * 2017-03-10
  *
  * Comedy movie: interface
@@ -20,8 +20,8 @@
 
 /*
 * Subclass of DVD class.
-* 
-* Comedy movies are stored in Binary Search Tree, sorted by Title and 
+*
+* Comedy movies are stored in Binary Search Tree, sorted by Title and
 * Release Year.
 */
 class Comedy : public DVD
@@ -30,8 +30,8 @@ public:
 	/*
 	* Creates an instance of Comedy movie.
 	*/
-	Comedy(DVDType type, int stock, std::string title, std::string director,
-		   int releaseYear, int rentalPeriodInDays);
+	Comedy(int stock, std::string title, std::string director,
+		   int releaseYear);
 
 	~Comedy();
 

@@ -47,7 +47,11 @@ void Store::loadRentables(RentableType type, std::ifstream& file)
     {
         std::string line;
 
+
         std::getline(file, line);
+
+        std::cout << "loading a line:" << std::endl;
+        std::cout << line << std::endl;
 
         //may emit an error and return nullptr
         Rentable* newRentable = RentableFactory::createRentable(type, line);
@@ -55,6 +59,10 @@ void Store::loadRentables(RentableType type, std::ifstream& file)
         if(newRentable != nullptr)
         {
             //do something with the rentable
+        }
+        else
+        {
+            //emit error
         }
     }
 }
