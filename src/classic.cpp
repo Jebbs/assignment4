@@ -42,12 +42,12 @@ bool Classic::lessThan(const Rentable& rentable) const
 {
 	const Classic* asClassic = dynamic_cast<const Classic*>(&rentable);
 
-	if (this->month < asClassic.month && this->year < asClassic.year)
+	if (this->month < asClassic->month && this->releaseYear < asClassic->releaseYear)
 	{
 		return true;
 	}
-	else if ((this->month == asClassic.month && this->year == asClassic.year) &&
-		     (this->majorActor < asClassic->majorActor 
+	else if ((this->month == asClassic->month && this->releaseYear == asClassic->releaseYear) &&
+		     (this->majorActor < asClassic->majorActor))
 	{
 		return true;
 	}
@@ -58,12 +58,12 @@ bool Classic::greaterThan(const Rentable& rentable) const
 {
 	const Classic* asClassic = dynamic_cast<const Classic*>(&rentable);
 
-	if (this->month > asClassic.month && this->year > asClassic.year)
+	if (this->month > asClassic->month && this->releaseYear > asClassic->releaseYear)
 	{
 		return true;
 	}
-	else if ((this->month == asClassic.month && this->year == asClassic.year) &&
-		     (this->majorActor > asClassic->majorActor 
+	else if ((this->month == asClassic->month && this->releaseYear == asClassic->releaseYear) &&
+		     (this->majorActor > asClassic->majorActor))
 	{
 		return true;
 	}
