@@ -4,12 +4,15 @@
 #include <iostream>
 
 Classic::Classic(int stock, std::string Title, std::string director,
-	        int releaseYear, std::string actor, int month):DVD(ClassicDVD, stock,
-			title, director, releaseYear, DVD_RENTAL_PERIOD)
+	        int releaseYear, std::string actor, int month)
 {
-	//this is needed because it doesn't get set correctly through
-	//DVD for some reason
+	this->type = RentableType::DVD;
+	this->subtype = ClassicDVD;
+	this->stock = stock;
 	this->title = Title;
+	this->director = director;
+	this->releaseYear = releaseYear;
+	this->rentalPeriodInDays = DVD_RENTAL_PERIOD;
 	
 	this->majorActor = actor;
 	this->month = month;

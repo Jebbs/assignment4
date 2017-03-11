@@ -42,6 +42,8 @@ public:
         int releaseYear, int rentalPeriodInDays);
 
 protected:
+    DVD();
+
     std::string director;
 };
 

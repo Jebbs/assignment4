@@ -1,5 +1,10 @@
 #include "rentable.h"
 
+Rentable::Rentable()
+{
+
+}
+
 Rentable::~Rentable()
 {
 

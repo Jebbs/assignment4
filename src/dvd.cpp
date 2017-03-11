@@ -7,3 +7,8 @@ DVD::DVD(DVDType type, int stock, std::string title, std::string director,
 	this->subtype = type;
 	this->director = director;
 }
+
+DVD::DVD()
+{
+	
+}
