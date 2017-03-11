@@ -19,9 +19,9 @@ int main()
 
     //Since formatting could be different for each type, we should specify when
     //loading a file that contains rentables
-    store1.loadRentables(RentableType::DVD, infile1);
+    //store1.loadRentables(RentableType::DVD, infile1);
 
-    //store1.loadCustomers(infile2);
+    store1.loadCustomers(infile2);
     //store1.loadCommands(infile3);
     //store1.processCommands();
 

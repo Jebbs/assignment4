@@ -68,12 +68,16 @@ public:
      */
     void resize(int newSize);
 
+    int getCount();
+
 private:
 	struct Node
 	{
 		Customer *customer;
 		bool isFilled;
 	};
+
+    int count;
 
     //Array of pointers to customers.
 	Node* customers[MIN_TABLE_SIZE];

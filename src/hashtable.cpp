@@ -2,7 +2,11 @@
 
 	HashTable::HashTable()
 	{
-
+		for (int i = 0; i < MIN_TABLE_SIZE; i++)
+		{
+			customers[i] = NULL;
+		}
+		count = 0;
 	}
 
 	HashTable::~HashTable()
@@ -21,13 +25,16 @@
 			
 			if (customers[index] == NULL)
 			{
+				
 				customers[index] = new Node{cust, true};
+				count++;
 				return true;
 			}
 			else if (!customers[index]->isFilled)
 			{
 				customers[index]->customer = cust;
 				customers[index]->isFilled = true;
+				count++;
 				return true;
 			}
 			else 
@@ -116,5 +123,10 @@
 	void HashTable::makeEmpty()
 	{
 
+	}
+
+	int HashTable::getCount()
+	{
+		return count;
 	}
 
