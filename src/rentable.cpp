@@ -10,11 +10,12 @@ Rentable::~Rentable()
 
 }
 
-Rentable::Rentable(RentableType type, int stock, std::string Title, int releaseYear, int rentalPeriodInDays)
+Rentable::Rentable(RentableType type, int stock, std::string title, 
+                   int releaseYear, int rentalPeriodInDays)
 {
 	this->type = type;
 	this->stock = stock;
-	this->title = Title;
+	this->title = title;
 	this->releaseYear = releaseYear;
 	this->rentalPeriodInDays = rentalPeriodInDays;
 }

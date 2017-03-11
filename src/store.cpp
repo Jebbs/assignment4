@@ -25,8 +25,6 @@ Store::Store(int id)
     //set up customer hash table
 }
 
-
-
 //The file is assumed to be correctly formatted
 //That is, there aren't any lines that have an incorrect
 //number of items
