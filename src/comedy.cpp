@@ -7,7 +7,7 @@ Comedy::Comedy(int stock, std::string title, std::string director,
 	this->type = RentableType::DVD;
 	this->subtype = ComedyDVD;
 	this->stock = stock;
-	this->title = Title;
+	this->title = title;
 	this->director = director;
 	this->releaseYear = releaseYear;
 	this->rentalPeriodInDays = DVD_RENTAL_PERIOD;
