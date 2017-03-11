@@ -45,7 +45,10 @@ Command* CommandFactory::createCommand(std::string line)
             char type, subtype;
             std::string data;
 
-            stream >> customerID >> type >> subtype >> data;
+            stream >> customerID >> type >> subtype;
+            std::getline(stream, data);
+
+            data = data.substr(1,std::string::npos);
 
             return new BorrowCommand(customerID, type, subtype, data);
         }
@@ -55,7 +58,10 @@ Command* CommandFactory::createCommand(std::string line)
             char type, subtype;
             std::string data;
 
-            stream >> customerID >> type >> subtype >> data;
+            stream >> customerID >> type >> subtype;
+            std::getline(stream, data);
+
+            data = data.substr(1,std::string::npos);
             
             return new ReturnCommand(customerID, type, subtype, data);
         }
