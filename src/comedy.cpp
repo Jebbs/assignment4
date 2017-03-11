@@ -16,10 +16,12 @@ bool Comedy::equalTo(const Rentable& rentable) const
 	const Comedy* asComedy = dynamic_cast<const Comedy*>(&rentable);
 
 	if(asComedy == nullptr)
+	{
 		return false;
+	}
 
 	if ((this->title == asComedy->title) &&
-		    (this->year == asComedy->year))
+		    (this->releaseYear == asComedy->releaseYear))
 	{
 		return true;
 	}
@@ -28,14 +30,12 @@ bool Comedy::equalTo(const Rentable& rentable) const
 
 bool Comedy::lessThan(const Rentable& rentable) const
 {
-	const Comedy* asComedy = dynamic_cast<const Comedy*>(&rentable);
-
-	if (this->title < asComedy->title)
+	if (this->title < rentable.title)
 	{
 		return true;
 	}
-	else if ((this->title == asComedy->title) &&
-		     (this->year < asComedy->year 
+	else if ((this->title == rentable.title) &&
+		     (this->releaseYear < rentable.releaseYear 
 	{
 		return true;
 	}
@@ -44,14 +44,12 @@ bool Comedy::lessThan(const Rentable& rentable) const
 
 bool Comedy::greaterThan(const Rentable& rentable) const
 {
-	const Comedy* asComedy = dynamic_cast<const Comedy*>(&rentable);
-
-	if (this->title > asComedy->title)
+	if (this->title > rentable.title)
 	{
 		return true;
 	}
-	else if ((this->title == asComedy->title) &&
-		     (this->year > asComedy->year 
+	else if ((this->title == rentable.title) &&
+		     (this->releaseYear > rentable.releaseYear 
 	{
 		return true;
 	}
@@ -74,5 +72,5 @@ void Comedy::print(std::ostream& outStream) const
 		outStream << this->stock << "    ";
 	}
 
-	outStream << this->director << ", " << this->title << ", " << this->year << std::endl;
+	outStream << this->director << ", " << this->title << ", " << this->releaseYear << std::endl;
 }
