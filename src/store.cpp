@@ -254,7 +254,10 @@ Classic* buildClassic(std::string data)
     std::string actor;
     
     // assign the data 
-    stream >> month >> year >> actor;
+    stream >> month >> year;
+    std::getline(stream, actor);
+
+    actor = actor.substr(1,std::string::npos);
     
     // create new
     return new Classic(0, "", "", year, actor, month);
