@@ -59,10 +59,7 @@ void Store::loadRentables(RentableType type, std::ifstream& file)
         if(newRentable != nullptr)
         {
             //do something with the rentable
-        }
-        else
-        {
-            //emit error
+            rentables.insert(newRentable);
         }
     }
 }

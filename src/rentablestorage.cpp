@@ -36,12 +36,14 @@ bool RentableStorage::insert(Rentable* object)
         std::vector<Node*> newVector;
         newVector.push_back(nullptr);
 
-        while(rentables.size() < mainType)
+        int size = rentables.size();
+
+        while(rentables.size() < mainType+1)
         {
             rentables.push_back(newVector);
         }
 
-        while(rentables[mainType].size() < subType)
+        while(rentables[mainType].size() < subType+1)
         {
             rentables[mainType].push_back(nullptr);
         }
