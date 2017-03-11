@@ -3,13 +3,13 @@
 
 #include <iostream>
 
-Classic::Classic(int stock, std::string Title, std::string director,
-	        int releaseYear, std::string actor, int month)
+Classic::Classic(int stock, std::string title, std::string director,
+	             int releaseYear, std::string actor, int month)
 {
 	this->type = RentableType::DVD;
 	this->subtype = ClassicDVD;
 	this->stock = stock;
-	this->title = Title;
+	this->title = title;
 	this->director = director;
 	this->releaseYear = releaseYear;
 	this->rentalPeriodInDays = DVD_RENTAL_PERIOD;
@@ -32,7 +32,7 @@ int Classic::getMonth() const
 	return month;
 }
 
-bool Classic::equalTo(const Rentable& rentable) const //sorted by actor then releasedate
+bool Classic::equalTo(const Rentable& rentable) const 
 {
 		const Classic* asClassic = dynamic_cast<const Classic*>(&rentable);
 
@@ -56,12 +56,14 @@ bool Classic::lessThan(const Rentable& rentable) const
 
 	//asClassic should never be null
 
-	if (this->month < asClassic->month && this->releaseYear < asClassic->releaseYear)
+	if (this->month < asClassic->month && this->releaseYear < 
+	    asClassic->releaseYear)
 	{
 		return true;
 	}
-	else if ((this->month == asClassic->month && this->releaseYear == asClassic->releaseYear) &&
-		     (this->majorActor < asClassic->majorActor))
+	else if ((this->month == asClassic->month && 
+	          this->releaseYear == asClassic->releaseYear) && 
+			 (this->majorActor < asClassic->majorActor))
 	{
 		return true;
 	}
@@ -72,11 +74,13 @@ bool Classic::greaterThan(const Rentable& rentable) const
 {
 	const Classic* asClassic = dynamic_cast<const Classic*>(&rentable);
 
-	if (this->month > asClassic->month && this->releaseYear > asClassic->releaseYear)
+	if (this->month > asClassic->month && 
+	    this->releaseYear > asClassic->releaseYear)
 	{
 		return true;
 	}
-	else if ((this->month == asClassic->month && this->releaseYear == asClassic->releaseYear) &&
+	else if ((this->month == asClassic->month && 
+	          this->releaseYear == asClassic->releaseYear) &&
 		     (this->majorActor > asClassic->majorActor))
 	{
 		return true;

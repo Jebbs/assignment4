@@ -105,8 +105,8 @@ void Customer::displayHistory() const
 	for (int i = customerHistory.size() - 1; i >= 0; i--)
 	{
 		RentalDetails transaction = customerHistory[i];
-		std::cout << transaction.action << "     ";
-		std::cout << transaction.rental->getType() << "     ";
+		std::cout << transaction.action << "   ";
+		std::cout << transaction.rental->getType() << "   ";
 		
 		// optional: print out subtype here
 		// if subtype printed, need to differentiate between 
@@ -118,9 +118,8 @@ void Customer::displayHistory() const
 		// else 
 		// { othere types }
 
-		std::cout << transaction.rental->getTitle() << "     ";
-		std::cout << transaction.rental->getReleaseYear();
-
-		std::cout << std::endl;
+		std::cout << transaction.rental->getTitle() << "   ";
+		std::cout << transaction.rental->getReleaseYear() << std::endl;
 	}
+	std::cout << std::endl;
 }
