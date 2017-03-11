@@ -34,6 +34,7 @@ public:
      * The command class process the command for this Command
      */
     virtual bool processCommand() = 0;
+    virtual ~Command() = 0;
 
 protected:
 

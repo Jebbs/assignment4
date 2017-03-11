@@ -2,6 +2,11 @@
 
 #include "rentablestorage.h"
 
+InventoryCommand::~InventoryCommand()
+{
+    
+}
+
 InventoryCommand::InventoryCommand()
 {
     //nothing?

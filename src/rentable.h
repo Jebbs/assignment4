@@ -28,6 +28,7 @@ class Rentable
 public:
     Rentable(RentableType type, int stock, std::string Title, int releaseYear,
              int rentalPeriodInDays);
+    virtual ~Rentable();
 
     bool inStock() const;
 

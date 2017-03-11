@@ -9,7 +9,16 @@
  *
  * The DVD class models a rentable type DVD.
  * DVD is the only rentable in the scope of this assignment.
+
+
+To store the data in the system, the items should be sorted as follows:
+comedy movies (‘F’) sorted by Title, then Year it released 
+dramas (‘D’) are sorted by Director, then Title 
+classics (‘C’) are sorted by Release date, then Major actor
+You can assume that each item is uniquely identified by its complete set of sorting attributes.  
+
  ******************************************************************************/
+
 #ifndef MOVIE_H
 #define MOVIE_H
 

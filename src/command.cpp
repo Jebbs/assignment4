@@ -1,6 +1,10 @@
 #include "command.h"
 #include "store.h"
 
+Command::~Command()
+{
+
+}
 
 HashTable& Command::getHashTable()
 {

@@ -1,5 +1,9 @@
 #include "rentable.h"
 
+Rentable::~Rentable()
+{
+
+}
 
 Rentable::Rentable(RentableType type, int stock, std::string Title, int releaseYear, int rentalPeriodInDays)
 {

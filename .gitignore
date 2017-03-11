@@ -1,2 +1,4 @@
 /src/.vscode/
 test
+test.dSYM/
+.DS_Store

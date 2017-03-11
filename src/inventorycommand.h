@@ -12,7 +12,7 @@ class InventoryCommand : public Command
 {
 public:
 	InventoryCommand();
-	~InventoryCommand();
+    ~InventoryCommand();
 
 	/*
      * Inventory is printed out:

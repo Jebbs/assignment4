@@ -1,6 +1,10 @@
 #include "historycommand.h"
 
 #include "hashtable.h"
+HistoryCommand::~HistoryCommand()
+{
+
+}
 
 HistoryCommand::HistoryCommand():searchCustomer(0,"","")
 {

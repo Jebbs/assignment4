@@ -55,6 +55,8 @@ bool Customer::borrowRentable(int borrowCount, Rentable& rentable)
 
 	currentlyRenting.push_back(transaction);
 	customerHistory.push_back(transaction);
+	
+	return true;
 }
 
 bool Customer::returnRentable(int returnCount, Rentable& rentable)
@@ -80,16 +82,18 @@ bool Customer::returnRentable(int returnCount, Rentable& rentable)
 				currentlyRenting.erase(currentlyRenting.begin() + i);
 			}
 			customerHistory.push_back(transaction);
-			break;
+			return true;
 		}
 		else
 		{
 			std::cerr << "ERROR: Invalid return request." << std::endl;
+			return false;
 		}
 	}
 
 	std::cerr << "ERROR: Customer not currently renting ";
 	std::cerr << rentable.getTitle() << std::endl;
+	return false;
 }
 
 void Customer::displayHistory() const

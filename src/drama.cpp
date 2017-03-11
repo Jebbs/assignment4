@@ -50,13 +50,14 @@ bool Drama::equalTo(const Rentable & rentable) const
 	    if ((asDrama.getTitle() == rentable.getTitle()) &&
 		(asDrama.getReleaseYear() == rentable.getReleaseYear()))
 	    {
-		return true;
+			return true;
 	    }
 	}
 	catch(...) // catch all other cases
 	{
 		return false;
 	}
+	return false;
 }
 
 bool Drama::greaterThan(const Rentable & rentable) const
@@ -67,13 +68,14 @@ bool Drama::greaterThan(const Rentable & rentable) const
 
 	    if (asDrama.getTitle() > rentable.getTitle())
 	    {
-		return true;
+			return true;
 	    }
 	}
 	catch(...) // catch all other cases
 	{
 		return false;
 	}
+	return false;
 }
 
 bool Drama::lessThan(const Rentable & rentable) const
@@ -95,4 +97,5 @@ bool Drama::lessThan(const Rentable & rentable) const
 	{
 		return false;
 	}
+	return false;
 }

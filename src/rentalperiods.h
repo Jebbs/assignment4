@@ -3,10 +3,10 @@
 //of item that is able to be rented through the store.
 
 #ifndef RENTALPERIODS_H
-#define RENTALDETAILS_H
+#define RENTALPERIODS_H
 
 
 const int DVD_RENTAL_PERIOD = 14;
 
 
-#endif //RENTALDETAILS_H
+#endif //RENTALPERIODS_H

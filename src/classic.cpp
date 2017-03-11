@@ -5,15 +5,14 @@ Classic::Classic(int stock, std::string Title, std::string director,
 	        int releaseYear, std::string actor, int month):DVD(ClassicDVD, stock,
 			title, director, releaseYear, DVD_RENTAL_PERIOD)
 {
-	//this->subType = type;
-	//this->stock = stock;
-	//this->title = title;
-	//this->year = releaseYear;
-	//this->setRentalPeriodInDays(rentalPeriodInDays);
 	this->majorActor = actor;
 	this->month = month;
 }
 
+Classic::~Classic()
+{
+
+}
 
 std::string Classic::getMajorActor() const
 {
@@ -41,14 +40,14 @@ void Classic::print(std::ostream& outStream) const
 		outStream << this->getStockCount() << "    ";
 	}
 	
-	outStream << this->director << ", " << this->getTitle() << ", ";
-	outStream << this->getMajorActor() << ", ";
-	outStream << this->getMonth() << ". " << this->getReleaseYear() << std::endl;
+	outStream << this->director << ", " << this->title << ", ";
+	outStream << this->majorActor << ", ";
+	outStream << this->month << " " << this->releaseYear << std::endl;
 }
 
 bool Classic::equalTo(const Rentable& rentable) const //title, release year
 {
-		const Classic* asClassic = dynamic_cast<const Classic*>(&rentable);
+		const Classic* asClassic = dynamic_cast<const Classic*>(&rentable); //update others also
 
 		if(asClassic == nullptr)
 			return false;
@@ -63,7 +62,13 @@ bool Classic::equalTo(const Rentable& rentable) const //title, release year
 
 bool Classic::lessThan(const Rentable& rentable) const
 {
+	// sorted by title, then release year.
 	if (this->getTitle() < rentable.getTitle())
+	{
+		return true;
+	}
+	else if ((this->getTitle() == asClassic->getTitle()) &&
+		     (this->getReleaseYear() < asClassic->getReleaseYear() 
 	{
 		return true;
 	}
