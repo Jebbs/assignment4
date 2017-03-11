@@ -19,7 +19,7 @@
 /*
  * Subclass of public Command.
  * HistoryCommand takes CustomerId as parameter and prints
- * out customer's Borrow- and Return- starting from the latest.
+ * out customer's Borrow- and Return- starting from the latest to the earliest.
  */
 class HistoryCommand : public Command
 {

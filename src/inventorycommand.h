@@ -1,3 +1,18 @@
+/*******************************************************************************
+ * InventoryCommand
+ *
+ * Author: 
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ *
+ * Prints the entire inventory of the store as follows:
+ * 
+ * 1) Comedy movies: by Title, then Year of Release.
+ * 2) Drama movies: by Director, then Title.
+ * 3) Classics movies: by Release date, then Major Actor.
+ ******************************************************************************/
 #ifndef INVENTORYCOMMAND_H
 #define INVENTORYCOMMAND_H
 
@@ -16,9 +31,6 @@ public:
 
 	/*
      * Inventory is printed out:
-     * all Comedy movies: by Title, then Year of Release.
-     * all Drama movies: by Director, then Title.
-     * all Classics movies: by Release date, then Major Actor.
      */
     bool processCommand();
 
