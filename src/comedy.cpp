@@ -30,12 +30,14 @@ bool Comedy::equalTo(const Rentable& rentable) const
 
 bool Comedy::lessThan(const Rentable& rentable) const
 {
-	if (this->title < rentable.title)
+	const Comedy* asComedy = dynamic_cast<const Comedy*>(&rentable);
+
+	if (this->title < asComedy->title)
 	{
 		return true;
 	}
-	else if ((this->title == rentable.title) &&
-		     (this->releaseYear < rentable.releaseYear 
+	else if ((this->title == asComedy->title) &&
+	         (this->releaseYear < asComedy->releaseYear))
 	{
 		return true;
 	}
@@ -44,12 +46,14 @@ bool Comedy::lessThan(const Rentable& rentable) const
 
 bool Comedy::greaterThan(const Rentable& rentable) const
 {
-	if (this->title > rentable.title)
+	const Comedy* asComedy = dynamic_cast<const Comedy*>(&rentable);
+
+	if (this->title > asComedy->title)
 	{
 		return true;
 	}
-	else if ((this->title == rentable.title) &&
-		     (this->releaseYear > rentable.releaseYear 
+	else if ((this->title == asComedy->title) &&
+			 (this->releaseYear > asComedy->releaseYear))
 	{
 		return true;
 	}

@@ -29,7 +29,9 @@ bool Drama::equalTo(const Rentable & rentable) const
 
 bool Drama::greaterThan(const Rentable & rentable) const
 {
-	if (this->director > rentable.director)
+	const Drama* asDrama = dynamic_cast<const Drama*>(&rentable);
+
+	if (this->director > asDrama->director)
 	{
 		return true;
 	}
@@ -43,12 +45,14 @@ bool Drama::greaterThan(const Rentable & rentable) const
 
 bool Drama::lessThan(const Rentable & rentable) const
 {
-	if (this->director < rentable.director)
+	const Drama* asDrama = dynamic_cast<const Drama*>(&rentable);
+	
+	if (this->director < asDrama->director)
 	{
 		return true;
 	}
-	else if ((this->director == rentable.director) &&
-	         (this->title < rentable.title))
+	else if ((this->director == asDrama->director) &&
+	         (this->title < asDrama->title))
 	{
 		return true;
 	}
