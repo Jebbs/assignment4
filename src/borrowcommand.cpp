@@ -39,6 +39,11 @@ bool BorrowCommand::processCommand()
 
     if(!rentables.retrieve(searchRentable, actualRentable))
     {
+        if (searchRentable == NULL)
+        {
+            std::cerr << "ERROR: Null Pointer exception" << std::endl;
+            return false;
+        }
         std::cerr << "ERROR: Rentable with title ";
         std::cerr << searchRentable->getTitle();
         std::cerr<< " not carried in the store." << std::endl;
@@ -46,7 +51,7 @@ bool BorrowCommand::processCommand()
     }
 
     //update in store
-    
+
     actualCustomer->borrowRentable(1, *actualRentable);
 
     return true;

@@ -11,8 +11,10 @@
 #include "comedy.h"
 #include "drama.h"
 #include "classic.h"
+#include "split.h"
 
 #include <sstream>
+
 
 Store::Store(int id)
 {
@@ -218,7 +220,7 @@ Rentable* Store::buildRentable(char type, char subtype, std::string data)
 Comedy* buildComedy(std::string data)
 {
     // split the string, ex. You've Got Mail, 1998
-    std::vector<std::string> retString = data.split(data, ", ");
+    std::vector<std::string> retString = split(data, ", ");
     
     // assign the data
     std::string title = retString[0];
@@ -231,7 +233,7 @@ Comedy* buildComedy(std::string data)
 Drama* buildDrama(std::string data)
 {
     // split the string, ex. Steven Spielberg, Schindler's List,
-    std::vector<std::string> retString = data.split(data, ",");
+    std::vector<std::string> retString = split(data, ",");
     
     // assign the data
     std::string director = retString[0];
