@@ -94,6 +94,7 @@
 	bool HashTable::removeCustomer(Customer& cust)
 	{
 		// we would do a lazy delete; however, not required for assignment. 
+		count--;
 		return true;
 	}
 
