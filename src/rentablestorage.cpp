@@ -9,7 +9,7 @@ RentableStorage::~RentableStorage()
 {
     int length = rentables.size();
 
-    for(int i = 0; i < length; i++)
+    for(int i = 0; i < length + 1; i++)
     {
         int subLength = rentables[i].size();
 

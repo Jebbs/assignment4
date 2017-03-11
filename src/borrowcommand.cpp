@@ -6,10 +6,12 @@
 BorrowCommand::BorrowCommand():searchCustomer(0,"",""){}
 
 BorrowCommand::BorrowCommand(int customerID, char type, char subtype,
-                             std::string data): searchCustomer(customerID, "", "")
+                             std::string data): searchCustomer(customerID, 
+                             "", "")
 {
     searchRentable = buildRentable(type, subtype, data);
 }
+
 BorrowCommand::~BorrowCommand()
 {
     delete searchRentable;
@@ -27,8 +29,9 @@ bool BorrowCommand::processCommand()
 
     if(actualCustomer == nullptr)
     {
-        std::cerr << "ERROR: Customer with ID " << searchCustomer.getCustomerID();
-        std::cerr<< " not found." << std::endl;
+        std::cerr << "ERROR: Customer with ID ";
+        std::cerr << searchCustomer.getCustomerID();
+        std::cerr << " not found." << std::endl;
         return false;
     }
 
@@ -36,13 +39,14 @@ bool BorrowCommand::processCommand()
 
     if(!rentables.retrieve(searchRentable, actualRentable))
     {
-        std::cerr << "ERROR: Rentable with title " << searchRentable->getTitle();
+        std::cerr << "ERROR: Rentable with title ";
+        std::cerr << searchRentable->getTitle();
         std::cerr<< " not carried in the store." << std::endl;
         return false;
     }
 
     //update in store
-
+    
     actualCustomer->borrowRentable(1, *actualRentable);
 
     return true;

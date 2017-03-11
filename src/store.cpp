@@ -12,6 +12,8 @@
 #include "drama.h"
 #include "classic.h"
 
+#include <sstream>
+
 Store::Store(int id)
 {
     storeID = id;
@@ -215,18 +217,45 @@ Rentable* Store::buildRentable(char type, char subtype, std::string data)
 
 Comedy* buildComedy(std::string data)
 {
+    // split the string, ex. You've Got Mail, 1998
+    std::vector<std::string> retString = data.split(data, ", ");
+    
+    // assign the data
+    std::string title = retString[0];
+    int year = std::stoi(retString[1]);
 
-    return nullptr;
+    // create new 
+    return new Comedy(0, title, "", year);
 }
 
 Drama* buildDrama(std::string data)
 {
+    // split the string, ex. Steven Spielberg, Schindler's List,
+    std::vector<std::string> retString = data.split(data, ",");
+    
+    // assign the data
+    std::string director = retString[0];
+    std::string title = retString[1];
+    title = title.substr(1, std::string::npos);
 
-    return nullptr;
+    // create new 
+    return new Drama(0, title, director, 0);
 }
 
 Classic* buildClassic(std::string data)
 {
+    // split the string, ex. 9 1938 Katherine Hepburn 
+    std::stringstream stream;
 
-    return nullptr;
+    stream.str(data);
+
+    int month, year;
+
+    std::string actor;
+    
+    // assign the data 
+    stream >> month >> year >> actor;
+    
+    // create new
+    return new Classic(0, "", "", year, actor, month);
 }
