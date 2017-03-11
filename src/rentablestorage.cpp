@@ -9,14 +9,14 @@ RentableStorage::~RentableStorage()
 {
     int length = rentables.size();
 
-    for(int i = 0; i < length + 1; i++)
+    for(int i = 0; i < length; i++)
     {
         int subLength = rentables[i].size();
 
         for(int j = 0; j< subLength; j++)
         {
             destructorHelper(rentables[i][j]);
-            delete (rentables[i][j]);
+            //delete (rentables[i][j]);
         }
     }
 }
