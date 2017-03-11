@@ -1,3 +1,16 @@
+/*******************************************************************************
+ * RentableStorage
+ *
+ * Author: 
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ * 
+ * This wrapper exists to help make sure that all of the rentables are stored
+ * in an easy to access place, but ensures that typed inforation is kept when
+ * items are inserted and accessed.
+ ******************************************************************************/
 #ifndef RENTABLESTORAGE_H
 #define RENTABLESTORAGE_H
 
@@ -9,10 +22,6 @@
 /*
  * RentableStorage models a multi-dimensional array structure storing every
  * rentable a store will carry.
- *
- * This wrapper exists to help make sure that all of the rentables are stored
- * in an easy to access place, but ensures that typed inforation is kept when
- * items are inserted and accessed.
  */
 class RentableStorage
 {

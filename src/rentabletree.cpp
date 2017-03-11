@@ -45,7 +45,7 @@
      * Recursively traverses the AVL tree post order, deleting the children
      * nodes first, then the parent node.
      */
-    void RentableTree:: destructorHelper(Node* node)
+    void RentableTree::destructorHelper(Node* node)
     {
         if(node == nullptr)
             return;
