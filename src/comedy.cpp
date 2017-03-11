@@ -5,39 +5,37 @@ Comedy::Comedy(int stock, std::string title, std::string director,
 	           int releaseYear): DVD(ComedyDVD, stock, title, director,
 			   releaseYear, DVD_RENTAL_PERIOD)
 {
-	//this->subType = type;
-	//this->stock = stock;
-	//this->title = title;
-	//this->director = director;
-	//this->year = releaseYear;
-	//this->setRentalPeriodInDays(getRentalPeriodInDays);
 }
 
 Comedy::~Comedy()
 {
-
 }
 
-//for the scope of this assignment, we know that it will always be correct input
-// by the time it reaches here.
-bool Comedy::equalTo(const Rentable& rentable) const //title, release year
+bool Comedy::equalTo(const Rentable& rentable) const
 {
-		const Comedy* asComedy = dynamic_cast<const Comedy*>(&rentable);
+	const Comedy* asComedy = dynamic_cast<const Comedy*>(&rentable);
 
-		if(asComedy == nullptr)
-			return false;
-
-		if ((this->getTitle() == asComedy->getTitle()) &&
-		    (this->getReleaseYear() == asComedy->getReleaseYear()))
-		{
-			return true;
-		}
+	if(asComedy == nullptr)
 		return false;
+
+	if ((this->title == asComedy->title) &&
+		    (this->year == asComedy->year))
+	{
+		return true;
+	}
+	return false;
 }
 
 bool Comedy::lessThan(const Rentable& rentable) const
 {
-	if (this->getTitle() < rentable.getTitle())
+	const Comedy* asComedy = dynamic_cast<const Comedy*>(&rentable);
+
+	if (this->title < asComedy->title)
+	{
+		return true;
+	}
+	else if ((this->title == asComedy->title) &&
+		     (this->year < asComedy->year 
 	{
 		return true;
 	}
@@ -46,33 +44,35 @@ bool Comedy::lessThan(const Rentable& rentable) const
 
 bool Comedy::greaterThan(const Rentable& rentable) const
 {
-	//don't even need to cast, because all rentables have this field
+	const Comedy* asComedy = dynamic_cast<const Comedy*>(&rentable);
 
-	//compare other fields here if title is equal?
-
-	return this->getTitle() > rentable.getTitle();
-
+	if (this->title > asComedy->title)
+	{
+		return true;
+	}
+	else if ((this->title == asComedy->title) &&
+		     (this->year > asComedy->year 
+	{
+		return true;
+	}
+	return false;
 }
 
 void Comedy::print(std::ostream& outStream) const
 {
-	std::string tab5 = "     ";
-	std::string tab4 = "    ";
-	std::string tab3 = "   ";
-
-	//10, Nora Ephron, You've Got Mail, 1998
+	// if statement for formatting purposes only
 	if (this->getStockCount() > 9)
 	{
-		outStream << this->getStockCount() << tab5;
+		outStream << this->stock << "     ";
 	}
-	else if (this->getStockCount() > 99)
+	else if (this->stock > 99)
 	{
-		outStream << this->getStockCount() << tab3;
+		outStream << this->stock << "   ";
 	}
 	else
 	{
-		outStream << this->getStockCount() << tab4;
+		outStream << this->stock << "    ";
 	}
 
-	outStream << this->director << ", " << this->getTitle() << ", " << this->getReleaseYear();
+	outStream << this->director << ", " << this->title << ", " << this->year << std::endl;
 }

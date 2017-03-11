@@ -9,6 +9,8 @@
  *
  * Drama movie: interface
  * Drama DVD inherits from public DVD
+ *
+ * Drama movies are primarily sorted by Director, then by Title
  ******************************************************************************/
 #ifndef DRAMA_H
 #define DRAMA_H
@@ -46,12 +48,12 @@ protected:
 	bool equalTo(const Rentable& rentable) const;
 
 	/*
-	* Returns < based on title and director
+	* Returns < based on Director, then by Title
 	*/
 	bool lessThan(const Rentable& rentable) const;
 
 	/*
-	* Returns > based on title and director
+	* Returns > based on Director, then by Title
 	*/
 	bool greaterThan(const Rentable& rentable) const;
 };

@@ -9,6 +9,8 @@
  *
  * Comedy movie: interface
  * Comedy DVD inherits from public DVD
+ *
+ * Comdey movies are primarily sorted by Title, then by Release Year
  ******************************************************************************/
 
 #ifndef COMEDY_H
@@ -47,12 +49,12 @@ protected:
 	bool equalTo(const Rentable& rentable) const;
 
 	/*
-	* Returns < based on title and release year
+	* Returns < based on Title, then by Release Year
 	*/
 	bool lessThan(const Rentable& rentable) const;
 
 	/*
-	* Returns > based on title and release year
+	* Returns > based on Title, then by Release Year
 	*/
 	bool greaterThan(const Rentable& rentable) const;
 

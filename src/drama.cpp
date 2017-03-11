@@ -5,12 +5,6 @@ Drama::Drama(int stock, std::string title, std::string director,
 	         int releaseYear): DVD(DramaDVD, stock, title,
 			 director, releaseYear,DVD_RENTAL_PERIOD)
 {
-	//this->subType = type;
-	//this->stock = stock;
-	//this->title = title;
-	//this->director = director;
-	//this->year = releaseYear;
-	//this->setRentalPeriodInDays(getRentalPeriodInDays);
 }
 
 
@@ -18,84 +12,69 @@ Drama::~Drama()
 {
 }
 
-void Drama::print(std::ostream& outStream) const
-{
-	std::string tab5 = "     ";
-	std::string tab4 = "    ";
-	std::string tab3 = "   ";
-
-	if (this->getStockCount() > 9)
-	{
-		outStream << this->getStockCount() << tab5;
-	}
-	else if (this->getStockCount() > 99)
-	{
-		outStream << this->getStockCount() << tab3;
-	}
-	else
-	{
-		outStream << this->getStockCount() << tab4;
-	}
-
-	outStream << this->director << ", " << this->getTitle() << ", ";
-	outStream << this->getReleaseYear();
-}
-
 bool Drama::equalTo(const Rentable & rentable) const
 {
-	try
-	{
-	    const Drama& asDrama = dynamic_cast<const Drama&>(rentable);
+	const Drama* asDrama = dynamic_cast<const Drama*>(&rentable);
 
-	    if ((asDrama.getTitle() == rentable.getTitle()) &&
-		(asDrama.getReleaseYear() == rentable.getReleaseYear()))
-	    {
+		if(asDrama == nullptr)
+			return false;
+
+		if ((this->title == asDrama->title) &&
+		    (this->year == asDrama->year))
+		{
 			return true;
-	    }
-	}
-	catch(...) // catch all other cases
-	{
+		}
 		return false;
-	}
-	return false;
 }
 
 bool Drama::greaterThan(const Rentable & rentable) const
 {
-	try
-	{
-	    const Drama& asDrama = dynamic_cast<const Drama&>(rentable);
+	const Drama* asDrama = dynamic_cast<const Drama*>(&rentable);
 
-	    if (asDrama.getTitle() > rentable.getTitle())
-	    {
-			return true;
-	    }
-	}
-	catch(...) // catch all other cases
+	if (this->director > asDrama->director)
 	{
-		return false;
+		return true;
+	}
+	else if ((this->director == asDrama->director) &&
+	         (this->title > asDrama->title))
+	{
+		return true;
 	}
 	return false;
 }
 
 bool Drama::lessThan(const Rentable & rentable) const
 {
-	try
+	const Drama* asDrama = dynamic_cast<const Drama*>(&rentable);
+
+	if (this->director < asDrama->director)
 	{
-		const Drama& asDrama = dynamic_cast<const Drama&>(rentable);
-
-		//TODO!!!!!!
-		//only comparing title?
-		//What if title is same but release year is different?
-
-		if (asDrama.getTitle() < rentable.getTitle())
-		{
-			return true;
-		}
+		return true;
 	}
-	catch(...) // catch all other cases
+	else if ((this->director == asDrama->director) &&
+	         (this->title < asDrama->title))
 	{
-		return false;
+		return true;
 	}
 	return false;
+}
+
+void Drama::print(std::ostream& outStream) const
+{
+	// if statement for formatting purposes only
+	if (this->stock > 9)
+	{
+		outStream << this->stock << "     ";
+	}
+	else if (this->stock > 99)
+	{
+		outStream << this->stock << "   ";
+	}
+	else
+	{
+		outStream << this->stock << "    ";
+	}
+
+	outStream << this->director << ", " << this->title << ", ";
+	outStream << this->year << std::endl;
 }

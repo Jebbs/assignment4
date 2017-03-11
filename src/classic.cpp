@@ -11,7 +11,6 @@ Classic::Classic(int stock, std::string Title, std::string director,
 
 Classic::~Classic()
 {
-
 }
 
 std::string Classic::getMajorActor() const
@@ -22,6 +21,53 @@ std::string Classic::getMajorActor() const
 int Classic::getMonth() const
 {
 	return month;
+}
+
+bool Classic::equalTo(const Rentable& rentable) const //sorted by actor then releasedate
+{
+		const Classic* asClassic = dynamic_cast<const Classic*>(&rentable);
+
+		if(asClassic == nullptr)
+			return false;
+
+		if ((this->title == asClassic->title) &&
+		    (this->releaseYear == asClassic->releaseYear))
+		{
+			return true;
+		}
+		return false;
+}
+
+bool Classic::lessThan(const Rentable& rentable) const
+{
+	const Classic* asClassic = dynamic_cast<const Classic*>(&rentable);
+
+	if (this->month < asClassic.month && this->year < asClassic.year)
+	{
+		return true;
+	}
+	else if ((this->month == asClassic.month && this->year == asClassic.year) &&
+		     (this->majorActor < asClassic->majorActor 
+	{
+		return true;
+	}
+	return false;
+}
+
+bool Classic::greaterThan(const Rentable& rentable) const
+{
+	const Classic* asClassic = dynamic_cast<const Classic*>(&rentable);
+
+	if (this->month > asClassic.month && this->year > asClassic.year)
+	{
+		return true;
+	}
+	else if ((this->month == asClassic.month && this->year == asClassic.year) &&
+		     (this->majorActor > asClassic->majorActor 
+	{
+		return true;
+	}
+	return false;
 }
 
 void Classic::print(std::ostream& outStream) const
@@ -43,44 +89,4 @@ void Classic::print(std::ostream& outStream) const
 	outStream << this->director << ", " << this->title << ", ";
 	outStream << this->majorActor << ", ";
 	outStream << this->month << " " << this->releaseYear << std::endl;
-}
-
-bool Classic::equalTo(const Rentable& rentable) const //title, release year
-{
-		const Classic* asClassic = dynamic_cast<const Classic*>(&rentable); //update others also
-
-		if(asClassic == nullptr)
-			return false;
-
-		if ((this->getTitle() == asClassic->getTitle()) &&
-		    (this->getReleaseYear() == asClassic->getReleaseYear()))
-		{
-			return true;
-		}
-		return false;
-}
-
-bool Classic::lessThan(const Rentable& rentable) const
-{
-	// sorted by title, then release year.
-	if (this->getTitle() < rentable.getTitle())
-	{
-		return true;
-	}
-	else if ((this->getTitle() == asClassic->getTitle()) &&
-		     (this->getReleaseYear() < asClassic->getReleaseYear() 
-	{
-		return true;
-	}
-	return false;
-}
-
-bool Classic::greaterThan(const Rentable& rentable) const
-{
-	//don't even need to cast, because all rentables have this field
-
-	//compare other fields here if title is equal?
-
-	return this->getTitle() > rentable.getTitle();
-
 }

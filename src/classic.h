@@ -9,6 +9,8 @@
  *
  * Classic movie: interface
  * Classic DVD inherits from public DVD
+ * 
+ * Classic movies are primarily sorted by Release date, then by Major actor
  ******************************************************************************/
 
 #ifndef CLASSIC_H
@@ -20,7 +22,7 @@
 /*
  * Subclass of DVD class.
  * In addition to DVD, Classical movie contains Major Actor's name and 
- * release month.
+ * release date.
  *
  * Classic movies are stored in Binary Search Tree, sorted by Release date, 
  * then Major Actor
@@ -59,14 +61,15 @@ protected:
 	bool equalTo(const Rentable& rentable) const;
 
 	/*
-	* Returns < based on title and release year
+	* Returns < based on Release date, then by Major actor
 	*/
 	bool lessThan(const Rentable& rentable) const;
 
 	/*
-	* Returns > based on title and release year
+	* Returns > based on Release date, then by Major actor
 	*/
 	bool greaterThan(const Rentable& rentable) const;
+	
 private:
 	int month;
 	std::string majorActor;
