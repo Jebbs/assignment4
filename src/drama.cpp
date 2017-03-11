@@ -19,8 +19,8 @@ bool Drama::equalTo(const Rentable & rentable) const
 		if(asDrama == nullptr)
 			return false;
 
-		if ((this->title == asDrama->title) &&
-		    (this->year == asDrama->year))
+		if ((this->director == asDrama->director) &&
+		    (this->title == asDrama->title))
 		{
 			return true;
 		}
@@ -29,9 +29,7 @@ bool Drama::equalTo(const Rentable & rentable) const
 
 bool Drama::greaterThan(const Rentable & rentable) const
 {
-	const Drama* asDrama = dynamic_cast<const Drama*>(&rentable);
-
-	if (this->director > asDrama->director)
+	if (this->director > rentable.director)
 	{
 		return true;
 	}
@@ -45,14 +43,12 @@ bool Drama::greaterThan(const Rentable & rentable) const
 
 bool Drama::lessThan(const Rentable & rentable) const
 {
-	const Drama* asDrama = dynamic_cast<const Drama*>(&rentable);
-
-	if (this->director < asDrama->director)
+	if (this->director < rentable.director)
 	{
 		return true;
 	}
-	else if ((this->director == asDrama->director) &&
-	         (this->title < asDrama->title))
+	else if ((this->director == rentable.director) &&
+	         (this->title < rentable.title))
 	{
 		return true;
 	}
@@ -76,5 +72,5 @@ void Drama::print(std::ostream& outStream) const
 	}
 
 	outStream << this->director << ", " << this->title << ", ";
-	outStream << this->year << std::endl;
+	outStream << this->releaseYear << std::endl;
 }
