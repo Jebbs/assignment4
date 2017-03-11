@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Rentable
+ *
+ * Author: 
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ *
+ ******************************************************************************/
+
 #ifndef RENTABLEFACTORY_H
 #define RENTABLEFACTORY_H
 

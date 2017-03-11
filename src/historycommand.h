@@ -1,3 +1,15 @@
+/*******************************************************************************
+ * HistoryCommand
+ *
+ * Author: 
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ *
+ * Returns the requested customer's history, in reverse-chronological order.
+ ******************************************************************************/
+
 #ifndef HISTORYCOMMAND_H
 #define HISTORYCOMMAND_H
 
@@ -7,7 +19,7 @@
 /*
  * Subclass of public Command.
  * HistoryCommand takes CustomerId as parameter and prints
- * out customer's Borrow- and Return- Commands chronologically.
+ * out customer's Borrow- and Return- starting from the latest.
  */
 class HistoryCommand : public Command
 {

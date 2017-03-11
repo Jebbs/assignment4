@@ -37,19 +37,13 @@ class HashTable
 public:
 	/*
      * Creates an empty hash table.
-    */
+     */
 	HashTable();
 	~HashTable();
 
 	/*
-     * Inserts a customer into table, returns true if succeeded.
-     * {
-	 *   if (customers[hash1]==NULL)
-     *       {customer[hash1]==cust;}
-     *   else
-     *       {probe the table with hash2 function}
-     * }
-    */
+     * Inserts a customer into table, returns true if succeeded
+     */
 	bool insert(Customer* cust);
 
     /*

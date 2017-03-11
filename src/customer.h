@@ -9,7 +9,7 @@
  *
  * The customer class models a store customer. 
  *
- * Assumption: The inout data will always be valid.
+ * Assumption: The input data will always be valid.
  * 
  ******************************************************************************/
 #ifndef CUSTOMER_H
