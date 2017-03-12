@@ -48,7 +48,6 @@ bool Classic::equalTo(const Rentable& rentable) const
 			return true;
 		}
 
-
 		return false;
 }
 

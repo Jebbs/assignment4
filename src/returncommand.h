@@ -7,11 +7,11 @@
  * Date Last Modified:
  * 2017-03-10
  *
- * BorrowCommand is a subclass of Command.
- * BorrowCommand reduces stock of a Rentable by 1 (if there's enough of stock).
- * BorrowCommand is added to Customer's history.
+ * ReturnCommand is a subclass of Command.
+ * ReturnCommand increases stock of a Rentable by 1 (if there's enough of stock).
+ * ReturnCommand is added to Customer's history.
  *
- * Note: if there are not enough Rentables in stock, error
+ * Note: if the customer has not rented the rentable, an error
  * message is sent to std::cerr
  ******************************************************************************/
 #ifndef RETURNCOMMAND_H
