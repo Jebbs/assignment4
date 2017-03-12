@@ -69,6 +69,11 @@ private:
 	{
 		Customer *customer;
 		bool isFilled;
+
+		~Node()
+		{
+			delete customer;
+		}
 	};
 
     int count;

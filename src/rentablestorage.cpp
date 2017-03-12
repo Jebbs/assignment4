@@ -1,4 +1,8 @@
 #include "rentablestorage.h"
+#include <string>
+
+std::string getRentableTypeName(int type);
+std::string getSubTypeName(int type, int subtype);
 
 RentableStorage::RentableStorage()
 {
@@ -90,12 +94,14 @@ void RentableStorage::printInventory() const
 
         //printing all "type"
 
+        std::cout << "Printing all " << getRentableTypeName(i) << std::endl;
+
         int subLength = rentables[i].size();
 
         for(int j = 0; j< subLength; j++)
         {
 
-            //printing all "subtype"
+            std::cout << getSubTypeName(i, j) << std::endl;
 
             printHelper(rentables[i][j]);
         }
@@ -171,4 +177,52 @@ void RentableStorage::printHelper(const Node* node) const
     std::cout << *(node->object) << std::endl;
 
     printHelper(node->right);
+}
+
+std::string getRentableTypeName(int type)
+{
+    switch(type)
+    {
+        case 0:
+        {
+            return "DVDs";
+        }
+        default:
+        {
+            return "";
+        }
+    }
+}
+
+std::string getSubTypeName(int type, int subtype)
+{
+    switch(type)
+    {
+        case 0:
+        {
+            switch(subtype)
+            {
+                case 0:
+                {
+                    return "Comedy DVDs";
+                }
+                case 1:
+                {
+                    return "Drama DVDs";
+                }
+                case 2:
+                {
+                    return "Classic DVDs";
+                }
+                default:
+                {
+                    return "";
+                }
+            }
+        }
+        default:
+        {
+            return "";
+        }
+    }
 }
