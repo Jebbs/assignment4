@@ -85,5 +85,5 @@ void Comedy::print(std::ostream& outStream) const
 		outStream << this->stock << "    ";
 	}
 
-	outStream << this->director << ", " << this->title << ", " << this->releaseYear << std::endl;
+	outStream << this->director << ", " << this->title << ", " << this->releaseYear;
 }

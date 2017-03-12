@@ -104,6 +104,7 @@ void RentableStorage::printInventory() const
             std::cout << getSubTypeName(i, j) << std::endl;
 
             printHelper(rentables[i][j]);
+            std::cout << std::endl;
         }
     }
 }

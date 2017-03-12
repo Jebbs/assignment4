@@ -108,5 +108,5 @@ void Classic::print(std::ostream& outStream) const
 	
 	outStream << this->director << ", " << this->title << ", ";
 	outStream << this->majorActor << ", ";
-	outStream << this->month << " " << this->releaseYear << std::endl;
+	outStream << this->month << " " << this->releaseYear;
 }

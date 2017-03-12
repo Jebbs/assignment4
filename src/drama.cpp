@@ -84,5 +84,5 @@ void Drama::print(std::ostream& outStream) const
 	}
 
 	outStream << this->director << ", " << this->title << ", ";
-	outStream << this->releaseYear << std::endl;
+	outStream << this->releaseYear;
 }
