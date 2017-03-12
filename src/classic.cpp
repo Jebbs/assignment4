@@ -93,17 +93,17 @@ bool Classic::greaterThan(const Rentable& rentable) const
 void Classic::print(std::ostream& outStream) const
 {
 	// if statement for formatting purposes only
-	if (this->getStockCount() > 9)
+	if (this->getStockCount() < 10)
 	{
-		outStream << this->getStockCount() << "     ";
+		outStream << this->getStockCount() << "    ";
 	}
-	else if (this->getStockCount() > 99)
+	else if (this->getStockCount() < 100)
 	{
 		outStream << this->getStockCount() << "   ";
 	}
 	else
 	{
-		outStream << this->getStockCount() << "    ";
+		outStream << this->getStockCount() << "  ";
 	}
 	
 	outStream << this->director << ", " << this->title << ", ";

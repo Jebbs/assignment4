@@ -72,17 +72,17 @@ bool Comedy::greaterThan(const Rentable& rentable) const
 void Comedy::print(std::ostream& outStream) const
 {
 	// if statement for formatting purposes only
-	if (this->getStockCount() > 9)
+	if (this->getStockCount() < 10)
 	{
-		outStream << this->stock << "     ";
+		outStream << this->stock << "    ";
 	}
-	else if (this->stock > 99)
+	else if (this->stock < 100)
 	{
 		outStream << this->stock << "   ";
 	}
 	else
 	{
-		outStream << this->stock << "    ";
+		outStream << this->stock << "  ";
 	}
 
 	outStream << this->director << ", " << this->title << ", " << this->releaseYear;
