@@ -38,7 +38,7 @@ public:
 	/*
      * Create a new DVD with the given information.
      */
-    DVD(DVDType type,int stock, std::string title, std::string director,
+    DVD(DVDType type,int stock, const std::string& title, const std::string& director,
         int releaseYear, int rentalPeriodInDays);
 
 protected:

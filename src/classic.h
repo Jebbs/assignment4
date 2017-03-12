@@ -34,8 +34,8 @@ public:
     /*
      * Creates an instance of Classic movie.
      */
-	Classic(int stock, std::string Title, std::string director,
-	        int releaseYear, std::string actor, int month);
+	Classic(int stock, const std::string& Title, const std::string& director,
+	        int releaseYear, const std::string& actor, int month);
 
     ~Classic();
 

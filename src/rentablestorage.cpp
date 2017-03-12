@@ -36,8 +36,6 @@ bool RentableStorage::insert(Rentable* object)
         std::vector<Node*> newVector;
         newVector.push_back(nullptr);
 
-        int size = rentables.size();
-
         while(rentables.size() < mainType+1)
         {
             rentables.push_back(newVector);
@@ -62,9 +60,9 @@ bool RentableStorage::insert(Rentable* object)
         }
 }
 
-// For Classic: if 0 in stock - go to next one, if < requested in stock, 
+// For Classic: if 0 in stock - go to next one, if < requested in stock,
 // retrieve all of current stock, retrieve rest from next actor.
-// 
+//
 // if !classic, call retrieve, else call retrieveClassic
 bool RentableStorage::retrieve(const Rentable* object, Rentable*& RetObject)
 {

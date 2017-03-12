@@ -81,7 +81,7 @@ Rentable* loadDVD(std::string line)
             std::cout << *newClassic << std::endl;
 
             return newClassic;
-            
+
         }
         case 'D':
         {

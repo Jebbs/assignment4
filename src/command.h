@@ -4,7 +4,7 @@
  * Author: 
  * Jeremy DeHaan, Chantel Frizzell
  *
- * Date Last Modified: 
+ * Date Last Modified:
  * 2017-03-10
  *
  * The Command class defines a template for all
@@ -16,6 +16,7 @@
 #define COMMAND_H
 
 #include <string>
+#include <iostream>//debug
 
 //forward decl
 class Store;

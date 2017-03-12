@@ -26,7 +26,7 @@
 class Rentable
 {
 public:
-    Rentable(RentableType type, int stock, std::string Title, int releaseYear,
+    Rentable(RentableType type, int stock, const std::string& Title, int releaseYear,
              int rentalPeriodInDays);
     virtual ~Rentable();
 

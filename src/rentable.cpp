@@ -1,16 +1,12 @@
 #include "rentable.h"
 
-Rentable::Rentable()
-{
-
-}
 
 Rentable::~Rentable()
 {
 
 }
 
-Rentable::Rentable(RentableType type, int stock, std::string title, 
+Rentable::Rentable(RentableType type, int stock, const std::string& title,
                    int releaseYear, int rentalPeriodInDays)
 {
 	this->type = type;

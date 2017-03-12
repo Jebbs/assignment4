@@ -1,9 +1,11 @@
 #include "drama.h"
 #include "rentalperiods.h"
 
-Drama::Drama(int stock, std::string title, std::string director,
-	         int releaseYear)
+Drama::Drama(int stock, const std::string& title, const std::string& director,
+	         int releaseYear):DVD(DramaDVD, stock, title, director, releaseYear,
+			 DVD_RENTAL_PERIOD)
 {
+	/*
 	this->type = RentableType::DVD;
 	this->subtype = DramaDVD;
 	this->stock = stock;
@@ -11,6 +13,7 @@ Drama::Drama(int stock, std::string title, std::string director,
 	this->director = director;
 	this->releaseYear = releaseYear;
 	this->rentalPeriodInDays = DVD_RENTAL_PERIOD;
+	*/
 }
 
 Drama::~Drama()

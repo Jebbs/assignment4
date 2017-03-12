@@ -6,7 +6,7 @@
 BorrowCommand::BorrowCommand():searchCustomer(0,"",""){}
 
 BorrowCommand::BorrowCommand(int customerID, char type, char subtype,
-                             std::string data): searchCustomer(customerID, 
+                             std::string data): searchCustomer(customerID,
                              "", "")
 {
     searchRentable = buildRentable(type, subtype, data);
@@ -20,10 +20,15 @@ BorrowCommand::~BorrowCommand()
 bool BorrowCommand::processCommand()
 {
 
+    if (searchRentable == NULL)
+    {
+        return false;//borrow command was made with a rentable that was invalid
+    }
+
     RentableStorage& rentables = getRentableStorage();
     HashTable& customers = getHashTable();
 
-    Customer* actualCustomer;
+    Customer* actualCustomer = nullptr;
 
     customers.retrieve(searchCustomer, actualCustomer);
 
@@ -39,11 +44,6 @@ bool BorrowCommand::processCommand()
 
     if(!rentables.retrieve(searchRentable, actualRentable))
     {
-        if (searchRentable == NULL)
-        {
-            std::cerr << "ERROR: Null Pointer exception" << std::endl;
-            return false;
-        }
         std::cerr << "ERROR: Rentable with title ";
         std::cerr << searchRentable->getTitle();
         std::cerr<< " not carried in the store." << std::endl;

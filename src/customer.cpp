@@ -37,33 +37,42 @@ void Customer::setCustomerLastName(std::string newLastName)
 	lastName = newLastName;
 }
 
-bool Customer::operator==(const Customer& rhs) const 
+bool Customer::operator==(const Customer& rhs) const
 {
 	return customerID== rhs.getCustomerID();
 }
 
-bool Customer::operator!=(const Customer& rhs) const 
+bool Customer::operator!=(const Customer& rhs) const
 {
 	return customerID != rhs.getCustomerID();
 }
 
 bool Customer::borrowRentable(int borrowCount, Rentable& rentable)
 {
+
+	std::cout << "Customer " << customerID << " borrowing ";
+	std::cout << rentable.getTitle() << std::endl;
+
+
 	//RentalDetails has a reference to a rentable, so this needs to be done
 	//all at the same time.
 	RentalDetails transaction = {&rentable, 0, borrowCount, false, "Borrow"};
 
 	currentlyRenting.push_back(transaction);
 	customerHistory.push_back(transaction);
-	
+
 	return true;
 }
 
 bool Customer::returnRentable(int returnCount, Rentable& rentable)
 {
+
+	std::cout << "Customer " << customerID << " returning ";
+	std::cout << rentable.getTitle() << std::endl;
+
 	for (int i = 0; i < currentlyRenting.size(); i++)
 	{
-		if (*(currentlyRenting[i].rental) == rentable && 
+		if (*(currentlyRenting[i].rental) == rentable &&
 			  currentlyRenting[i].count >= returnCount)
 		{
 			RentalDetails transaction = currentlyRenting[i];
@@ -71,12 +80,12 @@ bool Customer::returnRentable(int returnCount, Rentable& rentable)
 			transaction.returned = true;
 			transaction.action = "Return";
 
-			//update to reflect return 
+			//update to reflect return
 			currentlyRenting[i].count -= returnCount;
-			
+
 			//need to check if count is reduced to zero
 			//if so, need to remove transaction from currentlyRenting
-			if (transaction.count == 0)
+			if (currentlyRenting[i].count == 0)
 			{
 				// no more on hand, so remove from vector
 				currentlyRenting.erase(currentlyRenting.begin() + i);
@@ -101,13 +110,13 @@ void Customer::displayHistory() const
 	std::cout << "Transaction History for: " << getCustomerLastName();
 	std::cout << ", " << getCustomerFirstName();
 	std::cout << "     Customer ID: "<< customerID << std::endl;
-	
+
 	for (int i = customerHistory.size() - 1; i >= 0; i--)
 	{
 		RentalDetails transaction = customerHistory[i];
 		std::cout << transaction.action << "   ";
 		std::cout << transaction.rental->getSubtype() << "   ";
-		
+
 		// optional: print out subtype here
 		// if subtype printed, need to differentiate between 
 		// classic and others. 

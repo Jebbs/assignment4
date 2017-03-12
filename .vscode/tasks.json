@@ -6,7 +6,7 @@
     "isShellCommand": true,
     "showOutput": "always",
 
-    "args": ["-g", "-std=c++11", "src/main.cpp","src/store.cpp", "src/rentablestorage.cpp",
+    "args": ["-Wall", "-Wextra" , "-g", "-std=c++11", "src/main.cpp","src/store.cpp", "src/rentablestorage.cpp",
     "src/rentable.cpp", "src/hashtable.cpp", "src/customer.cpp", "src/rentablefactory.cpp",
     "src/commandfactory.cpp", "src/split.cpp", "src/dvdtypes.cpp", "src/command.cpp",
     "src/inventorycommand.cpp", "src/historycommand.cpp", "src/borrowcommand.cpp",

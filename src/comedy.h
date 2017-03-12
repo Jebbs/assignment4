@@ -32,7 +32,7 @@ public:
 	/*
 	* Creates an instance of Comedy movie.
 	*/
-	Comedy(int stock, std::string title, std::string director,
+	Comedy(int stock, const std::string& title, const std::string& director,
 		   int releaseYear);
 
 	~Comedy();
@@ -59,8 +59,6 @@ protected:
 	bool greaterThan(const Rentable& rentable) const;
 
 private:
-	int year;
-	std::string title;
 };
 
 #endif //COMEDY_H

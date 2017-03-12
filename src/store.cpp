@@ -219,7 +219,7 @@ Comedy* buildComedy(std::string data)
 {
     // split the string, ex. You've Got Mail, 1998
     std::vector<std::string> retString = split(data, ", ");
-    
+
     // assign the data
     std::string title = retString[0];
     int year = std::stoi(retString[1]);

@@ -43,6 +43,11 @@ private:
         Rentable* object;
         Node* left;
         Node* right;
+
+        ~Node()
+        {
+            delete object;
+        }
     };
 
 

@@ -30,7 +30,7 @@ public:
 	/*
 	* Creates an instance of drama movie.
 	*/
-	Drama(int stock, std::string title, std::string director,
+	Drama(int stock, const std::string& title, const std::string& director,
 		  int releaseYear);
 
 	~Drama();
