@@ -123,7 +123,11 @@
 	//Empties out the hash table
 	void HashTable::makeEmpty()
 	{
-
+		for (int i = 0; i < MIN_TABLE_SIZE; i++)
+		{
+			if(customers[i] != NULL)
+				delete customers[i];
+		}
 	}
 
 	int HashTable::getCount()

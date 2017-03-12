@@ -47,9 +47,6 @@ Rentable* loadDVD(std::string line)
     {
         case 'C':
         {
-
-            std::cout << "Creating a new Classic DVD" << std::endl;
-
             std::vector<std::string> info = split(line, ", ");
 
             //check for exexption?
@@ -78,16 +75,11 @@ Rentable* loadDVD(std::string line)
             Classic* newClassic = new Classic(stock, title, director,
 	        releaseYear, majorActor, releaseMonth);
 
-            std::cout << *newClassic << std::endl;
-
             return newClassic;
 
         }
         case 'D':
         {
-
-            std::cout << "Creating a new Drama DVD" << std::endl;//debug
-
             std::vector<std::string> info = split(line, ", ");
 
             //check for exexption?
@@ -99,15 +91,10 @@ Rentable* loadDVD(std::string line)
 
             Drama* newDrama = new Drama(stock, title, director,releaseYear);
 
-            std::cout << *newDrama << std::endl;
-
             return newDrama;
         }
         case 'F':
         {
-
-            std::cout << "Creating a new Comedy DVD" << std::endl;//debug
-
             std::vector<std::string> info = split(line, ", ");
 
             //check for exexption?
@@ -118,8 +105,6 @@ Rentable* loadDVD(std::string line)
             std::string title = info[3];
 
             Comedy* newComedy = new Comedy(stock, title, director, releaseYear);
-
-            std::cout << *newComedy << std::endl;
 
             return newComedy;
         }
