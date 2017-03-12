@@ -145,7 +145,6 @@ void Store::borrowRentable(Customer& searchCustomer, Rentable& searchRentable)
     }
 
     //update in store
-    rentable.addToStock
 
     actualCustomer->borrowRentable(1, *actualRentable);
 }

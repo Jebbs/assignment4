@@ -23,6 +23,7 @@
 #include "command.h"
 #include "rentalperiods.h"
 #include "rentabletype.h"
+#include "dvdtypes.h"
 
 /*
  * Customer class for modeling a store customer.

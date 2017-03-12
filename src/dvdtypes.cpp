@@ -46,25 +46,25 @@ DVDType codeToDVDType(char code)
     }
 }
 
-DVDType intToDVDType(int code)
+std::string intToDVDType(int code)
 {
     switch(code)
     {
         case 0:
         {
-            return ComedyDVD;
+            return "DVD Comedy ";
         }
         case 1:
         {
-            return DramaDVD;
+            return "DVD Drama  ";
         }
         case 2:
         {
-            return ClassicDVD;
+            return "DVD Classic";
         }
         default:
         {
-            return None;
+            return "None";
         }
     }
 }

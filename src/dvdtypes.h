@@ -12,18 +12,20 @@
 #ifndef DVDTYPES_H
 #define DVDTYPES_H
 
+#include <string>
+
 enum DVDType
 {
     None = -1,
     ComedyDVD = 0,
-    DramaDVD,
-    ClassicDVD
+    DramaDVD = 1,
+    ClassicDVD = 2
 };
 
 char DVDTypeToCode(DVDType type);
 
 DVDType codeToDVDType(char code);
 
-DVDType intToDVDType(int code);
+std::string intToDVDType(int code);
 
 #endif //DVDTYPES_H
