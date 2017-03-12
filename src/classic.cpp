@@ -57,8 +57,12 @@ bool Classic::lessThan(const Rentable& rentable) const
 
 	//asClassic should never be null
 
-	if (this->month < asClassic->month && this->releaseYear < 
-	    asClassic->releaseYear)
+	if (this->month < asClassic->month)
+	{
+		return true;
+	}
+	else if(this->month == asClassic->month && 
+	          this->releaseYear < asClassic->releaseYear)
 	{
 		return true;
 	}
