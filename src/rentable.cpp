@@ -18,14 +18,14 @@ Rentable::Rentable(RentableType type, int stock, const std::string& title,
 
 bool Rentable::inStock() const
 {
-	return stock>0;
+	return stock > 0;
 }
 
 bool Rentable::removeFromStock(int amount)
 {
-	if(stock-amount >= 0)
+	if(stock - amount >= 0)
 	{
-		stock-=amount;
+		stock -= amount;
 		return true;
 	}
 
@@ -34,7 +34,7 @@ bool Rentable::removeFromStock(int amount)
 
 void Rentable::addToStock(int amount)
 {
-	stock+=amount;
+	stock += amount;
 }
 
 RentableType Rentable::getType() const

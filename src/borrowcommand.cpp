@@ -51,6 +51,7 @@ bool BorrowCommand::processCommand()
     }
 
     //update in store
+    actualRentable->removeFromStock(1);
 
     actualCustomer->borrowRentable(1, *actualRentable);
 
