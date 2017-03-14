@@ -45,7 +45,7 @@ bool ReturnCommand::processCommand()
     }
 
     //update in store
-
+    actualRentable->addToStock(1);
     actualCustomer->returnRentable(1, *actualRentable);
 
     return true;

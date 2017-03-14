@@ -51,7 +51,8 @@ bool Customer::borrowRentable(int borrowCount, Rentable& rentable)
 {
 
 	std::cout << "Customer " << customerID << " borrowing ";
-	std::cout << rentable.getTitle() << std::endl;
+	std::cout << rentable.getTitle() << " (";
+	std::cout << rentable.getStockCount() << " left)" << std::endl;
 
 
 	//RentalDetails has a reference to a rentable, so this needs to be done

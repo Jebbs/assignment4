@@ -216,16 +216,31 @@ std::vector<std::string>& searchList, Rentable*& RetObject)
         return true;
     }
 
-    //we don't know where it is, so we have to search everywhere
-
-    if(retrieveEquivalentHelper(node->right, object, searchList, RetObject))
+    if(object->getMonth() < testClassic->getMonth()|| 
+       (object->getMonth() == testClassic->getMonth() && 
+        object->getReleaseYear() < testClassic->getReleaseYear()))
     {
-        return true;
+        return retrieveEquivalentHelper(node->left, object, searchList, RetObject);
     }
 
-    if(retrieveEquivalentHelper(node->left, object, searchList, RetObject))
+    if(object->getMonth() > testClassic->getMonth()|| 
+       (object->getMonth() == testClassic->getMonth() && 
+        object->getReleaseYear() > testClassic->getReleaseYear()))
     {
-        return true;
+        return retrieveEquivalentHelper(node->right, object, searchList, RetObject);
+    }
+
+    if(object->getMonth() == testClassic->getMonth() && 
+        object->getReleaseYear() == testClassic->getReleaseYear())
+    {
+        if(retrieveEquivalentHelper(node->right, object, searchList, RetObject))
+        {
+            return true;
+        }
+        if(retrieveEquivalentHelper(node->left, object, searchList, RetObject))
+        {
+            return true;
+        }
     }
 
     return false;
