@@ -1,16 +1,11 @@
 #include "rentablefactory.h"
-
 #include "dvd.h"
 #include "classic.h"
 #include "comedy.h"
 #include "drama.h"
-
 #include <vector>
 #include "split.h"
-
 #include "rentalperiods.h"
-
-#include <iostream>//debug
 
 Rentable* loadDVD(std::string line);
 
@@ -24,20 +19,15 @@ Rentable* RentableFactory::createRentable(RentableType type, std::string line)
         }
         default:
         {
-            //emit error?
             return nullptr;
         }
     }
 }
 
-
-
 Rentable* loadDVD(std::string line)
 {
     if(line.empty())
     {
-        //print error
-
         return nullptr;
     }
 
@@ -54,7 +44,6 @@ Rentable* loadDVD(std::string line)
 
             std::string director = info[2];
             std::string title = info[3];
-
 
             std::vector<std::string> extra = split(info[4], " ");
 

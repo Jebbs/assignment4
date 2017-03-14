@@ -1,28 +1,19 @@
 #include "store.h"
 #include "command.h"
 #include "commandfactory.h"
-
 #include "rentablefactory.h"
-
 #include "customer.h"
-
 #include "dvd.h"
 #include "dvdtypes.h"
 #include "comedy.h"
 #include "drama.h"
 #include "classic.h"
 #include "split.h"
-
 #include <sstream>
-
 
 Store::Store(int id)
 {
     storeID = id;
-
-    //set up rentable craziness
-
-    //set up customer hash table
 }
 
 //The file is assumed to be correctly formatted
@@ -94,12 +85,10 @@ void Store::processCommands()
     }
 }
 
-
 int Store::getID() const
 {
     return storeID;
 }
-
 
 //build DVD rentables
 static Comedy* buildComedy(std::string data);
@@ -108,9 +97,7 @@ static Classic* buildClassic(std::string data);
 
 Rentable* Store::buildRentable(char type, char subtype, std::string data)
 {
-
     //code to RentableType
-
     RentableType test = DVD;
 
     switch(test)

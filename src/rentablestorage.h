@@ -20,8 +20,6 @@
 
 class Classic;
 
-//REMEMEBER: Add the classics next actor logic
-
 /*
  * RentableStorage models a multi-dimensional array structure storing every
  * rentable a store will carry.
@@ -30,7 +28,6 @@ class RentableStorage
 {
 
 public:
-
     RentableStorage();
     ~RentableStorage();
 
@@ -90,7 +87,6 @@ private:
                     std::vector<std::string>& searchList, Rentable*& RetObject);
 
     void printHelper(const Node* node) const;
-
 };
 
 #endif //RENTABLESTORAGE_H

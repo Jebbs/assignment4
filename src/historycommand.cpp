@@ -3,22 +3,18 @@
 #include "hashtable.h"
 HistoryCommand::~HistoryCommand()
 {
-
 }
 
 HistoryCommand::HistoryCommand():searchCustomer(0,"","")
 {
-
 }
 
 HistoryCommand::HistoryCommand(int customerID): searchCustomer(customerID, "", "")
-{
-    
+{  
 }
 
 bool HistoryCommand::processCommand()
 {
-
     HashTable& customers = getHashTable();
 
     Customer* actualCustomer;

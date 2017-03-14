@@ -121,17 +121,6 @@ void Customer::displayHistory() const
 		RentalDetails transaction = customerHistory[i];
 		std::cout << transaction.action << "   ";
 		std::cout << intToDVDType(transaction.rental->getSubtype()) << "  ";
-		
-
-		// optional: print out subtype here
-		// if subtype printed, need to differentiate between 
-		// classic and others. 
-		// if (transaction.rental.getType() == classic)
-		// {
-		//     do the date thats necessary here 
-		//     do the actors necessary here
-		// else 
-		// { othere types }
 
 		std::cout << transaction.rental->getTitle() << "   ";
 		std::cout << transaction.rental->getReleaseYear() << std::endl;

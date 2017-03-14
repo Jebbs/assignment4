@@ -1,10 +1,8 @@
 #include "returncommand.h"
-
 #include "store.h"
 
 ReturnCommand::ReturnCommand():searchCustomer(0,"","")
 {
-
 }
 
 ReturnCommand::ReturnCommand(int customerID, char type, char subtype,
@@ -20,7 +18,6 @@ ReturnCommand::~ReturnCommand()
 
 bool ReturnCommand::processCommand()
 {
-
     RentableStorage& rentables = getRentableStorage();
     HashTable& customers = getHashTable();
 

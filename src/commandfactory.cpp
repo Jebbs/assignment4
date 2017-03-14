@@ -8,7 +8,6 @@
 
 Command* CommandFactory::createCommand(std::string line)
 {
-
     if(line.empty())
     {
         // Unclear whether an error message should be print

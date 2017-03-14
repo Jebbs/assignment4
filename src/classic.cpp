@@ -7,15 +7,6 @@ Classic::Classic(int stock, const std::string& title, const std::string& directo
 	             int releaseYear, const std::string& actor, int month):DVD(ClassicDVD,
 				 stock, title, director, releaseYear, DVD_RENTAL_PERIOD)
 {
-	/*
-    this->type = RentableType::DVD;
-    this->subtype = ClassicDVD;
-    this->stock = stock;
-    this->title = title;
-    this->director = director;
-    this->releaseYear = releaseYear;
-    this->rentalPeriodInDays = DVD_RENTAL_PERIOD;
-*/
     this->majorActor = actor;
     this->month = month;
 }

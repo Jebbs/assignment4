@@ -2,7 +2,6 @@
 #include <fstream>
 #include "store.h"
 
-
 int main()
 {
     std::ifstream infile1("data4movies.txt");

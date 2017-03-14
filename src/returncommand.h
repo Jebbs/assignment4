@@ -32,7 +32,6 @@
  *
  * Successful ReturnCommand is added to Customer's history.
  */
-
 class ReturnCommand : public Command
 {
 public:

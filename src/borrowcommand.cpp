@@ -52,11 +52,9 @@ bool BorrowCommand::processCommand()
         return false;
     }
 
-
     //check stock because of potential problems
 
     std::vector<std::string> searchList;
-
 
     while(!actualRentable->removeFromStock(1))
     {

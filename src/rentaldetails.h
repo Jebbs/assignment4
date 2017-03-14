@@ -23,15 +23,11 @@
 struct RentalDetails
 {
 public:
-
     Rentable* rental;
     int rentDate;
 	int count;
 	bool returned;
 	std::string action;
-
-private:
-
 };
 
 #endif //RENTALDETAILS_H

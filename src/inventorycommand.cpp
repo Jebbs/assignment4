@@ -1,15 +1,12 @@
 #include "inventorycommand.h"
-
 #include "rentablestorage.h"
-
-InventoryCommand::~InventoryCommand()
-{
-    
-}
 
 InventoryCommand::InventoryCommand()
 {
-    //nothing?
+}
+
+InventoryCommand::~InventoryCommand()
+{
 }
 
 bool InventoryCommand::processCommand()

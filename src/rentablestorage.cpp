@@ -1,7 +1,5 @@
 #include "rentablestorage.h"
-
-#include "classic.h"
-
+#include "classic.h" 
 #include <string>
 #include <vector>
 
@@ -13,7 +11,6 @@ std::string getSubTypeName(int type, int subtype);
 
 RentableStorage::RentableStorage()
 {
-    //nothing?
 }
 
 RentableStorage::~RentableStorage()
@@ -27,48 +24,46 @@ RentableStorage::~RentableStorage()
         for(int j = 0; j< subLength; j++)
         {
             destructorHelper(rentables[i][j]);
-            //delete (rentables[i][j]);
         }
     }
 }
 
 bool RentableStorage::insert(Rentable* object)
 {
+    if(object == nullptr)
+    {
+        return false;
+    }
 
-        if(object == nullptr)
-            return false;
+    int mainType = object->getType();
+    int subType = object->getSubtype();
 
-        int mainType = object->getType();
-        int subType = object->getSubtype();
+    //make sure that we can place the rentable somewhere
 
+    std::vector<Node *> newVector;
+    newVector.push_back(nullptr);
 
-        //make sure that we can place the rentable somewhere
+    while (rentables.size() < mainType + 1)
+    {
+        rentables.push_back(newVector);
+    }
 
-        std::vector<Node*> newVector;
-        newVector.push_back(nullptr);
+    while (rentables[mainType].size() < subType + 1)
+    {
+        rentables[mainType].push_back(nullptr);
+    }
 
-        while(rentables.size() < mainType+1)
-        {
-            rentables.push_back(newVector);
-        }
+    //check if the first node is a null
 
-        while(rentables[mainType].size() < subType+1)
-        {
-            rentables[mainType].push_back(nullptr);
-        }
-
-
-        //check if the first node is a null
-
-        if(rentables[mainType][subType] == nullptr)
-        {
-            rentables[mainType][subType] = new Node{object, nullptr, nullptr};
-            return true;
-        }
-        else
-        {
-            return insertHelper(rentables[mainType][subType], object);
-        }
+    if (rentables[mainType][subType] == nullptr)
+    {
+        rentables[mainType][subType] = new Node{object, nullptr, nullptr};
+        return true;
+    }
+    else
+    {
+        return insertHelper(rentables[mainType][subType], object);
+    }   
 }
 
 // For Classic: if 0 in stock - go to next one, if < requested in stock,
@@ -78,16 +73,22 @@ bool RentableStorage::insert(Rentable* object)
 bool RentableStorage::retrieve(const Rentable* object, Rentable*& RetObject)
 {
     if(object == nullptr)
+    {
         return false;
+    }
 
     int mainType = object->getType();
     int subType = object->getSubtype();
 
     if(rentables.size() < mainType)
+    {
         return false;
+    }
 
     if(rentables[mainType].size() < subType)
+    {
         return false;
+    }
 
     return retrieveHelper(rentables[mainType][subType], object, RetObject);
 }
@@ -99,16 +100,19 @@ bool RentableStorage::retrieveEquivalent(const Rentable* object,
 
     //only Classics have an equivalent movie
     if(asClassic == nullptr)
+    {
         return false;
+    }
 
     int mainType = object->getType();
     int subType = object->getSubtype();
 
-
     //error checking doesn't need to be done because this function is only
     //called after an existing object of the same time was found?
     if(rentables.size() < mainType)
+    {
         return false;
+    }
 
     if(rentables[mainType].size() < subType)
         return false;
@@ -123,16 +127,12 @@ void RentableStorage::printInventory() const
 
     for(int i = 0; i < length; i++)
     {
-
-        //printing all "type"
-
         std::cout << "Printing all " << getRentableTypeName(i) << std::endl;
 
         int subLength = rentables[i].size();
 
         for(int j = 0; j< subLength; j++)
         {
-
             std::cout << getSubTypeName(i, j) << std::endl;
 
             printHelper(rentables[i][j]);
@@ -144,7 +144,9 @@ void RentableStorage::printInventory() const
 void RentableStorage::destructorHelper(Node* node)
 {
     if(node == nullptr)
-            return;
+    {
+        return;
+    }
 
     destructorHelper(node->left);
     destructorHelper(node->right);
@@ -155,9 +157,10 @@ void RentableStorage::destructorHelper(Node* node)
 
 bool RentableStorage::insertHelper(Node* node, Rentable* object)
 {
-    if( *(node->object) == *(object))//keep?
-            return false;
-
+    if( *(node->object) == *(object))
+    {
+        return false;
+    }
 
     if(*(node->object) < *(object))
     {
@@ -167,7 +170,9 @@ bool RentableStorage::insertHelper(Node* node, Rentable* object)
             return true;
         }
         else
+        {
             return insertHelper(node->right, object);
+        }
     }
     else
     {
@@ -177,7 +182,9 @@ bool RentableStorage::insertHelper(Node* node, Rentable* object)
             return true;
         }
         else
+        {
             return insertHelper(node->left, object);
+        }
     }
 }
 
@@ -195,7 +202,9 @@ bool RentableStorage::retrieveHelper(Node* node, const Rentable* object, Rentabl
     }
 
     if(*(node->object) < *(object))
+    {
         return retrieveHelper(node->right, object, RetObject);
+    }
 
     return retrieveHelper(node->left, object, RetObject);
 }
@@ -249,7 +258,9 @@ std::vector<std::string>& searchList, Rentable*& RetObject)
 void RentableStorage::printHelper(const Node* node) const
 {
     if(node == nullptr)
-            return;
+    {
+        return;
+    }
 
     printHelper(node->left);
 
@@ -264,19 +275,18 @@ bool isNextEquivalent(const Classic* search, const Classic* test,
     if (search->getMonth() == test->getMonth() &&
     	search->getReleaseYear() == test->getReleaseYear() &&
         search->getTitle() == test->getTitle())
-		{
-            //found the "same" movie, let's make sure we haven't tried this one
-            for(int i = 0; i < searchList.size(); i++)
+	{
+        //found the "same" movie, let's make sure we haven't tried this one
+        for(int i = 0; i < searchList.size(); i++)
+        {
+            if(test->getMajorActor() == searchList[i])
             {
-                if(test->getMajorActor() == searchList[i])
-                {
-                    return false;
-                }
+                return false;
             }
-
-			return true;
-		}
-        return false;
+        }
+        return true;
+    }
+    return false;
 }
 
 std::string getRentableTypeName(int type)

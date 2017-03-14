@@ -26,8 +26,8 @@
 class Rentable
 {
 public:
-    Rentable(RentableType type, int stock, const std::string& Title, int releaseYear,
-             int rentalPeriodInDays);
+    Rentable(RentableType type, int stock, const std::string& Title, 
+             int releaseYear, int rentalPeriodInDays);
     virtual ~Rentable();
 
     bool inStock() const;
@@ -66,18 +66,19 @@ public:
     bool operator<(const Rentable& rentable) const;
     bool operator>(const Rentable& rentable) const;
 
-    //out puts data and stuff
+    //prints the rentable data to outsream
     friend std::ostream& operator<<(std::ostream& outStream, Rentable& rentable);
 
 protected:
-
-    //so people can't call it!
+    // This constructor is private so that it cannot be accessed through 
+    // normal means.
     Rentable();
 
-    RentableType type;//the main rentable type (DVD, Console, etc.)
-    int subtype;//some generic subtype, dependent on main type
-
-
+    //the main rentable type (DVD, Console, etc.)
+    RentableType type;
+    //some generic subtype, dependent on main type
+    int subtype;
+    
     int stock;
 
     int releaseYear;

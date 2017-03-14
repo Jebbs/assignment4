@@ -1,11 +1,5 @@
 #include "rentable.h"
 
-
-Rentable::~Rentable()
-{
-
-}
-
 Rentable::Rentable(RentableType type, int stock, const std::string& title,
                    int releaseYear, int rentalPeriodInDays)
 {
@@ -14,6 +8,10 @@ Rentable::Rentable(RentableType type, int stock, const std::string& title,
 	this->title = title;
 	this->releaseYear = releaseYear;
 	this->rentalPeriodInDays = rentalPeriodInDays;
+}
+
+Rentable::~Rentable()
+{
 }
 
 bool Rentable::inStock() const
@@ -28,7 +26,6 @@ bool Rentable::removeFromStock(int amount)
 		stock -= amount;
 		return true;
 	}
-
 	return false;
 }
 

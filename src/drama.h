@@ -18,7 +18,6 @@
 #include "dvd.h"
 #include <string>
 
-
 /*
 * Subclass of DVD class.
 *

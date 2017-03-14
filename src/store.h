@@ -1,4 +1,3 @@
-
 /*******************************************************************************
  * Store
  *
@@ -21,7 +20,6 @@
 #include "rentable.h"
 #include "rentabletype.h"
 #include "rentablestorage.h"
-
 #include <fstream>
 
 /*
@@ -38,7 +36,6 @@ class Store
     friend class Command;
 
 public:
-
     /*
      * Create a new instance of the store with no customers and no
      * rentable items.
@@ -83,7 +80,6 @@ public:
      * Get the store's ID.
      */
     int getID() const;
-
 
 private:
     //the storage container for all rentables this store carries

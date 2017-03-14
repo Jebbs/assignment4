@@ -22,7 +22,6 @@
  * Subclass of public Command.
  * InventoryCommand prints out all items in store.
  */
-
 class InventoryCommand : public Command
 {
 public:
