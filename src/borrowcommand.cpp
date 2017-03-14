@@ -75,7 +75,9 @@ bool BorrowCommand::processCommand()
         //multiple copies of the same movie with different actors
         searchList.push_back(asClassic->getMajorActor());
 
-        if(!rentables.retrieveEquivalent(searchRentable, searchList, actualRentable))
+        Rentable* newSearchRentable = actualRentable;
+
+        if(!rentables.retrieveEquivalent(newSearchRentable, searchList, actualRentable))
         {
             std::cerr << "Error: Not enough stock to rent ";
             std::cerr << actualRentable->getTitle() << std::endl;
