@@ -36,6 +36,9 @@
 class ReturnCommand : public Command
 {
 public:
+	/*
+	 * Create a new ReturnCommand.
+	 */
 	ReturnCommand(int customerID, char type, char subtype, std::string data);
 	~ReturnCommand();
 

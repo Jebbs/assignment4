@@ -95,12 +95,6 @@ private:
 
     std::queue<Command*> commandQueue;
 
-    //interface used by commands
-    void printInventory();
-    void displayHistory(Customer& searchCustomer);
-    void borrowRentable(Customer& searchCustomer, Rentable& searchRentable);
-    void returnRentable(Customer& searchCustomer, Rentable& searchRentable);
-
     //given some data, build a rentable to be searched for for borrowing or returning
     static Rentable* buildRentable(char type, char subtype, std::string data);
 };

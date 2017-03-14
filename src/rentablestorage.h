@@ -34,13 +34,33 @@ public:
     RentableStorage();
     ~RentableStorage();
 
+    /*
+     * Insert a new Rentable into the storage
+     */
     bool insert(Rentable* object);
 
+    /*
+     * Retrieve a Rentable from the storage given some information to search
+     * for.
+     */
     bool retrieve(const Rentable* object, Rentable*& RetObject);
 
+    /*
+     * Retrieve a Rentable that is equivalent to the one you were searching for.
+     *
+     * If the rentable isn't a type that has equivalents or one cannot be found,
+     * this function returns false.
+     *
+     * The searchList parameter is to help keep track of equivalent rentables
+     * that have been searched for previously.
+     */
     bool retrieveEquivalent(const Rentable* object,
     std::vector<std::string>& searchList, Rentable*& RetObject);
 
+    /*
+     * Print Information aboutall of the rentables that are
+     * contained in the storage.
+     */
     void printInventory() const;
 
 private:
