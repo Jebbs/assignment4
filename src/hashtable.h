@@ -18,7 +18,6 @@
  *
  * Extendability: can be templatized to store other items.
  ******************************************************************************/
-
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
 

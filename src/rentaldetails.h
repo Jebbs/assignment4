@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * RentalDetails
+ *
+ * Author: 
+ * Jeremy DeHaan, Chantel Frizzell
+ *
+ * Date Last Modified: 
+ * 2017-03-10
+ *
+ * RentaDetails holds the data for any item being rented.
+ ******************************************************************************/
 #ifndef RENTALDETAILS_H
 #define RENTALDETAILS_H
 #include "rentable.h"

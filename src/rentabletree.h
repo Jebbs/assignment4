@@ -1,7 +1,6 @@
 #ifndef RENTABLETREE_H
 #define RENTABLETREE_H
 
-
 #include <iostream>
 
 /*

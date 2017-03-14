@@ -9,7 +9,6 @@
  *
  * This class is used to help process command strings, by splitting into 
  * usable parts, and placing the parts into a vector.  
- * 
  ******************************************************************************/
 #ifndef SPLIT_H
 #define SPLIT_H

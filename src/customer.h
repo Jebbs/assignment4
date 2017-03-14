@@ -10,7 +10,6 @@
  * The customer class models a store customer. 
  *
  * Assumption: The input data will always be valid.
- * 
  ******************************************************************************/
 #ifndef CUSTOMER_H
 #define CUSTOMER_H

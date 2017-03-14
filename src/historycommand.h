@@ -9,7 +9,6 @@
  *
  * Returns the requested customer's history, in reverse-chronological order.
  ******************************************************************************/
-
 #ifndef HISTORYCOMMAND_H
 #define HISTORYCOMMAND_H
 

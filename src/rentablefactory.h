@@ -7,8 +7,8 @@
  * Date Last Modified: 
  * 2017-03-10
  *
+ * RentableFactory creates a rentable based on the string passed in.
  ******************************************************************************/
-
 #ifndef RENTABLEFACTORY_H
 #define RENTABLEFACTORY_H
 

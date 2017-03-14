@@ -12,7 +12,6 @@
  * 
  * Classic movies are primarily sorted by Release date, then by Major actor
  ******************************************************************************/
-
 #ifndef CLASSIC_H
 #define CLASSIC_H
 

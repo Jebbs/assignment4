@@ -7,9 +7,7 @@
  *
  * The command factory is used to aid in code reusibilty. Generates commands for 
  * any type of command.
- *
  ******************************************************************************/
-
 #ifndef COMMANDFACTORY_H
 #define COMMANDFACTORY_H
 

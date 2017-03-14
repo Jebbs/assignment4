@@ -12,7 +12,6 @@
  *
  * Comdey movies are primarily sorted by Title, then by Release Year
  ******************************************************************************/
-
 #ifndef COMEDY_H
 #define COMEDY_H
 
