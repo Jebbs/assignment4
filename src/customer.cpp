@@ -112,6 +112,10 @@ void Customer::displayHistory() const
 	std::cout << ", " << getCustomerFirstName();
 	std::cout << "     Customer ID: "<< customerID << std::endl;
 
+	if (customerHistory.size() == 0)
+	{
+		std::cout << "No history to display" << std::endl;
+	}
 	for (int i = customerHistory.size() - 1; i >= 0; i--)
 	{
 		RentalDetails transaction = customerHistory[i];
