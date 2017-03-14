@@ -1,5 +1,12 @@
 #include "rentablestorage.h"
+
+#include "classic.h"
+
 #include <string>
+#include <vector>
+
+bool isNextEquivalent(const Classic* search, const Classic* test,
+                      std::vector<std::string>& searchList);
 
 std::string getRentableTypeName(int type);
 std::string getSubTypeName(int type, int subtype);
@@ -85,6 +92,31 @@ bool RentableStorage::retrieve(const Rentable* object, Rentable*& RetObject)
     return retrieveHelper(rentables[mainType][subType], object, RetObject);
 }
 
+bool RentableStorage::retrieveEquivalent(const Rentable* object,
+    std::vector<std::string>& searchList, Rentable*& RetObject)
+{
+    const Classic* asClassic = dynamic_cast<const Classic*>(object);
+
+    //only Classics have an equivalent movie
+    if(asClassic == nullptr)
+        return false;
+
+    int mainType = object->getType();
+    int subType = object->getSubtype();
+
+
+    //error checking doesn't need to be done because this function is only
+    //called after an existing object of the same time was found?
+    if(rentables.size() < mainType)
+        return false;
+
+    if(rentables[mainType].size() < subType)
+        return false;
+
+    return retrieveEquivalentHelper(rentables[mainType][subType], asClassic,
+                                    searchList, RetObject);
+}
+
 void RentableStorage::printInventory() const
 {
     int length = rentables.size();
@@ -168,6 +200,37 @@ bool RentableStorage::retrieveHelper(Node* node, const Rentable* object, Rentabl
     return retrieveHelper(node->left, object, RetObject);
 }
 
+bool RentableStorage::retrieveEquivalentHelper(Node* node, const Classic* object,
+std::vector<std::string>& searchList, Rentable*& RetObject)
+{
+    if(node == nullptr)
+    {
+        return false;
+    }
+
+    const Classic* testClassic = dynamic_cast<Classic*>(node->object);
+
+    if( isNextEquivalent(object, testClassic, searchList))
+    {
+        RetObject = node->object;
+        return true;
+    }
+
+    //we don't know where it is, so we have to search everywhere
+
+    if(retrieveEquivalentHelper(node->right, object, searchList, RetObject))
+    {
+        return true;
+    }
+
+    if(retrieveEquivalentHelper(node->left, object, searchList, RetObject))
+    {
+        return true;
+    }
+
+    return false;
+}
+
 void RentableStorage::printHelper(const Node* node) const
 {
     if(node == nullptr)
@@ -178,6 +241,27 @@ void RentableStorage::printHelper(const Node* node) const
     std::cout << *(node->object) << std::endl;
 
     printHelper(node->right);
+}
+
+bool isNextEquivalent(const Classic* search, const Classic* test,
+                      std::vector<std::string>& searchList)
+{
+    if (search->getMonth() == test->getMonth() &&
+    	search->getReleaseYear() == test->getReleaseYear() &&
+        search->getTitle() == test->getTitle())
+		{
+            //found the "same" movie, let's make sure we haven't tried this one
+            for(int i = 0; i < searchList.size(); i++)
+            {
+                if(test->getMajorActor() == searchList[i])
+                {
+                    return false;
+                }
+            }
+
+			return true;
+		}
+        return false;
 }
 
 std::string getRentableTypeName(int type)

@@ -3,6 +3,8 @@
 #include "hashtable.h"
 #include "rentablestorage.h"
 
+#include "classic.h"
+
 BorrowCommand::BorrowCommand():searchCustomer(0,"",""){}
 
 BorrowCommand::BorrowCommand(int customerID, char type, char subtype,
@@ -50,8 +52,36 @@ bool BorrowCommand::processCommand()
         return false;
     }
 
-    //update in store
-    actualRentable->removeFromStock(1);
+
+    //check stock because of potential problems
+
+    std::vector<std::string> searchList;
+
+
+    while(!actualRentable->removeFromStock(1))
+    {
+
+        const Classic* asClassic = dynamic_cast<const Classic*>(actualRentable);
+
+        //not a classic, and only classics search for equivalents
+        if(asClassic == nullptr)
+        {
+            std::cerr << "Error: Not enough stock to rent ";
+            std::cerr << searchRentable->getTitle() << std::endl;
+            return false;
+        }
+
+        //make a list of all major actors we've searched for in case there are
+        //multiple copies of the same movie with different actors
+        searchList.push_back(asClassic->getMajorActor());
+
+        if(!rentables.retrieveEquivalent(searchRentable, searchList, actualRentable))
+        {
+            std::cerr << "Error: Not enough stock to rent ";
+            std::cerr << actualRentable->getTitle() << std::endl;
+            return false;
+        }
+    }
 
     actualCustomer->borrowRentable(1, *actualRentable);
 
