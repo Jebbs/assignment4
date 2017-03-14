@@ -1,11 +1,11 @@
 /*******************************************************************************
  * Comedy
  *
- * Author:
+ * Authors: 
  * Chantel Frizzell, Jeremy DeHaan
  *
- * Date Last Modified:
- * 2017-03-10
+ * Date Last Modified: 
+ * 2017-03-13
  *
  * Comedy movie: interface
  * Comedy DVD inherits from public DVD

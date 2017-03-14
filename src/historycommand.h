@@ -1,11 +1,11 @@
 /*******************************************************************************
  * HistoryCommand
  *
- * Author: 
- * Jeremy DeHaan, Chantel Frizzell
+ * Authors: 
+ * Chantel Frizzell, Jeremy DeHaan
  *
  * Date Last Modified: 
- * 2017-03-10
+ * 2017-03-13
  *
  * Returns the requested customer's history, in reverse-chronological order.
  ******************************************************************************/

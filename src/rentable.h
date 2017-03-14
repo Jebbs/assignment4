@@ -1,11 +1,11 @@
 /*******************************************************************************
  * Rentable
  *
- * Author: 
- * Jeremy DeHaan, Chantel Frizzell
+ * Authors: 
+ * Chantel Frizzell, Jeremy DeHaan
  *
  * Date Last Modified: 
- * 2017-03-10
+ * 2017-03-13
  *
  * The Rentable class models any rentable type (for example, DVD, console, etc.) 
  * that can be rented from the store.

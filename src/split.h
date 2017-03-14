@@ -1,11 +1,11 @@
 /*******************************************************************************
  * Split
  *
- * Author:
- * Jeremy DeHaan, Chantel Frizzell
+ * Authors: 
+ * Chantel Frizzell, Jeremy DeHaan
  *
- * Date Last Modified:
- * 2017-03-10
+ * Date Last Modified: 
+ * 2017-03-13
  *
  * This class is used to help process command strings, by splitting into 
  * usable parts, and placing the parts into a vector.  

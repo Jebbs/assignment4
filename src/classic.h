@@ -1,11 +1,11 @@
 /*******************************************************************************
  * Classic
  *
- * Author: 
+ * Authors: 
  * Chantel Frizzell, Jeremy DeHaan
  *
  * Date Last Modified: 
- * 2017-03-10
+ * 2017-03-13
  *
  * Classic movie: interface
  * Classic DVD inherits from public DVD

@@ -1,11 +1,11 @@
 /*******************************************************************************
  * InventoryCommand
  *
- * Author: 
- * Jeremy DeHaan, Chantel Frizzell
+ * Authors: 
+ * Chantel Frizzell, Jeremy DeHaan
  *
  * Date Last Modified: 
- * 2017-03-10
+ * 2017-03-13
  *
  * Prints the entire inventory of the store as follows:
  * 

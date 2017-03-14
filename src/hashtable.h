@@ -1,11 +1,11 @@
 /*******************************************************************************
  * HashTable
  *
- * Author: 
- * Jeremy DeHaan, Chantel Frizzell
+ * Authors: 
+ * Chantel Frizzell, Jeremy DeHaan
  *
  * Date Last Modified: 
- * 2017-03-10
+ * 2017-03-13
  *
  * This class implements a hash table based on double hashing of the customer's'
  * unique id.

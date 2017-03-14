@@ -2,15 +2,14 @@
 /*******************************************************************************
  * Store
  *
- * Author:
- * Jeremy DeHaan, Chantel Frizzell
+ * Authors: 
+ * Chantel Frizzell, Jeremy DeHaan
  *
- * Date Last Modified:
- * 2017-03-10
+ * Date Last Modified: 
+ * 2017-03-13
  *
  * The store class models a movie rental store. It has rentables, customers, and 
  * a set of commands to perform. 
- * 
  ******************************************************************************/
 #ifndef STORE_H
 #define STORE_H

@@ -1,11 +1,11 @@
 /*******************************************************************************
  * Command
  * 
- * Author: 
- * Jeremy DeHaan, Chantel Frizzell
+ * Authors: 
+ * Chantel Frizzell, Jeremy DeHaan
  *
- * Date Last Modified:
- * 2017-03-10
+ * Date Last Modified: 
+ * 2017-03-13
  *
  * The Command class defines a template for all
  * types of commands and then sends them to be processed

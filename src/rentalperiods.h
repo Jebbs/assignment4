@@ -1,11 +1,11 @@
 /*******************************************************************************
  * RentalPeriods
  *
- * Author: 
- * Jeremy DeHaan, Chantel Frizzell
+ * Authors: 
+ * Chantel Frizzell, Jeremy DeHaan
  *
  * Date Last Modified: 
- * 2017-03-10
+ * 2017-03-13
  *
  * RentalDetails outlines the rental period in days for each type
  * of item that is able to be rented through the store.

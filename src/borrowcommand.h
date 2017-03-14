@@ -1,11 +1,11 @@
 /*******************************************************************************
  * BorrowCommand
  * 
- * Author: 
+ * Authors: 
  * Chantel Frizzell, Jeremy DeHaan
  *
  * Date Last Modified: 
- * 2017-03-10
+ * 2017-03-13
  *
  * BorrowCommand is a subclass of Command.
  * BorrowCommand reduces stock of a Rentable by 1 (if there's enough of stock).

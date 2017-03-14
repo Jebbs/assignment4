@@ -1,11 +1,11 @@
 /*******************************************************************************
  * RentableStorage
  *
- * Author:
- * Jeremy DeHaan, Chantel Frizzell
+ * Authors: 
+ * Chantel Frizzell, Jeremy DeHaan
  *
- * Date Last Modified:
- * 2017-03-12
+ * Date Last Modified: 
+ * 2017-03-13
  *
  * This wrapper exists to help make sure that all of the rentables are stored
  * in an easy to access place, but ensures that typed inforation is kept when

@@ -1,11 +1,11 @@
 /*******************************************************************************
  * ReturnCommand
  *
- * Author:
- * Jeremy DeHaan, Chantel Frizzell
+ * Authors: 
+ * Chantel Frizzell, Jeremy DeHaan
  *
- * Date Last Modified:
- * 2017-03-10
+ * Date Last Modified: 
+ * 2017-03-13
  *
  * ReturnCommand is a subclass of Command.
  * ReturnCommand increases stock of a Rentable by 1 (if there's enough of stock).
