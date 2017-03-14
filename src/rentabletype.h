@@ -14,8 +14,9 @@
 #define RENTABLETYPE_H
 
 //All of the types of rentable items
-enum RentableType
+enum class RentableType
 {
+    None = -1,
     DVD = 0,
     VHS,
     Music,

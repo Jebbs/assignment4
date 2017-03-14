@@ -4,15 +4,15 @@ char DVDTypeToCode(DVDType type)
 {
     switch(type)
     {
-        case ComedyDVD:
+        case DVDType::ComedyDVD:
         {
             return 'F';
         }
-        case DramaDVD:
+        case DVDType::DramaDVD:
         {
             return 'D';
         }
-        case ClassicDVD:
+        case DVDType::ClassicDVD:
         {
             return 'C';
         }
@@ -29,19 +29,19 @@ DVDType codeToDVDType(char code)
     {
         case 'F':
         {
-            return ComedyDVD;
+            return DVDType::ComedyDVD;
         }
         case 'D':
         {
-            return DramaDVD;
+            return DVDType::DramaDVD;
         }
         case 'C':
         {
-            return ClassicDVD;
+            return DVDType::ClassicDVD;
         }
         default:
         {
-            return None;
+            return DVDType::None;
         }
     }
 }

@@ -1,4 +1,5 @@
 #include "customer.h"
+#include "classic.h"
 
 Customer::Customer(int id, std::string lastName, std::string firstName)
 {
@@ -122,8 +123,22 @@ void Customer::displayHistory() const
 		std::cout << transaction.action << "   ";
 		std::cout << intToDVDType(transaction.rental->getSubtype()) << "  ";
 
-		std::cout << transaction.rental->getTitle() << "   ";
-		std::cout << transaction.rental->getReleaseYear() << std::endl;
+		std::cout << transaction.rental->getReleaseYear() << "  ";
+		std::cout << transaction.rental->getTitle();
+		
+		Classic* asClassic = dynamic_cast<Classic*>(transaction.rental);
+
+		if(asClassic != nullptr)
+		{
+			std::cout << ", staring " << asClassic->getMajorActor();
+		}
+
+		
+		std::cout << std::endl;
+
+
+
+		
 	}
 	std::cout << std::endl;
 }

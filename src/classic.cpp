@@ -4,8 +4,9 @@
 #include <iostream>
 
 Classic::Classic(int stock, const std::string& title, const std::string& director,
-	             int releaseYear, const std::string& actor, int month):DVD(ClassicDVD,
-				 stock, title, director, releaseYear, DVD_RENTAL_PERIOD)
+	             int releaseYear, const std::string& actor, int month):
+				 DVD(DVDType::ClassicDVD, stock, title, director, releaseYear, 
+				 DVD_RENTAL_PERIOD)
 {
     this->majorActor = actor;
     this->month = month;

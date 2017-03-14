@@ -2,7 +2,7 @@
 #include "rentalperiods.h"
 
 Comedy::Comedy(int stock, const std::string& title, const std::string& director,
-	           int releaseYear):DVD(ComedyDVD, stock, title, director,
+	           int releaseYear):DVD(DVDType::ComedyDVD, stock, title, director,
 			   releaseYear, DVD_RENTAL_PERIOD)
 {
 }

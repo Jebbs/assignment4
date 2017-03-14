@@ -11,6 +11,8 @@
 #include "split.h"
 #include <sstream>
 
+RentableType codeToRentableType(char code);
+
 Store::Store(int id)
 {
     storeID = id;
@@ -97,24 +99,21 @@ static Classic* buildClassic(std::string data);
 
 Rentable* Store::buildRentable(char type, char subtype, std::string data)
 {
-    //code to RentableType
-    RentableType test = DVD;
-
-    switch(test)
+    switch(codeToRentableType(type))
     {
-        case DVD:
+        case RentableType::DVD:
         {
             switch(codeToDVDType(subtype))
             {
-                case ComedyDVD:
+                case DVDType::ComedyDVD:
                 {
                     return buildComedy(data);
                 }
-                case DramaDVD:
+                case DVDType::DramaDVD:
                 {
                     return buildDrama(data);
                 }
-                case ClassicDVD:
+                case DVDType::ClassicDVD:
                 {
                     return buildClassic(data);
                 }
@@ -173,4 +172,19 @@ Classic* buildClassic(std::string data)
     
     // create new
     return new Classic(0, "", "", year, actor, month);
+}
+
+RentableType codeToRentableType(char code)
+{
+    switch(code)
+    {
+        case 'D':
+        {
+            return RentableType::DVD;
+        }
+        default:
+        {
+            return RentableType::None;
+        }
+    }
 }

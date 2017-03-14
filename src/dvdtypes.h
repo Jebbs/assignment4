@@ -14,7 +14,7 @@
 
 #include <string>
 
-enum DVDType
+enum class DVDType:int
 {
     None = -1,
     ComedyDVD = 0,

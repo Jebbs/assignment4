@@ -35,7 +35,7 @@ bool RentableStorage::insert(Rentable* object)
         return false;
     }
 
-    int mainType = object->getType();
+    int mainType = (int)object->getType();
     int subType = object->getSubtype();
 
     //make sure that we can place the rentable somewhere
@@ -77,7 +77,7 @@ bool RentableStorage::retrieve(const Rentable* object, Rentable*& RetObject)
         return false;
     }
 
-    int mainType = object->getType();
+    int mainType = (int)object->getType();
     int subType = object->getSubtype();
 
     if(rentables.size() < mainType)
@@ -104,7 +104,7 @@ bool RentableStorage::retrieveEquivalent(const Rentable* object,
         return false;
     }
 
-    int mainType = object->getType();
+    int mainType = (int)object->getType();
     int subType = object->getSubtype();
 
     //error checking doesn't need to be done because this function is only

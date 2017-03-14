@@ -13,7 +13,7 @@ Rentable* RentableFactory::createRentable(RentableType type, std::string line)
 {
     switch(type)
     {
-        case DVD:
+        case RentableType::DVD:
         {
             return loadDVD(line);
         }
@@ -39,63 +39,80 @@ Rentable* loadDVD(std::string line)
         {
             std::vector<std::string> info = split(line, ", ");
 
-            //check for exexption?
-            int stock = std::stoi(info[1]);
-
-            std::string director = info[2];
-            std::string title = info[3];
-
-            std::vector<std::string> extra = split(info[4], " ");
-
-            int extraLength = extra.size();
-
-            int releaseYear = std::stoi(extra[extraLength-1]);
-            int releaseMonth = std::stoi(extra[extraLength-2]);
-
-            std::string majorActor = extra[0];
-            int position = 1;
-
-            while (position < extraLength -2)
+            try
             {
-                majorActor += " " + extra[position];
-                position++;
+                int stock = std::stoi(info[1]);
+
+                std::string director = info[2];
+                std::string title = info[3];
+
+                std::vector<std::string> extra = split(info[4], " ");
+
+                int extraLength = extra.size();
+
+                int releaseYear = std::stoi(extra[extraLength - 1]);
+                int releaseMonth = std::stoi(extra[extraLength - 2]);
+
+                std::string majorActor = extra[0];
+
+                int position = 1;
+
+                while (position < extraLength - 2)
+                {
+                    majorActor += " " + extra[position];
+                    position++;
+                }
+
+                Classic *newClassic = new Classic(stock, title, director,
+                                                  releaseYear, majorActor, releaseMonth);
+
+                return newClassic;
             }
-
-            Classic* newClassic = new Classic(stock, title, director,
-	        releaseYear, majorActor, releaseMonth);
-
-            return newClassic;
-
+            catch (...)
+            {
+                return nullptr;
+            }
         }
         case 'D':
         {
             std::vector<std::string> info = split(line, ", ");
+            try
+            {
+                int stock = std::stoi(info[1]);
+                int releaseYear = std::stoi(info[4]);
 
-            //check for exexption?
-            int stock = std::stoi(info[1]);
-            int releaseYear = std::stoi(info[4]);
+                std::string director = info[2];
+                std::string title = info[3];
 
-            std::string director = info[2];
-            std::string title = info[3];
+                Drama *newDrama = new Drama(stock, title, director, releaseYear);
 
-            Drama* newDrama = new Drama(stock, title, director,releaseYear);
-
-            return newDrama;
+                return newDrama;
+            }
+            catch(...)
+            {
+                return nullptr;
+            }
         }
         case 'F':
         {
             std::vector<std::string> info = split(line, ", ");
 
-            //check for exexption?
-            int stock = std::stoi(info[1]);
-            int releaseYear = std::stoi(info[4]);
+            try
+            {
+                int stock = std::stoi(info[1]);
+                int releaseYear = std::stoi(info[4]);
 
-            std::string director = info[2];
-            std::string title = info[3];
+                std::string director = info[2];
+                std::string title = info[3];
 
-            Comedy* newComedy = new Comedy(stock, title, director, releaseYear);
+                Comedy *newComedy = new Comedy(stock, title, director, releaseYear);
 
-            return newComedy;
+                return newComedy;
+            }
+            catch(...)
+            {
+                return nullptr;
+            }
         }
         default:
         {
