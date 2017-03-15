@@ -20,10 +20,10 @@
 
 /*
  * Subclass of DVD class.
- * In addition to DVD, Classical movie contains Major Actor's name and 
+ * In addition to DVD, Classical movie contains Major Actor's name and
  * release date.
  *
- * Classic movies are stored in Binary Search Tree, sorted by Release date, 
+ * Classic movies are stored in Binary Search Tree, sorted by Release date,
  * then Major Actor
  */
 class Classic : public DVD
@@ -33,8 +33,9 @@ public:
     /*
      * Creates an instance of Classic movie.
      */
-	Classic(int stock, const std::string& Title, const std::string& director,
-	        int releaseYear, const std::string& actor, int month);
+	Classic(int stock, const std::string& title, const std::string& director,
+	        int releaseYear, const std::string& actorFirstName,
+			const std::string& actorLastName, int month);
 
     ~Classic();
 
@@ -47,6 +48,8 @@ public:
      * Returns month of the release
      */
 	int getMonth() const;
+
+	virtual bool isEquivalent(const Rentable& rentable) const;
 
 protected:
 	/*
@@ -68,10 +71,11 @@ protected:
 	* Returns > based on Release date, then by Major actor
 	*/
 	bool greaterThan(const Rentable& rentable) const;
-	
+
 private:
 	int month;
-	std::string majorActor;
+	std::string majorActorFirstName;
+	std::string majorActorLastName;
 };
 
 #endif //CLASSIC_H

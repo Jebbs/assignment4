@@ -66,11 +66,13 @@ public:
     bool operator<(const Rentable& rentable) const;
     bool operator>(const Rentable& rentable) const;
 
+    virtual bool isEquivalent(const Rentable& rentable) const;
+
     //prints the rentable data to outsream
     friend std::ostream& operator<<(std::ostream& outStream, Rentable& rentable);
 
 protected:
-    // This constructor is private so that it cannot be accessed through 
+    // This constructor is private so that it cannot be accessed through
     // normal means.
     Rentable();
 
@@ -78,7 +80,7 @@ protected:
     RentableType type;
     //some generic subtype, dependent on main type
     int subtype;
-    
+
     int stock;
 
     int releaseYear;

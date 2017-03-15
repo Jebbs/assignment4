@@ -118,11 +118,22 @@ Rentable* Store::buildRentable(char type, char subtype, std::string data)
                     return buildClassic(data);
                 }
                 default:
+                {
+                    std::cerr << "ERROR: DVD code " << "\"";
+                    std::cerr << subtype << "\"";
+                    std::cerr << " is not a valid DVD code." << std::endl;
+
                     return nullptr;
+                }
             }
         }
         default:
+        {
+            std::cerr << "ERROR: Rentable code " << "\"";
+            std::cerr << type << "\"";
+            std::cerr << " is not a valid rentable code." << std::endl;
             return nullptr;
+        }
     }
 }
 
@@ -135,7 +146,7 @@ Comedy* buildComedy(std::string data)
     std::string title = retString[0];
     int year = std::stoi(retString[1]);
 
-    // create new 
+    // create new
     return new Comedy(0, title, "", year);
 }
 
@@ -143,35 +154,32 @@ Drama* buildDrama(std::string data)
 {
     // split the string, ex. Steven Spielberg, Schindler's List,
     std::vector<std::string> retString = split(data, ",");
-    
+
     // assign the data
     std::string director = retString[0];
     std::string title = retString[1];
     title = title.substr(1, std::string::npos);
 
-    // create new 
+    // create new
     return new Drama(0, title, director, 0);
 }
 
 Classic* buildClassic(std::string data)
 {
-    // split the string, ex. 9 1938 Katherine Hepburn 
+    // split the string, ex. 9 1938 Katherine Hepburn
     std::stringstream stream;
 
     stream.str(data);
 
     int month, year;
 
-    std::string actor;
-    
-    // assign the data 
-    stream >> month >> year;
-    std::getline(stream, actor);
+    std::string actorFirstName, actorLastName;
 
-    actor = actor.substr(1,std::string::npos);
-    
+    // assign the data
+    stream >> month >> year >> actorFirstName >> actorLastName;
+
     // create new
-    return new Classic(0, "", "", year, actor, month);
+    return new Classic(0, "", "", year, actorFirstName, actorLastName, month);
 }
 
 RentableType codeToRentableType(char code)

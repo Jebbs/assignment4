@@ -61,12 +61,12 @@ Command* CommandFactory::createCommand(std::string line)
             std::getline(stream, data);
 
             data = data.substr(1,std::string::npos);
-            
+
             return new ReturnCommand(customerID, type, subtype, data);
         }
         default:
         {
-            std::cerr << "Error: Command code \"" << commandCode << "\" not a ";
+            std::cerr << "ERROR: Command code \"" << commandCode << "\" not a ";
             std::cerr << "valid command code." << std::endl;
 
             return nullptr;

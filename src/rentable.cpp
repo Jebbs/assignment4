@@ -89,6 +89,11 @@ bool Rentable::operator>(const Rentable& rentable) const
     return this->greaterThan(rentable);
 }
 
+bool Rentable::isEquivalent(const Rentable& rentable) const
+{
+	return false;
+}
+
 std::ostream& operator<<(std::ostream& outStream, Rentable& rentable)
 {
     rentable.print(outStream);

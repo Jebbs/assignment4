@@ -36,13 +36,14 @@ bool ReturnCommand::processCommand()
 
     if(!rentables.retrieve(searchRentable, actualRentable))
     {
-        std::cerr << "ERROR: Rentable with title " << searchRentable->getTitle();
+        std::cerr << "ERROR: Attempted to return a rentable";
         std::cerr<< " not carried in the store." << std::endl;
         return false;
     }
 
-    //update in store
-    actualRentable->addToStock(1);
+    //This function will add stock back to the movie that was actually borrowed
+    //in the case that the requested movie to return is equivalent to what the
+    // customer actually borrowed. (only for classics)
     actualCustomer->returnRentable(1, *actualRentable);
 
     return true;

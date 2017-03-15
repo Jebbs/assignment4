@@ -46,8 +46,7 @@ bool BorrowCommand::processCommand()
 
     if(!rentables.retrieve(searchRentable, actualRentable))
     {
-        std::cerr << "ERROR: Rentable with title ";
-        std::cerr << searchRentable->getTitle();
+        std::cerr << "ERROR: Attempted to borrow a rentable";
         std::cerr<< " not carried in the store." << std::endl;
         return false;
     }

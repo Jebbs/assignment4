@@ -157,9 +157,10 @@ void RentableStorage::destructorHelper(Node* node)
 
 bool RentableStorage::insertHelper(Node* node, Rentable* object)
 {
+    //exact match found, which should never happen
     if( *(node->object) == *(object))
     {
-        return false;
+        return true;
     }
 
     if(*(node->object) < *(object))

@@ -45,7 +45,7 @@ bool Drama::greaterThan(const Rentable & rentable) const
 bool Drama::lessThan(const Rentable & rentable) const
 {
 	const Drama* asDrama = dynamic_cast<const Drama*>(&rentable);
-	
+
 	if (this->director < asDrama->director)
 	{
 		return true;
@@ -74,6 +74,6 @@ void Drama::print(std::ostream& outStream) const
 		outStream << this->stock << "  ";
 	}
 
-	outStream << this->director << ", " << this->title << ", ";
+	outStream << this->director << " directs: " << this->title << ", ";
 	outStream << this->releaseYear;
 }

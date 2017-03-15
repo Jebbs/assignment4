@@ -48,23 +48,18 @@ Rentable* loadDVD(std::string line)
 
                 std::vector<std::string> extra = split(info[4], " ");
 
-                int extraLength = extra.size();
+                std::string majorActorFirstName = extra[0];
+                std::string majorActorLastName = extra[1];
 
-                int releaseYear = std::stoi(extra[extraLength - 1]);
-                int releaseMonth = std::stoi(extra[extraLength - 2]);
+                int releaseYear = std::stoi(extra[2]);
+                int releaseMonth = std::stoi(extra[3]);
 
                 std::string majorActor = extra[0];
 
-                int position = 1;
-
-                while (position < extraLength - 2)
-                {
-                    majorActor += " " + extra[position];
-                    position++;
-                }
 
                 Classic *newClassic = new Classic(stock, title, director,
-                                                  releaseYear, majorActor, releaseMonth);
+                                      releaseYear, majorActorFirstName,
+                                      majorActorLastName, releaseMonth);
 
                 return newClassic;
             }
@@ -116,8 +111,8 @@ Rentable* loadDVD(std::string line)
         }
         default:
         {
-            std::cerr << "ERROR: Unknown DVD code " << "\"" << DVDCode << "\"";
-            std::cerr << std::endl;
+            std::cerr << "ERROR: DVD code " << "\"" << DVDCode << "\"";
+            std::cerr << " is not a valid DVD code." << std::endl;
 
             return nullptr;
         }

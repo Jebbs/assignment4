@@ -50,12 +50,6 @@ bool Customer::operator!=(const Customer& rhs) const
 
 bool Customer::borrowRentable(int borrowCount, Rentable& rentable)
 {
-
-	std::cout << "Customer " << customerID << " borrowing ";
-	std::cout << rentable.getTitle() << " (";
-	std::cout << rentable.getStockCount() << " left)" << std::endl;
-
-
 	//RentalDetails has a reference to a rentable, so this needs to be done
 	//all at the same time.
 	RentalDetails transaction = {&rentable, 0, borrowCount, false, "Borrow"};
@@ -68,37 +62,37 @@ bool Customer::borrowRentable(int borrowCount, Rentable& rentable)
 
 bool Customer::returnRentable(int returnCount, Rentable& rentable)
 {
-
-	std::cout << "Customer " << customerID << " returning ";
-	std::cout << rentable.getTitle() << std::endl;
-
 	for (int i = 0; i < currentlyRenting.size(); i++)
 	{
-		if (*(currentlyRenting[i].rental) == rentable &&
-			  currentlyRenting[i].count >= returnCount)
+		if (*(currentlyRenting[i].rental) == rentable ||
+			currentlyRenting[i].rental->isEquivalent(rentable))
 		{
-			RentalDetails transaction = currentlyRenting[i];
-			transaction.count = returnCount;
-			transaction.returned = true;
-			transaction.action = "Return";
-
-			//update to reflect return
-			currentlyRenting[i].count -= returnCount;
-
-			//need to check if count is reduced to zero
-			//if so, need to remove transaction from currentlyRenting
-			if (currentlyRenting[i].count == 0)
+			if(currentlyRenting[i].count >= returnCount)
 			{
-				// no more on hand, so remove from vector
-				currentlyRenting.erase(currentlyRenting.begin() + i);
+			    RentalDetails transaction = currentlyRenting[i];
+			    transaction.count = returnCount;
+			    transaction.returned = true;
+			    transaction.action = "Return";
+
+			    //update to reflect return
+			    currentlyRenting[i].count -= returnCount;
+				currentlyRenting[i].rental->addToStock(returnCount);
+
+			    //need to check if count is reduced to zero
+			    //if so, need to remove transaction from currentlyRenting
+			    if (currentlyRenting[i].count == 0)
+			    {
+					// no more on hand, so remove from vector
+					currentlyRenting.erase(currentlyRenting.begin() + i);
+			    }
+			    customerHistory.push_back(transaction);
+			    return true;
 			}
-			customerHistory.push_back(transaction);
-			return true;
-		}
-		else
-		{
-			std::cerr << "ERROR: Invalid return request." << std::endl;
-			return false;
+			else
+			{
+			    std::cerr << "ERROR: Invalid return request." << std::endl;
+			    return false;
+			}
 		}
 	}
 
@@ -117,7 +111,7 @@ void Customer::displayHistory() const
 	{
 		std::cout << "No history to display" << std::endl;
 	}
-	for (int i = customerHistory.size() - 1; i >= 0; i--)
+	for (int i = customerHistory.size() -1 ; i >= 0 ; i--)
 	{
 		RentalDetails transaction = customerHistory[i];
 		std::cout << transaction.action << "   ";
@@ -125,7 +119,7 @@ void Customer::displayHistory() const
 
 		std::cout << transaction.rental->getReleaseYear() << "  ";
 		std::cout << transaction.rental->getTitle();
-		
+
 		Classic* asClassic = dynamic_cast<Classic*>(transaction.rental);
 
 		if(asClassic != nullptr)
