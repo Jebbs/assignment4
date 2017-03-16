@@ -76,6 +76,6 @@ void Comedy::print(std::ostream& outStream) const
 		outStream << this->stock << "  ";
 	}
 
-	outStream << this->title << ", " << this->releaseYear << ", ";
-	outStream << "directed by " << this->director;
+	outStream << this->title << " (directed by " << this->director << ", ";
+	outStream << this->releaseYear << ")";
 }

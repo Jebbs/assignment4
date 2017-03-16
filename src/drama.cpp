@@ -74,6 +74,6 @@ void Drama::print(std::ostream& outStream) const
 		outStream << this->stock << "  ";
 	}
 
-	outStream << this->director << " directs: " << this->title << ", ";
-	outStream << this->releaseYear;
+	outStream << this->title << ", (Directed by " << this->director << ", ";
+	outStream << this->releaseYear << ")";
 }

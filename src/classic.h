@@ -72,6 +72,8 @@ protected:
 	*/
 	bool greaterThan(const Rentable& rentable) const;
 
+	std::string intToMonth(int month) const;
+
 private:
 	int month;
 	std::string majorActorFirstName;

@@ -51,8 +51,8 @@ Rentable* loadDVD(std::string line)
                 std::string majorActorFirstName = extra[0];
                 std::string majorActorLastName = extra[1];
 
-                int releaseYear = std::stoi(extra[2]);
-                int releaseMonth = std::stoi(extra[3]);
+                int releaseYear = std::stoi(extra[3]);
+                int releaseMonth = std::stoi(extra[2]);
 
                 std::string majorActor = extra[0];
 
